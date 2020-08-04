@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% load crispy_forms_tags %}
+
+
+{% block css %}
+<title>Verify Your E-mail Address - Phenommie</title>
+
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+{% block content %}
+
+<section class="main_hero">
+
+    <div class="container">
+        <h1>{% trans "Verify Your E-mail Address" %}</h1>
+
+
+        <p>{% blocktrans %}We have sent an e-mail to you for verification. <br> Follow the link provided to finalize the
+            signup process. Please contact us if you do not receive it within a few minutes.{% endblocktrans %}</p>
+    </div>
+
+    <div class="icon_center">
+        <img src="{% static 'images/icon_center.svg' %}" alt="">
+    </div>
+</section>
+
+
+
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block css %}
+<title>Log In - Phenommie</title>
+
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock css %}
+
+{% block content %}
+
+<section class="main_hero">
+
+  <div class="container">
+    <h1>Login</h1>
+
+  </div>
+
+  <div class="icon_center">
+    <img src="{% static 'images/icon_center.svg' %}" alt="">
+  </div>
+</section>
+
+
+{% get_providers as socialaccount_providers %}
+
+
+
+<section class="form_section">
+  <div class="container">
+    <div class="form_title">
+      <h1>{% trans "Sign In" %}</h1>
+      {% if socialaccount_providers %}
+      <p>{% blocktrans with site.name as site_name %}Please sign in with one
+        of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
+        for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+
+      <div class="socialaccount_ballot">
+
+        <ul class="socialaccount_providers">
+          {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+        </ul>
+
+        <div class="login-or">{% trans 'or' %}</div>
+
+      </div>
+
+      {% include "socialaccount/snippets/login_extra.html" %}
+
+      {% else %}
+
+      {% endif %}
+    </div>
+    <form class="login" method="POST" action="{% url 'account_login' %}">
+      {% csrf_token %}
+      {{ form|crispy }}
+      {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+
+      <button class=" btn-send btn primaryAction" type="submit">{% trans "Sign In" %}</button>
+      <hr>
+
+      <div class="alternative">
+
+        <div class="alt_link">
+          <h1>Don’t have an account?</h1> <span><a href="{{ signup_url }}">Sign Up</a></span>
+        </div>
+        <div class="alt_link">
+          <h1>Forgot Password? </h1> <span><a href="{% url 'account_reset_password' %}">Reset Password</a></span>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</section>
+
+{% endblock %}

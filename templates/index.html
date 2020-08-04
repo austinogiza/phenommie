@@ -1,0 +1,224 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+
+<title>Phenommie - Home</title>
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock css %}
+
+{% block content %}
+
+<body>
+
+
+    <header>
+
+        <div class="container">
+
+            <h1>Phenommie</h1>
+            <p>We are a digital agency
+                that make people's lives simple.</p>
+
+            <a href="#" class="btn btn-sign">Get Started</a>
+        </div>
+
+    </header>
+
+
+    <section class="potential">
+
+        <div class="container">
+
+            <h1>Unlock the full potential of your business</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br> Libero magnam earum quasi doloribus
+                recusandae
+                quidem facere animi rem blanditiis voluptas!</p>
+        </div>
+    </section>
+
+    <section class="magic">
+
+        <div class="container">
+
+            <div class="magic-top">
+
+                <h1>How the magic <br> happens</h1>
+
+                <p><a href="#">See All >></a></p>
+            </div>
+            <div class="magic-middle">
+
+                <div class="magic-box">
+                    <img src="{% static 'images/icon.svg'%}" alt="">
+                    <h1>
+                        Branding
+                    </h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                </div>
+                <div class="magic-box">
+                    <img src="{% static 'images/icon.svg'%}" alt="">
+                    <h1>
+                        Branding
+                    </h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                </div>
+                <div class="magic-box">
+                    <img src="{% static 'images/icon.svg'%}" alt="">
+                    <h1>
+                        Branding
+                    </h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                </div>
+                <div class="magic-box">
+                    <img src="{% static 'images/icon.svg'%}" alt="">
+                    <h1>
+                        Branding
+                    </h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="ideas">
+
+        <div class="container">
+            <div class="ideas_bold">
+                <h1>Your Ideas brought to life</h1>
+            </div>
+
+            <div class="idea_light">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
+                    leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
+                    with the release of Letraset sheets containing Lorem</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="our_portfolio">
+
+        <div class="portfolio_title">
+            <h1>Our Portfolio</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut laoreet, velit cursus tincidunt accumsan
+            </p>
+        </div>
+
+        <div class="portfolio_table">
+
+            <div class="portfolio_box portfolio_cover">
+                <img src="{% static 'images/flyer.png' %}" alt="">
+                <div class="portfolio_description">
+                    <a href="#">
+                        <h1>Canva 101</h1>
+                    </a>
+                </div>
+            </div>
+            <div class="portfolio_box portfolio_cover">
+                <img src="{% static 'images/flyer.png' %}" alt="">
+                <div class="portfolio_description">
+                    <a href="#">
+                        <h1>Canva 101</h1>
+                    </a>
+                </div>
+            </div>
+            <div class="portfolio_box portfolio_cover">
+                <img src="{% static 'images/flyer.png' %}" alt="">
+                <div class="portfolio_description">
+                    <a href="#">
+                        <h1>Canva 101</h1>
+                    </a>
+                </div>
+            </div>
+            <div class="portfolio_box see_more">
+                <h1>Want to see more projects?</h1>
+                <a href="{% url 'digi:portfolio' %}" class="btn btn-send"> See More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="courses">
+
+        <div class="container">
+
+            <div class="take_course">
+
+                <h1>Your Ideas brought to life</h1>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy tex</p>
+                <a href="#" class="btn btn-send">Take A Course</a>
+            </div>
+
+            <div class="take_course_image">
+                <img src="{% static 'images/courses.png' %}" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="start_project">
+
+        <div class="container">
+
+            <h1>Let’s Start A Project</h1>
+            <p>Let’s Start A Project</p>
+            <a href="#" class="btn btn-send">Start A Project</a>
+        </div>
+    </section>
+    <!-- <section class="need">
+
+        <div class="container">
+
+            <div class="need-top">
+                <h1>Unlock the full potential of your business</h1>
+            </div>
+
+            <div class="need-middle">
+
+                <div class="img">
+
+                    <img src="{% static 'images/lady.svg'%}" alt="">
+                </div>
+
+                <div class="why-need">
+
+                    <div class="header">
+                        <h1>Why You Need Us</h1>
+                        <p>What does being able launch your brand online, do business, achieve your brand goals and make
+                            profits even while you’re asleep sound to you?
+                        </p>
+                    </div>
+                    <div class="boxes">
+
+                        <div class="need-box">
+                            <h1>Join Us </h1>
+                            <p>What does being able launch your brand online, do business</p>
+                        </div>
+                        <div class="need-box">
+                            <h1>Join Us </h1>
+                            <p>What does being able launch your brand online, do business</p>
+                        </div>
+                        <div class="need-box">
+                            <h1>Join Us </h1>
+                            <p>What does being able launch your brand online, do business</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section> -->
+
+
+
+</body>
+
+{% endblock content %}

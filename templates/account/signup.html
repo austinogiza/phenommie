@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block css %}
+<title>Sign Up - Phenommie</title>
+
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+{% block content %}
+
+<section class="main_hero">
+
+  <div class="container">
+    <h1>Login</h1>
+
+  </div>
+
+  <div class="icon_center">
+    <img src="{% static 'images/icon_center.svg' %}" alt="">
+  </div>
+</section>
+<section class="form_section">
+  <div class="container">
+    <div class="form_title">
+      <h1>{% trans "Sign Up" %}</h1>
+    </div>
+
+
+
+    <form class="login" id="signup_form" method="post" action="{% url 'account_signup' %}">
+      {% csrf_token %}
+      {{ form|crispy }}
+      {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+
+      <div class="pd"></div>
+      <button class=" btn-send btn primaryAction" type="submit">{% trans "Sign Up" %}</button>
+
+      <p class="terms">By clicking on Sign Up, you agree to our Terms of service and Privacy Policy</p>
+      <hr>
+      <div class="alternative">
+
+        <div class="alt_link">
+          <h1>Already have an account? </h1> <span><a href="{{ login_url }}">Sign In</a></span>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock %}

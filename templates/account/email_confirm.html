@@ -1,0 +1,61 @@
+{% extends "account/base.html" %}
+{% load static %}
+{% load account %}
+{% load crispy_forms_tags %}
+
+{% load i18n %}
+
+{% block css %}
+<title>Confirm E-mail Address - Phenommie</title>
+
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<section class="main_hero">
+
+    <div class="container">
+        <h1>{% trans "Confirm E-mail Address" %}</h1>
+
+
+    </div>
+
+    <div class="icon_center">
+        <img src="{% static 'images/icon_center.svg' %}" alt="">
+    </div>
+</section>
+
+<section class="form_section">
+    <div class="container">
+        <div class="form_title">
+
+            {% if confirmation %}
+
+            {% user_display confirmation.email_address.user as user_display %}
+
+
+
+            <p>{% blocktrans with confirmation.email_address.email as email %}Please confirm that <a
+                    href="mailto:{{ email }}">{{ email }}</a> is an e-mail address for user
+                {{ user_display }}.{% endblocktrans %}</p>
+        </div>
+        <form method="post" class="login" action="{% url 'account_confirm_email' confirmation.key %}">
+            {% csrf_token %}
+            <button class="btn btn-send" type="submit">{% trans 'Confirm' %}</button>
+        </form>
+
+        {% else %}
+
+        {% url 'account_email' as email_url %}
+
+        <p>{% blocktrans %}This e-mail confirmation link expired or is invalid. Please <a href="{{ email_url }}">issue a
+                new e-mail confirmation request</a>.{% endblocktrans %}</p>
+
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
