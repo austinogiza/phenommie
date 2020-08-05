@@ -14,7 +14,9 @@ SECRET_KEY = '*f)a@53-xiz2x_6g9@-w6^wzh=*5ymmro0w^m=-=_n9anvzpaq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['https://phenommie.herokuapp.com', 'phenommie.herokuapp.com']
 
 
 # Application definition
@@ -126,6 +128,7 @@ STATICFILES_DIRS = [
 
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 
