@@ -1,6 +1,6 @@
 
 import os
-import django_heroku
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -136,7 +136,7 @@ STATICFILES_DIRS = [
 
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = '/media/'
 
@@ -167,6 +167,3 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "phenommiebrand@gmail.com"
 EMAIL_HOST_PASSWORD = "Ph3n0m3n4l"
-
-
-django_heroku.settings(locals())
