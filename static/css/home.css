@@ -124,6 +124,7 @@ header .container a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 10px;
 }
 
 .potential .container h1 {
@@ -363,6 +364,7 @@ header .container a {
     align-items: center;
     justify-content: center;
     margin: 20px 0;
+    padding: 10px;
 }
 
 .portfolio_title h1 {
