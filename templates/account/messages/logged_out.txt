@@ -1,2 +1,2 @@
 {% load i18n %}
-{% blocktrans %}You have signed out.{% endblocktrans %}
+{% blocktrans %}Oh no!! You have signed out. We hope to see you soon.{% endblocktrans %}

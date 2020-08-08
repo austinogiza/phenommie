@@ -1,0 +1,48 @@
+{% load static %}
+
+<nav>
+
+    <div class="container">
+        <div class="icon">
+            <a href="{% url 'digi:home' %}"><img src="{% static 'images/logo.svg' %}" alt=""></a>
+        </div>
+
+        <div class="nav-links-container">
+            <ul class="nav-links">
+                <li><a href="{% url 'digi:home' %}">Home</a></li>
+                <li><a href="{% url 'digi:service' %}">Services</a></li>
+                <li><a href="{% url 'digi:courses' %}">Course</a></li>
+                <li><a href="{% url 'digi:portfolio' %}">Portfolio</a></li>
+                <li><a href="{% url 'digi:contact' %}">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-buttons">
+            {% if request.user.is_authenticated %}
+
+            <div class="left">
+                <a href="{% url 'account_logout' %}" class="btn btn-sign">Logout</a>
+            </div>
+
+            {% else %}
+            <div class="right">
+                <a href="{% url 'account_login' %}" class="btn btn-login">Login</a>
+            </div>
+
+            <div class="left">
+                <a href="{% url 'account_signup' %}" class="btn btn-sign">Sign Up</a>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="mobile-menu hide">
+
+            <span class="line1"></span>
+            <span class="line2"></span>
+            <span class="line3"></span>
+
+        </div>
+
+
+    </div>
+</nav>

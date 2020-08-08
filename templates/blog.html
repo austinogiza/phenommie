@@ -1,0 +1,90 @@
+
+{% extends 'base.html' %} {% load static %} {% block css %}
+{% load crispy_forms_tags %}{% load thumbnail %}
+
+<link rel="stylesheet" href="{% static 'css/contact.css' %}" />
+<title>Our Blog - Phenommie</title>
+{% endblock css %} {% block content %}
+
+<section class="main_hero">
+    <div class="container">
+        <h1>Blog</h1>
+
+    </div>
+
+    <div class="icon_center">
+        <img src="{% static 'images/icon_center.svg' %}" alt="" />
+    </div>
+
+
+</section>
+
+
+
+<section class="blog">
+
+    <div class="container">
+
+        <div class="blog_wrapper">
+            {% for object in object_list %}
+            <div class="blog_box">
+            {% thumbnail object.thumbnail "250x250" crop="center" as digi %}
+                <img src="{{digi.url}}" height="{{ digi.height }}" width="{{ digi.width }}" alt="{{object.title}}">
+                {% endthumbnail %}
+                <h1>{{object.title|title}}</h1>
+                <p>{{object.content|truncatechars:20}}</p>
+                <div class="rating">
+
+                    <div class="like">{{object.get_like_count}}<i class="far fa-thumbs-up"></i></div>
+                    <div class="comment">{{object.get_comment_count}}<i class="far fa-comments"></i></div>
+                </div>
+                <a href="{{ object.get_absolute_url }}">
+
+                </a>
+            </div>
+
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+
+<section class="pagination">
+
+    <div class="container">
+
+      {% if is_paginated %}
+      
+        <div class="page_number">
+            <ul>
+                {% if page_obj.has_previous %}<li>
+                    <a href="?page={{page_obj.previous_page_number}}"> <i class="fas fa-angle-double-left"></i> Previous</a>
+                </li>
+                {% endif %}
+                <li class="number_current">
+                    <a href="?page={{page_obj.number}}"> {{page_obj.number}}</a>
+                </li>
+               {% if page_obj.has_next %}
+               
+                <li>
+                    <a href="?page={{page_obj.next_page_number}}"> Next
+                        <i class="fas fa-angle-double-right"></i></a>
+                </li>
+                
+                {% endif %}
+            </ul>
+        </div>
+        
+        {% endif %}
+    </div>
+</section>
+<section class="start_project">
+    <div class="container">
+        <h1>Let’s Start A Project</h1>
+        <p>Let’s Start A Project</p>
+        <a href="#" class="btn btn-send">Start A Project</a>
+    </div>
+</section>
+<script src="{% static 'js/portfolio.js' %}"></script>
+{% endblock content %}

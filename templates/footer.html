@@ -1,0 +1,30 @@
+{% load static %}  
+
+  <footer>
+
+        <div class="container">
+
+            <div class="logo">
+                <img src="{% static 'images/logo.svg' %}" alt="">
+            </div>
+
+            <div class="social-media">
+
+                <ul class="social-links">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                        <li><a href="{% url 'blog:blog'%}">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; Copyright
+
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script>
+                </p>
+            </div>
+        </div>
+    </footer>

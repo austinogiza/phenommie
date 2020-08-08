@@ -1,29 +1,79 @@
-{% extends 'base.html' %}
-{%  load static %}
-
+{% extends 'base.html' %} {% load static %} {% block css %}
 {% load crispy_forms_tags %}
-{% block css %}
 
-<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+<link rel="stylesheet" href="{% static 'css/contact.css' %}" />
 <title>Our Portfolio - Phenommie</title>
-{% endblock css %}
-
-
-{% block content %}
+{% endblock css %} {% block content %}
 
 <section class="main_hero">
-
     <div class="container">
         <h1>Prove of Work</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br> Ut laoreet, velit cursus tincidunt accumsan</p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br />
+            Ut laoreet, velit cursus tincidunt accumsan
+        </p>
     </div>
 
     <div class="icon_center">
-        <img src="{% static 'images/icon_center.svg' %}" alt="">
+        <img src="{% static 'images/icon_center.svg' %}" alt="" />
+    </div>
+
+
+</section>
+<section class="portfolio">
+    <div class="container">
+        <div class="section-filter">
+            <div class="container">
+
+                <ul>
+                    <li class="selector">all</li>
+                    <li class="selector">branding</li>
+                    <li class="selector">uiux</li>
+                    <li class="selector">webdevelopment</li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="portfolio_cover">
+
+            <div class="portfolio_case" data-id="branding">
+                <img src="{% static 'images/port.png' %}" alt="">
+            </div>
+            <div class="portfolio_case" data-id="uiux">
+                <img src="{% static 'images/flyer.png' %}" alt="">
+            </div>
+            <div class="portfolio_case" data-id="webdevelopment">
+                <img src="{% static 'images/courses.png' %}" alt="">
+            </div>
+            <div class="portfolio_case" data-id="branding">
+                <img src="{% static 'images/port.png' %}" alt="">
+            </div>
+            <div class="portfolio_case" data-id="uiux">
+                <img src="{% static 'images/flyer.png' %}" alt="">
+            </div>
+            <div class="portfolio_case" data-id="branding">
+                <img src="{% static 'images/port.png' %}" alt="">
+            </div>
+            <div class="portfolio_case" data-id="webdevelopment">
+                <img src="{% static 'images/courses.png' %}" alt="">
+            </div>
+            <div class="portfolio_case" data-id="uiux">
+                <img src="{% static 'images/flyer.png' %}" alt="">
+            </div>
+            <div class="portfolio_case" data-id="webdevelopment">
+                <img src="{% static 'images/courses.png' %}" alt="">
+            </div>
+        </div>
     </div>
 </section>
 
-
-
-
+<section class="start_project">
+    <div class="container">
+        <h1>Let’s Start A Project</h1>
+        <p>Let’s Start A Project</p>
+        <a href="#" class="btn btn-send">Start A Project</a>
+    </div>
+</section>
+<script src="{% static 'js/portfolio.js' %}"></script>
 {% endblock content %}

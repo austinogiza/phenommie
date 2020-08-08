@@ -1,0 +1,72 @@
+{% extends 'base.html' %} {% load static %} {% block css %}
+{% load crispy_forms_tags %}
+
+<link rel="stylesheet" href="{% static 'css/contact.css' %}" />
+<title>{{object.title|title}} - Phenommie</title>
+{% endblock css %} {% block content %}
+
+<section class="blog_hero">
+    <img src="{{object.thumbnail.url}}" alt="">
+
+</section>
+
+<section class="blog_detail">
+
+    <div class="container">
+        <div class="blog_reviews">
+            <div class="rating">
+
+                <div class="like">{{object.get_like_count}}<i class="far fa-thumbs-up"></i></div>
+                <div class="comment">{{object.get_comment_count}}<i class="far fa-comments"></i></div>
+                <div class="comment">{{object.publish_date|timesince}} ago</div>
+            </div>
+
+        </div>
+        <h1>{{object.title|title}}</h1>
+
+        <p>{{object.content}}</p>
+        <div class="leave">
+            <h1> <a href="{{object.get_like_url }}"><i class="far fa-thumbs-up"></i></a></h1>
+            <h1><i class="far fa-comments"></i></h1>
+
+            <h1>
+                Comments
+            </h1>
+            {% for postcomment in object.comments %}
+            <div class="comment_box">
+                <h5>By {{postcomment.user|title}}</h5>
+                <h4>{{postcomment.content|title}}</h4>
+                <h5>{{postcomment.publish_date|timesince}} ago</h5>
+            </div>
+            {% endfor %}
+            <h1>Leave a comment</h1>
+            <div class="comment_box">
+                {% if request.user.is_authenticated%}
+
+                <div class="form_section">
+
+                    <div class="form_container">
+                        <form class="form" action="" method="POST">
+                            {% csrf_token %}
+                            <label>
+
+                                {{form.content}}
+                            </label>
+                            <button class="btn btn-send">Submit</button>
+                        </form>
+                    </div>
+                </div>
+
+                {% else%}
+                <div class="pd"></div>
+                <a class="btn btn-pro" href="{% url 'account_login' %}">Login To Comment</a>
+                {% endif%}
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+
+{% endblock content %}

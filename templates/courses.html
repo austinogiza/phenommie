@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% load static %} {% block css %}
+{% load crispy_forms_tags %}
+
+<link rel="stylesheet" href="{% static 'css/contact.css' %}" />
+<title>Our Portfolio - Phenommie</title>
+{% endblock css %} {% block content %}
+
+<section class="main_hero">
+    <div class="container">
+        <h1>Courses</h1>
+        <p>
+            Our Courses Are Coming Soon
+        </p>
+        <a href="{% url 'digi:contact' %}" class="btn btn-send">Join The Waiting List</a>
+    </div>
+
+    <div class="icon_center">
+        <img src="{% static 'images/icon_center.svg' %}" alt="" />
+    </div>
+
+
+</section>
+
+
+
+<script src="{% static 'js/portfolio.js' %}"></script>
+{% endblock content %}

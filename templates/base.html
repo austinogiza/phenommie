@@ -13,62 +13,25 @@
     {% block css %}
 
     {% endblock css %}
+
+  <link rel="stylesheet" href="{%static 'fontawesome-free-5.10.0-web/css/all.css'%}" />
+  <link rel="stylesheet" href="{%static 'fontawesome-free-5.10.0-web/css/fontawesome.css'%}" />
+  <link rel="stylesheet" href="{%static 'fontawesome-free-5.10.0-web/webfonts'%}" />
+  <link rel="stylesheet" type="text/css" href="{%static 'font/flaticon.css'%}" />
+  <link rel="stylesheet" type="text/css" href="{%static 'font/flaticon.woff'%}" />
+  <link rel="stylesheet" type="text/css" href="{%static 'font/flaticon.woff2'%}" />
+  <link rel="stylesheet" type="text/css" href="{%static 'font/flaticon.eot'%}" />
+
 </head>
 
 <body>
 
-    <nav>
-
-        <div class="container">
-            <div class="icon">
-                <a href="{% url 'digi:home' %}"><img src="{% static 'images/logo.svg' %}" alt=""></a>
-            </div>
-
-            <div class="nav-links-container">
-                <ul class="nav-links">
-                    <li><a href="{% url 'digi:home' %}">Home</a></li>
-                    <li><a href="{% url 'digi:service' %}">Services</a></li>
-                    <!-- <li><a href="#">Course</a></li> -->
-                    <li><a href="{% url 'digi:portfolio' %}">Portfolio</a></li>
-                    <li><a href="{% url 'digi:contact' %}">Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="nav-buttons">
-                {% if request.user.is_authenticated %}
-
-                <div class="left">
-                    <a href="{% url 'account_logout' %}" class="btn btn-sign">Logout</a>
-                </div>
-
-                {% else %}
-                <div class="right">
-                    <a href="{% url 'account_login' %}" class="btn btn-login">Login</a>
-                </div>
-
-                <div class="left">
-                    <a href="{% url 'account_signup' %}" class="btn btn-sign">Sign Up</a>
-                </div>
-                {% endif %}
-            </div>
-
-            <div class="mobile-menu hide">
-
-                <span class="line1"></span>
-                <span class="line2"></span>
-                <span class="line3"></span>
-
-            </div>
-
-
-        </div>
-    </nav>
-
+  {% include 'navbar.html' %}
     {% if messages %}
     <ul class="messages">
 
         {% for message in messages %}
-        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message|title }}</li>
+        <li{% if message.tags %} class="{{ message.tags }} message_cover" {% endif %}>{{ message|title }}</li>
             {% endfor %}
     </ul>
     {% endif %}
@@ -77,33 +40,7 @@
     {% endblock content %}
 
 
-    <footer>
-
-        <div class="container">
-
-            <div class="logo">
-                <img src="{% static 'images/logo.svg' %}" alt="">
-            </div>
-
-            <div class="social-media">
-
-                <ul class="social-links">
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">Instagram</a></li>
-                </ul>
-            </div>
-
-            <div class="copyright">
-                <p>&copy; Copyright
-
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script>
-                </p>
-            </div>
-        </div>
-    </footer>
+  {% include 'footer.html' %}
     <div class="back-to-top">
 
         <div class="container">

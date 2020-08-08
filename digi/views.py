@@ -47,3 +47,6 @@ def portfolio(request):
 def service(request):
     return render(request, 'services.html')
 
+
+def courses(request):
+    return render(request, 'courses.html')

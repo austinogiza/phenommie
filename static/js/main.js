@@ -37,3 +37,12 @@ toggle.addEventListener('click', function menuBurger() {
     navButton.classList.toggle('nav-buttons-active');
     toggle.classList.toggle('toggle');
 });
+
+gsap.registerPlugin(TextPlugin);
+gsap.to('.phen-text', {
+    text: 'Phenommie',
+    ease: "power1.in",
+    duration: 2,
+    repeat: -1,
+    yoyo: true
+});

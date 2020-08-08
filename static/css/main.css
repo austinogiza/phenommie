@@ -55,7 +55,7 @@ nav .container {
   margin: auto;
   flex-direction: row;
   color: var(--white);
-  height: 110px;
+  height: 90px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -246,18 +246,27 @@ footer .social-links li a:hover::after {
 .messages {
   width: 100%;
   height: 100px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background: var(--green-gradient);
-  font-size: 34px;
+  font-size: 21px;
   list-style-type: none;
   color: var(--white);
   font-family: 'Poppins',
     sans-serif;
   z-index: 2000;
   position: fixed;
+  top: 0;
+  left: 0;
+
+  text-align: center;
+}
+
+.message_cover {
+  padding: 10px 15px;
 }
 
 .mobile-menu span {
