@@ -11,13 +11,14 @@ buttons.forEach((item) => {
   });
 
   //show images
-
   let values = item.textContent;
 
   select.forEach((show) => {
-    // show.style.display = "none";
-    if (show.getAttribute("data-id") === values || values === "all") {
+
+    if (show.getAttributeNames('data-id') === values || values === "all") {
       show.style.display = "block";
+    } else {
+      show.style.display = "none";
     }
   });
 });

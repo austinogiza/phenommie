@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'digi',
     'blog',
     "crispy_forms",
-    'sorl.thumbnail'
+    'sorl.thumbnail',
+    'pwa'
 
 ]
 
@@ -169,3 +170,37 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "phenommiebrand@gmail.com"
 EMAIL_HOST_PASSWORD = "Ph3n0m3n4l"
+
+
+# PWA Settings
+PWA_APP_NAME = 'Phenommie Brand'
+PWA_APP_DESCRIPTION = "Digital Community"
+PWA_APP_THEME_COLOR = '#03CEA4'
+PWA_APP_BACKGROUND_COLOR = '#000'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = '/'
+PWA_APP_STATUS_BAR_COLOR = 'default'
+PWA_APP_ICONS = [
+    {
+        'src': '/static/images/favicon.png',
+        'sizes': '160x160'
+    }
+]
+PWA_APP_ICONS_APPLE = [
+    {
+        'src': '/static/images/favicon.png',
+        'sizes': '160x160'
+    }
+]
+PWA_APP_SPLASH_SCREEN = [
+    {
+        'src': '/static/images/favicon.png',
+        'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
+    }
+]
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'en-US'
+
+PWA_APP_DEBUG_MODE = False

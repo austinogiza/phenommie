@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView
 from .models import Post, PostLike, PostComment
 from django.contrib import messages
 from .forms import CommentForm
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -44,6 +45,7 @@ class BlogDetailView(DetailView):
         return object
 
 
+@login_required
 def like(request, slug):
     post = get_object_or_404(Post, slug=slug)
     like_qs = PostLike.objects.filter(user=request.user, post=post)
