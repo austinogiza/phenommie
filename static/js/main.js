@@ -5,6 +5,8 @@ const backToTop = document.querySelector('.back-to-top');
 const toggle = document.querySelector('.mobile-menu');
 const navLink = document.querySelector('.nav-links-container');
 const navButton = document.querySelector('.nav-buttons');
+const navLinks = document.querySelectorAll('.nav-links li');
+
 setTimeout(function () {
     $(".messages").fadeOut('slow');
 
@@ -32,11 +34,29 @@ function toTop() {
 }
 
 toggle.addEventListener('click', function menuBurger() {
+    //hamburger menu
     navLink.classList.toggle('nav-links-active');
 
-    navButton.classList.toggle('nav-buttons-active');
+    navButton.classList.add('buttons-active');
+
+
     toggle.classList.toggle('toggle');
+
+    //animate links
+    navLinks.forEach((links, index) => {
+        if (links.style.animation) {
+            links.style.animation = '';
+        } else {
+            links.style.animation = `navLinkFade 0.8s ease-in  forwards   ${index /7 + 0.3}s`;
+        }
+
+    });
+
+
 });
+
+
+
 
 gsap.registerPlugin(TextPlugin);
 gsap.to('.phen-text', {

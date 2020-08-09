@@ -670,6 +670,8 @@ form label h1,
 .section-filter .container ul li {
     padding: 10px 12px;
     width: 100%;
+    font-family: 'Inter',
+        sans-serif;
     font-size: 20px;
     height: 40px;
     cursor: pointer;
@@ -957,6 +959,27 @@ form label h1,
 
 
     }
+
+    .alt_link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* 
+    .alt_link h1 {
+        font-size: 16px;
+        margin: 10px;
+    }
+
+    .alt_link span a {
+        font-size: 20px;
+        color: var(--red);
+        font-weight: bold;
+        text-decoration: none;
+        margin: 10px 0;
+        transition: 0.3s ease-in;
+    } */
 
     .blog_box {
 

@@ -9,11 +9,17 @@
 
         <div class="nav-links-container">
             <ul class="nav-links">
-                <li><a href="{% url 'digi:home' %}">Home</a></li>
-                <li><a href="{% url 'digi:service' %}">Services</a></li>
-                <li><a href="{% url 'digi:courses' %}">Course</a></li>
-                <li><a href="{% url 'digi:portfolio' %}">Portfolio</a></li>
-                <li><a href="{% url 'digi:contact' %}">Contact</a></li>
+                <li class="nav-link"><a href="{% url 'digi:home' %}">Home</a></li>
+                <li class="nav-link"><a href="{% url 'digi:service' %}">Services</a></li>
+                <li class="nav-link"><a href="{% url 'digi:courses' %}">Course</a></li>
+                <li class="nav-link"><a href="{% url 'digi:portfolio' %}">Portfolio</a></li>
+                <li class="nav-link"><a href="{% url 'digi:contact' %}">Contact</a></li>
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'account_logout' %}" class="mobile_btn btn btn-sign">Logout</a>
+
+                {% else %}
+                <a href="{% url 'account_login' %}" class="mobile_btn btn btn-login">Login</a>
+                {% endif %}
             </ul>
         </div>
 
@@ -29,9 +35,6 @@
                 <a href="{% url 'account_login' %}" class="btn btn-login">Login</a>
             </div>
 
-            <div class="left">
-                <a href="{% url 'account_signup' %}" class="btn btn-sign">Sign Up</a>
-            </div>
             {% endif %}
         </div>
 

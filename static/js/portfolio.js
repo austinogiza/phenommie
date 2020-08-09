@@ -15,7 +15,7 @@ buttons.forEach((item) => {
   let values = item.textContent;
 
   select.forEach((show) => {
-    show.style.display = "none";
+    // show.style.display = "none";
     if (show.getAttribute("data-id") === values || values === "all") {
       show.style.display = "block";
     }
