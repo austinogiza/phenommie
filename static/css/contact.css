@@ -441,6 +441,7 @@ form label h1,
     gap: 50px;
     grid-gap: 50px;
     margin-top: 40px;
+    grid-row-gap: 20px;
 }
 
 .plan_box {
