@@ -561,7 +561,7 @@ header .container a {
 
 }
 
-@media only screen and (max-width:400px) {
+@media only screen and (max-width:550px) {
     header .container h1 {
         margin: 10px 0;
         font-size: 34px;
