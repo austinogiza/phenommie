@@ -1818,6 +1818,7 @@ form label h1,
     align-items: center;
     width: 100%;
     min-height: 50px;
+    padding: 10px;
 }
 
 .course_title h1 {
@@ -2180,6 +2181,7 @@ form label h1,
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    padding: 10px;
 }
 
 .review_section .container {
@@ -2194,7 +2196,7 @@ form label h1,
     flex-direction: column;
     max-width: 1100px;
     margin: 0 auto;
-
+    padding: 10px;
 }
 
 .review_title {
