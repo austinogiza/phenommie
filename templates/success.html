@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load paystack %}
+{% load static %}
+{% block css %}
+{% load crispy_forms_tags %}
+{% load humanize %}
+
+<link rel="stylesheet" href="{% static 'css/contact.css' %}" />
+<title> Payment Success- Phenommie</title>
+
+{% endblock css %}
+{% block content %}
+
+<section class="payment_success">
+
+
+    <div class="container">
+
+
+        <img src="" alt="">
+
+        <h1>Congrats!!</h1>
+        <p>You have successfully made payment. <br> Time to study </p>
+        <a href="#" class="btn btn-dashboard">Go To Dashboard</a>
+    </div>
+</section>
+{% endblock content %}

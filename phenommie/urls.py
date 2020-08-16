@@ -8,6 +8,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('digi.urls')),
     path('', include('blog.urls')),
+    path('', include('course.urls')),
+    path('', include('order.urls')),
+
     path('accounts/', include('allauth.urls')),
-    path('', include(('pwa.urls', 'pwa'), namespace='pwa')),
+    path("paystack", include(('paystack.urls', 'paystack'), namespace='paystack')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

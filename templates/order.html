@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load paystack %}
+{% load static %}
+{% block css %}
+{% load crispy_forms_tags %}
+{% load humanize %}
+
+<link rel="stylesheet" href="{% static 'css/contact.css' %}" />
+<title> {% for item in order.items.all %}{{item.course.title}} {% endfor %}- Phenommie</title>
+
+{% endblock css %}
+{% block content %}
+
+<section class="payment_card">
+    {% for item in order.items.all %}
+    <div class="container">
+
+        <h1>Order Summary</h1>
+        <div class="payment_image">
+            <img src=" {{item.course.image.url}}" alt="">
+        </div>
+
+        <h1>
+            {{item.course.title}}
+        </h1>
+        <h2> {{item.course.description|truncatechars:100}}</h2>
+
+        <p class="price"> &#8358;{{order.get_total|intcomma}}</p>
+        <div class="payment-container">
+            {% paystack_button amount=amount email=email button_class="btn btn-payment" %}
+        </div>
+
+    </div>
+    {% endfor %}
+</section>
+{% endblock content %}

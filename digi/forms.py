@@ -1,5 +1,29 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from allauth.account.forms import SignupForm
+from .models import CustomUser
+
+
+class CustomSignUpForm(SignupForm):
+    first_name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={
+        "placeholder": "First Name",
+        'class': 'form-control',
+        'label': 'form-label'
+    }))
+    last_name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={
+        "placeholder": "Last Name",
+        'class': 'form-control',
+        'label': 'form-label'
+    }))
+
+    class Meta:
+        model = CustomUser
+        fields = ('__all__')
+
+    def signup(self, request, user):
+        user.first_name = self.cleaned_data.get['first_name']
+        user.last_name = self.cleaned_data.get['first_name']
+        user.save()
 
 
 class ContactForm(forms.Form):

@@ -32,6 +32,9 @@ class BlogDetailView(DetailView):
             messages.info(
                 self.request, 'You are amazing!! You just left a comment')
             return redirect('blog:blog_detail', slug=post.slug)
+        messages.info(
+            self.request, 'Oh!! You didn\'t leave a comment')
+        return redirect('blog:blog_detail', slug=self.get_object().slug)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

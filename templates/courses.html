@@ -1,8 +1,9 @@
 {% extends 'base.html' %} {% load static %} {% block css %}
 {% load crispy_forms_tags %}
+{% load humanize %}
 
 <link rel="stylesheet" href="{% static 'css/contact.css' %}" />
-<title>Our Portfolio - Phenommie</title>
+<title>Our Courses - Phenommie</title>
 {% endblock css %} {% block content %}
 
 <section class="main_hero">
@@ -11,16 +12,87 @@
         <p>
             Our Courses Are Coming Soon
         </p>
-        <a href="{% url 'digi:contact' %}" class="btn btn-send">Join The Waiting List</a>
+
     </div>
 
-    <div class="icon_center">
-        <img src="{% static 'images/icon_center.svg' %}" alt="" />
-    </div>
 
 
 </section>
 
+
+<section class="course_section">
+
+    <div class="container">
+
+        <div class="course_title">
+
+        </div>
+
+        <div class="course_container">
+            {% for object in object_list %}
+            <div class="course_box">
+                <img src="{{object.image.url}}" alt="">
+                <div class="author">
+                    <img src="{% static 'images/flyer.png' %}" alt=""> {{object.tutor|title}}
+                </div>
+
+                <h1 class="title">{{object.title|title}}</h1>
+                <p>{{object.description|truncatechars:50}}</p>
+
+                <div class="course_details">
+                    <div class="price">
+                        <h1>&#8358; {{object.amount|intcomma}}</h1>
+                    </div>
+                    <div class="count">
+                        <p>{{object.get_lessons_count}}
+                            {% if object.get_lessons_count == 1 or object.get_lessons_count == 0 %}Lesson
+
+                            {% else %}Lessons{% endif %}</p>
+                    </div>
+                </div>
+
+                <a href="{{ object.get_absolute_url }}"></a>
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<section class="pagination">
+
+    <div class="container">
+
+        {% if is_paginated %}
+
+        <div class="page_number">
+            <ul>
+                {% if page_obj.has_previous %}<li>
+                    <a href="?page={{page_obj.previous_page_number}}"> <i class="fas fa-angle-double-left"></i>
+                        Previous</a>
+                </li>
+                {% endif %}
+                <li class="number_current">
+                    <a href="?page={{page_obj.number}}"> {{page_obj.number}}</a>
+                </li>
+                {% if page_obj.has_next %}
+
+                <li>
+                    <a href="?page={{page_obj.next_page_number}}"> Next
+                        <i class="fas fa-angle-double-right"></i></a>
+                </li>
+
+                {% endif %}
+            </ul>
+        </div>
+
+        {% endif %}
+    </div>
+</section>
 
 
 <script src="{% static 'js/portfolio.js' %}"></script>

@@ -22,6 +22,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -30,17 +31,28 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'django.contrib.humanize',
+    'embed_video',
 
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+
     'digi',
     'blog',
     "crispy_forms",
     'sorl.thumbnail',
-    'pwa'
+    'course',
+    'order',
+    "paystack",
+
+
 
 ]
+
+# paystack auth
+PAYSTACK_SECRET_KEY = "sk_test_fd1f5931beb492616d2401ee7888f89c83f1a5a1"
+PAYSTACK_PUBLIC_KEY = "pk_test_84c2582214cdf9360153f76427b1269e14e25a06"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -66,6 +78,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
             ],
         },
     },
@@ -154,6 +167,7 @@ AUTHENTICATION_BACKENDS = [
 
 ]
 AUTH_USER_MODEL = 'digi.CustomUser'
+ACCOUNT_FORMS = {'signup': 'digi.forms.CustomSignUpForm', }
 
 SITE_ID = 1
 
@@ -170,41 +184,3 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "phenommiebrand@gmail.com"
 EMAIL_HOST_PASSWORD = "Ph3n0m3n4l"
-
-
-# PWA Settings
-PWA_APP_NAME = 'Phenommie Brand'
-PWA_APP_DESCRIPTION = "Digital Community"
-PWA_APP_THEME_COLOR = '#03CEA4'
-PWA_APP_BACKGROUND_COLOR = '#000'
-PWA_APP_DISPLAY = 'standalone'
-PWA_APP_SCOPE = '/'
-PWA_APP_ORIENTATION = 'any'
-PWA_APP_START_URL = '/'
-PWA_APP_STATUS_BAR_COLOR = 'default'
-PWA_APP_ICONS = [
-    {
-        'src': '/static/images/favicon.png',
-        'sizes': '160x160'
-    }
-]
-PWA_APP_ICONS_APPLE = [
-    {
-        'src': '/static/images/favicon.png',
-        'sizes': '160x160'
-    }
-]
-PWA_APP_SPLASH_SCREEN = [
-    {
-        'src': '/static/images/favicon.png',
-        'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
-    }
-]
-PWA_APP_DIR = 'ltr'
-PWA_APP_LANG = 'en-US'
-
-PWA_APP_DEBUG_MODE = False
-
-
-PWA_SERVICE_WORKER_PATH = os.path.join(
-    BASE_DIR, '/static/js', 'serviceworker.js')
