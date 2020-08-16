@@ -1,7 +1,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% load humanize %}
-{% load embed_video_tags %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,9 +13,11 @@
 
     <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
     <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'js/videojs-ie8.min.js' %}"></script>
+
     <meta name="theme-color" content="#03CEA4">
 
-
+    <link rel="stylesheet" href="{% static 'css/video-js.css' %}" />
     <link rel="stylesheet" href="{% static 'fontawesome-free-5.10.0-web/css/all.css' %}" />
     <link rel="stylesheet" href="{% static 'fontawesome-free-5.10.0-web/css/fontawesome.css' %}" />
     <link rel="stylesheet" href="{% static 'fontawesome-free-5.10.0-web/webfonts' %}" />
@@ -55,22 +57,27 @@
             <div class="video_player">
                 {% if object.course in request.user.userlibrary.course_list %}
                 <h1>{{object.title|title}}</h1>
-                <p>{{object.description}}</p>
+
                 <!-- The video tag: -->
-                {% video object.video as my_video %}
+
+                <video controls autoplay preload="auto" id="my-player" class="video-js" poster="{{object.image.url}}">
+                    <source src="//{{object.video}}" type="video/mp4">
+                    <source src="//{{object.video}}" type="video/webm">
+                </video>
 
 
-
-
-                {% video my_video '90% x 90%' %}
-                {% endvideo %}
-
+                <p>{{object.description}}</p>
                 <!-- Or embed shortcut: -->
                 {% else %}
 
                 <h1>Ready to become a professional in {{object.title|title}}?</h1>
                 <p> Purchase this course today</p>
+                {% if course_status == 'in_cart' %}
+                <a href="{% url 'order:order-view' %}" class="btn btn-payment">Pay
+                    Now</a>
+                {% else %}
                 <a href="{% url 'order:add-to-cart' object.course.slug %}" class="btn btn-payment">Enrol Now</a>
+                {% endif %}
                 {% endif %}
 
 
@@ -78,7 +85,16 @@
 
         </div>
     </div>
+    <script src="{% static 'js//video.js' %}"></script>
 
+    <script>
+        const video = document.querySelector('.video-js');
+        videojs('.video-js', {
+            controls: true,
+            autoplay: true,
+            preload: 'auto'
+        });
+    </script>
 
 </body>
 

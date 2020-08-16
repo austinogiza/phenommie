@@ -3,7 +3,6 @@ from digi.models import CustomUser
 from django.conf import settings
 from django.shortcuts import reverse
 from django.db.models.signals import post_save
-from embed_video.fields import EmbedVideoField
 
 
 class UserLibrary(models.Model):
@@ -76,6 +75,10 @@ class Courses(models.Model):
     def get_review_count(self):
         return self.reviews_set.all().count()
 
+    @property
+    def reviews(self):
+        return self.reviews_set.all()
+
     def get_saved_url(self):
         return reverse("course:saved", kwargs={"slug": self.slug})
 
@@ -89,7 +92,7 @@ class Lessons(models.Model):
     title = models.CharField(blank=True, null=True, max_length=100)
     description = models.TextField(blank=True, null=True, max_length=800)
     image = models.ImageField()
-    video = EmbedVideoField(blank=True, null=True)
+    video = models.URLField(blank=True, null=True)
     position = models.IntegerField()
     date_published = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField()

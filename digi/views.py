@@ -8,6 +8,13 @@ from course.models import Courses
 # Create your views here.
 
 
+def dashboard(request):
+    context = {
+
+    }
+    return render(request, 'dashboard.html', context)
+
+
 def home(request):
     return render(request, 'index.html')
 

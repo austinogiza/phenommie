@@ -19,8 +19,8 @@
         {% if course_status != 'owned' %}
         {% if course_status == 'in_cart' %}
         <a href="{% url 'order:order-view' %}" class="btn btn-payment ">Make Payment</a>
-        {% else %} 
-       
+        {% else %}
+
         <a href="{{course.get_add_to_cart_url}}" class="btn btn-payment ">Enrol Now</a>
         {% comment %} {% url 'order:add-to-cart' course.slug %} {% endcomment %}
         {% endif %}
@@ -76,7 +76,11 @@
                 <div class="preview_box">
                     <a href="{{lessons.get_absolute_url}}">
                         <li><i class="fab fa-youtube"></i> {{forloop.counter}} {{lessons.title}}</li>
+                        {% if request.user.is_authenticated %}
                     </a> <a href="{{lessons.get_absolute_url}}" class="preview">Preview</a>
+                    {% else %}
+                    </a> <a href="{{lessons.get_absolute_url}}" class="preview">Preview</a>
+                    {% endif %}
                 </div>
                 {% endfor %}
 
@@ -84,6 +88,50 @@
         </div>
     </div>
 </section>
+
+<section class="review_section">
+
+    <div class="container">
+        <div class="review_title">
+            <i class="fas fa-comments"></i> {{course.get_review_count}}
+            {% if course.get_review_count == 1 or course.get_review_count == 0 %}Review
+
+            {% else %}Reviews{% endif %}
+        </div>
+
+        <div class="review_list">
+            {% for reviews in course.reviews %}
+            <div class="review_list_box">
+                <h1>By {{reviews.user|title}}</h1>
+                <p>{{reviews.content|title}}</p>
+                <h2>{{reviews.time|timesince}} ago</h2>
+
+
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="review_form">
+            {% if requeest.user.is_authenticated %}
+            <div class="form_container">
+                <form class="form" action="" method="POST">
+                    {% csrf_token %}
+                    <label>
+
+                        {{form.comment}}
+                    </label>
+                    <button class="btn btn-send">Submit</button>
+                </form>
+            </div>
+
+            {% else %}
+            <a href="{% url 'account_login' %}" class="btn btn-dashboard">Login To Review</a>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+
 
 <section class="watch">
 

@@ -9,7 +9,7 @@ app_name = "course"
 
 urlpatterns = [
 
-    path('course/<slug>', views.course, name="course"),
+    path('course/<slug>', views.CourseDetailView.as_view(), name="course"),
     path('course/<course_slug>/<lesson_slug>/',
          LessonView.as_view(), name='lesson'),
     path('saved/<slug>/', views.saved, name='saved'),

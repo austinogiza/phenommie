@@ -22,6 +22,6 @@ urlpatterns = [
     path('portfolio/<slug>', PortfolioDetailView.as_view(), name='project'),
     path('portfolio/category/<slug>/',
          PortfolioCategoryView.as_view(), name='category'),
-
+    path('dashboard/', views.dashboard, name='dashboard'),
 
 ]

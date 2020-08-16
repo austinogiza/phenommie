@@ -9,11 +9,13 @@
 
         <div class="nav-links-container">
             <ul class="nav-links">
-                <li class="nav-link"><a href="{% url 'digi:home' %}">Home</a></li>
+         
                 <li class="nav-link"><a href="{% url 'digi:service' %}">Services</a></li>
                 <li class="nav-link"><a href="{% url 'digi:courses' %}">Course</a></li>
                 <li class="nav-link"><a href="{% url 'digi:portfolio' %}">Portfolio</a></li>
-                <li class="nav-link"><a href="{% url 'digi:contact' %}">Contact</a></li>
+                      {% if request.user.is_authenticated %}
+                <li class="nav-link"><a href="{% url 'digi:dashboard' %}">Hello {{ request.user.first_name}}</a></li>
+                      {% endif %}
                 {% if request.user.is_authenticated %}
                 <a href="{% url 'account_logout' %}" class="mobile_btn btn btn-sign">Logout</a>
 

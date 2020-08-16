@@ -1,10 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import DetailView, View, ListView
-from .models import Courses, SavedCourse, Lessons, UserLibrary
+from .models import Courses, SavedCourse, Lessons, UserLibrary, Reviews
 from order.models import Order, OrderItem
 from digi.models import CustomUser
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
+from .forms import ReviewForm
 
 # Create your views here.
 
@@ -15,7 +16,7 @@ NOT_IN_CART = 'not_in_cart'
 
 def check_course_relationship(request, slug):
     course = get_object_or_404(Courses, slug=slug)
-    if course in request.user.userlibrary.courses.all():
+    if course in request.user.userlibrary.course_list:
         return OWNED
     order_qs = Order.objects.filter(user=request.user)
     if order_qs.exists():
@@ -28,29 +29,42 @@ def check_course_relationship(request, slug):
     return NOT_IN_CART
 
 
-# @login_required
-def course(request, slug):
-    course = get_object_or_404(Courses, slug=slug)
-    # course_status = check_course_relationship(request, course)
-    context = {
-        # 'course_status': course_status,
-        'course': course
-    }
-    return render(request, "coursedetails.html", context)
-
-
-class CourseDetailView(LoginRequiredMixin, DetailView):
+class CourseDetailView(DetailView):
     model = Courses
     context_object_name = 'course'
     template_name = 'coursedetails.html'
 
-    def get(self, request, *args, **kwargs):
-        course_status = check_course_relationship(
-            self.request, self.get_object())
+    def post(self, *args, **kwargs):
+        form = ReviewForm(self.request.POST or None)
+        if form.is_valid():
+            course = self.get_object()
+            user = self.request.user
+            comment = form.cleaned_data.get('comment')
+            review = Reviews(
+                course=course,
+                user=user,
+                content=comment
+            )
+            review.save()
+            messages.info(
+                self.request, 'You are amazing!! You just left a review')
+            return redirect('course:course', slug=course.slug)
+        messages.info(
+            self.request, 'Oh!! You didn\'t leave a review')
+        return redirect('blog:blog_detail', slug=self.get_object().slug)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # course_status = check_course_relationship(self.request, context)
+        context.update({
+            'form': ReviewForm(),
+            # "course_status": course_status
+        })
+        return context
 
     def get_object(self, **kwargs):
-        context = super().get_object(**kwargs)
-        return context
+        object = super().get_object(**kwargs)
+        return object
 
 
 def saved(request, slug):
@@ -80,9 +94,12 @@ class LessonView(LoginRequiredMixin, View):
         if lessons_qs.exists():
             lesson = lessons_qs.first()
 
+        course_status = check_course_relationship(self.request, course_slug)
+
         context = {
             'object': lesson,
             # "lessons": lessons_qs[0],
+            "course_status": course_status
 
         }
 
