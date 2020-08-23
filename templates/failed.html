@@ -1,14 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% load humanize %}
+{% load paystack %}
+{% load static %}
+{% block css %}
+{% load crispy_forms_tags %}
+{% load humanize %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paystack Success</title>
-</head>
+<link rel="stylesheet" href="{% static 'css/contact.css' %}" />
+<title> Payment Failed - Phenommie</title>
 
-<body>
-    payment didn't go through 
-</body>
+{% endblock css %}
+{% block content %}
 
-</html>
+<section class="payment_failed">
+
+
+    <div class="container">
+
+
+        <img src="" alt="">
+
+        <h1>Oh No!!</h1>
+        <p>Your payment didn't go through </p>
+        <a href="{% url 'order:order-view'%}" class="btn btn-dashboard">Try Again</a>
+    </div>
+</section>
+{% endblock content %}

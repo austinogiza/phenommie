@@ -5,7 +5,7 @@ from .views import (
 
     PortfolioView,
     PortfolioDetailView,
-    PortfolioCategoryView,
+
     CoursesListView
 )
 
@@ -21,7 +21,11 @@ urlpatterns = [
     path('portfolio/', PortfolioView.as_view(), name='portfolio'),
     path('portfolio/<slug>', PortfolioDetailView.as_view(), name='project'),
     path('portfolio/category/<slug>/',
-         PortfolioCategoryView.as_view(), name='category'),
-    path('dashboard/', views.dashboard, name='dashboard'),
+         views.category, name='category'),
+    path('dashboard/', views.DashboardView.as_view(), name='dashboard'),
+    path('search/', views.search, name='search'),
+
+    path('dashboard/courses', views.BoughtCourseView.as_view(),
+         name='dashboard-course'),
 
 ]

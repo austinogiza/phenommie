@@ -18,7 +18,7 @@ def check_course_relationship(request, slug):
     course = get_object_or_404(Courses, slug=slug)
     if course in request.user.userlibrary.course_list:
         return OWNED
-    order_qs = Order.objects.filter(user=request.user)
+    order_qs = Order.objects.filter(user=request.user, is_ordered=False)
     if order_qs.exists():
         order = order_qs[0]
         order_item_qs = OrderItem.objects.filter(course=course)
@@ -29,7 +29,7 @@ def check_course_relationship(request, slug):
     return NOT_IN_CART
 
 
-class CourseDetailView(DetailView):
+class CourseDetailView(LoginRequiredMixin, DetailView):
     model = Courses
     context_object_name = 'course'
     template_name = 'coursedetails.html'
@@ -54,11 +54,14 @@ class CourseDetailView(DetailView):
         return redirect('blog:blog_detail', slug=self.get_object().slug)
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        # course_status = check_course_relationship(self.request, context)
+        context = super(CourseDetailView, self).get_context_data(**kwargs)
+        course = self.get_object().slug
+        course_status = check_course_relationship(self.request, course)
+
         context.update({
             'form': ReviewForm(),
-            # "course_status": course_status
+            "course_status": course_status
+
         })
         return context
 

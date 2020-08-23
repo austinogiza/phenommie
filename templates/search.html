@@ -1,0 +1,106 @@
+{% extends 'base.html' %} {% load static %} {% block css %}
+{% load crispy_forms_tags %}
+{% load humanize %}
+
+<link rel="stylesheet" href="{% static 'css/contact.css' %}" />
+<title>Our Courses - Phenommie</title>
+{% endblock css %} {% block content %}
+
+<section class="main_hero">
+    <div class="container">
+        <h1>Courses</h1>
+        <p>
+                 Results For Your {{request.GET.q|title}} Search
+        </p>
+
+    </div>
+
+
+
+</section>
+
+
+<section class="course_section">
+
+    <div class="container">
+
+        <div class="course_title">
+            <div class="search_box">
+                <div class="search">
+                    <form action="{% url 'digi:search' %}" method="GET"> <input type="text" name="q"
+                            value="{{request.GET.q}}" placeholder="Find A Course">
+                        <button><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="course_container">
+                {% for course in results %}
+                <div class="course_box">
+                    <img src="{{course.image.url}}" alt="">
+                    <div class="author">
+                        <img src="{% static 'images/flyer.png' %}" alt=""> {{course.tutor|title}}
+                    </div>
+
+                    <h1 class="title">{{course.title|title}}</h1>
+                    <p>{{course.description|truncatechars:50}}</p>
+
+                    <div class="course_details">
+                        <div class="price">
+                            <h1>&#8358; {{course.amount|intcomma}}</h1>
+                        </div>
+                        <div class="count">
+                            <p>{{course.get_lessons_count}}
+                                {% if course.get_lessons_count == 1 or course.get_lessons_count == 0 %}Lesson
+
+                                {% else %}Lessons{% endif %}</p>
+                        </div>
+                    </div>
+
+                    <a href="{{ course.get_absolute_url }}"></a>
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+</section>
+
+
+
+
+
+<section class="pagination">
+
+    <div class="container">
+
+        {% if page_obj.has_other_pages %}
+
+        <div class="page_number">
+            <ul>
+                {% if page_obj.has_previous %}<li>
+                    <a href="?page={{page_obj.previous_page_number}}"> <i class="fas fa-angle-double-left"></i>
+                        Previous</a>
+                </li>
+                {% endif %}
+                <li class="number_current">
+                    <a href="?page={{page_obj.number}}"> {{page_obj.number}}</a>
+                </li>
+                {% if page_obj.has_next %}
+
+                <li>
+                    <a href="?page={{page_obj.next_page_number}}"> Next
+                        <i class="fas fa-angle-double-right"></i></a>
+                </li>
+
+                {% endif %}
+            </ul>
+        </div>
+
+        {% endif %}
+    </div>
+</section>
+
+
+<script src="{% static 'js/portfolio.js' %}"></script>
+{% endblock content %}

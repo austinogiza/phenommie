@@ -32,6 +32,10 @@ class CustomUser(AbstractUser):
         return self.courses.all()
 
     @property
+    def get_courses_saved_course(self):
+        return self.savedcourse_set.all()
+
+    @property
     def get_courses_saved_count(self):
         return self.savedcourse_set.all().count()
 
@@ -60,7 +64,9 @@ class Portfolio(models.Model):
     title = models.CharField(max_length=300)
     date = models.DateTimeField(auto_now_add=True)
     content_header = models.CharField(max_length=500, blank=True, null=True)
-    content_body = models.CharField(max_length=800, blank=True, null=True)
+    content_body = models.TextField(max_length=2000, blank=True, null=True)
+    details = models.TextField(max_length=2000, blank=True, null=True)
+    presentation = models.ImageField(blank=True, null=True)
     image = models.ImageField()
     image_1 = models.ImageField(blank=True, null=True)
     image_2 = models.ImageField(blank=True, null=True)

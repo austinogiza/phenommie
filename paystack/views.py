@@ -49,10 +49,12 @@ def on_payment_verified(request, sender, ref, amount, **kwargs):
     payment.save()
 
     order_items = order.items.all()
-    courses = [item.course for item in order_items]
-    for course in courses:
-        request.user.userlibrary.courses.add(course)
-
+    order_items.update(is_ordered=True)
+    for item in order_items:
+        courses = [item.course for item in order_items]
+        item.save()
+        for course in courses:
+            request.user.userlibrary.courses.add(course)
     order.payment = payment
     order.save()
 

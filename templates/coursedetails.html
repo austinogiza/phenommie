@@ -18,15 +18,15 @@
         <p>{{course.description|truncatechars:100}}</p>
         {% if course_status != 'owned' %}
         {% if course_status == 'in_cart' %}
-        <a href="{% url 'order:order-view' %}" class="btn btn-payment ">Make Payment</a>
+        <p>You currently have this course in your cart</p>
+        <a href="{% url 'order:order-view' %}" class="btn btn-payment ">Pay Now</a>
         {% else %}
-
         <a href="{{course.get_add_to_cart_url}}" class="btn btn-payment ">Enrol Now</a>
-        {% comment %} {% url 'order:add-to-cart' course.slug %} {% endcomment %}
+
         {% endif %}
         {% else %}
 
-        <a href="#lesson" class="btn btn-payment ">Watch</a>
+        <a href="#lesson" class="btn btn-payment ">Watch Now</a>
 
 
         {% endif %}
@@ -76,11 +76,19 @@
                 <div class="preview_box">
                     <a href="{{lessons.get_absolute_url}}">
                         <li><i class="fab fa-youtube"></i> {{forloop.counter}} {{lessons.title}}</li>
-                        {% if request.user.is_authenticated %}
+                        {% if course_status != 'owned' %}
+
                     </a> <a href="{{lessons.get_absolute_url}}" class="preview">Preview</a>
                     {% else %}
-                    </a> <a href="{{lessons.get_absolute_url}}" class="preview">Preview</a>
+                    </a> <a href="{{lessons.get_absolute_url}}" class="preview">Watch</a>
                     {% endif %}
+                </div>
+                {% empty %}
+                <div class="preview_box">
+                    <li>No Lessons</li>
+
+
+
                 </div>
                 {% endfor %}
 
@@ -102,7 +110,7 @@
         <div class="review_list">
             {% for reviews in course.reviews %}
             <div class="review_list_box">
-                <h1>By {{reviews.user|title}}</h1>
+                <h1>By {{reviews.user.username|title}}</h1>
                 <p>{{reviews.content|title}}</p>
                 <h2>{{reviews.time|timesince}} ago</h2>
 
@@ -112,7 +120,7 @@
         </div>
 
         <div class="review_form">
-            {% if requeest.user.is_authenticated %}
+            {% if request.user.is_authenticated %}
             <div class="form_container">
                 <form class="form" action="" method="POST">
                     {% csrf_token %}
@@ -125,7 +133,9 @@
             </div>
 
             {% else %}
+
             <a href="{% url 'account_login' %}" class="btn btn-dashboard">Login To Review</a>
+
             {% endif %}
         </div>
     </div>
@@ -140,14 +150,14 @@
         <div class="course_pay">
             {% if course_status != 'owned' %}
             {% if course_status == 'in_cart' %}
-            <a href="{% url 'order:order-view' %}" class="btn btn-payment ">Make Payment</a>
+            <a href="{% url 'order:order-view' %}" class="btn btn-payment ">Pay Now</a>
             {% else %}
             <a href="{{course.get_add_to_cart_url}}" class="btn btn-payment ">Enrol Now</a>
-            {% comment %} {% url 'order:add-to-cart' course.slug %} {% endcomment %}
+
             {% endif %}
             {% else %}
 
-            <a href="#lesson" class="btn btn-payment ">Watch</a>
+            <a href="#lesson" class="btn btn-payment ">Watch Now</a>
 
 
             {% endif %}

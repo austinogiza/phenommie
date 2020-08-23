@@ -13,10 +13,14 @@
 {% block content %}
 
 <section class="payment_card">
+    <div class="container">
+        <h1>Order Summary</h1>
+    </div>
     {% for item in order.items.all %}
     <div class="container">
 
-        <h1>Order Summary</h1>
+
+
         <div class="payment_image">
             <img src=" {{item.course.image.url}}" alt="">
         </div>
@@ -26,12 +30,17 @@
         </h1>
         <h2> {{item.course.description|truncatechars:100}}</h2>
 
-        <p class="price"> &#8358;{{order.get_total|intcomma}}</p>
-        <div class="payment-container">
-            {% paystack_button amount=amount email=email button_class="btn btn-payment" %}
-        </div>
+
+
 
     </div>
+
     {% endfor %}
+    <div class="container">
+        <p class="price">Amount To Be Paid : &#8358;{{order.get_total|intcomma}}</p>
+    </div>
+    <div class="payment-container">
+        {% paystack_button amount=amount  email=email  button_class="btn btn-dashboard" %}
+    </div>
 </section>
 {% endblock content %}

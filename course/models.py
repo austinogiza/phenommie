@@ -23,7 +23,11 @@ class UserLibrary(models.Model):
 
     @property
     def get_courses_saved_count(self):
-        return self.savedcourse_set.all().count()
+        return self.savedcourse.all().count()
+
+    @property
+    def get_courses_count(self):
+        return self.courses.all().count()
 
     @property
     def get_review_count(self):
@@ -33,6 +37,8 @@ class UserLibrary(models.Model):
 def post_user_signup_receiver(sender, instance, created, *args, **kwargs):
     if created:
         UserLibrary.objects.get_or_create(user=instance)
+        # SavedCourse.objects.get_or_create(user=instance)
+        # Order.objects.get_or_create(user=instance)
 
 
 post_save.connect(post_user_signup_receiver, sender=settings.AUTH_USER_MODEL)
@@ -131,8 +137,12 @@ class SavedCourse(models.Model):
     time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.user
+        return self.user.username
 
     class Meta:
         verbose_name = "Saved Course"
         verbose_name_plural = "Saved Courses"
+
+    @property
+    def get_saved_count(self):
+        return self.course_set.all().count()

@@ -1,0 +1,102 @@
+{% extends 'base.html' %} {% load static %} {% block css %}
+
+<link rel="stylesheet" href="{% static 'css/contact.css' %}" />
+<title>{{project.title|title}} - Phenommie</title>
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock css %} {% block content %}
+
+<section class="course_hero"
+    style="width:100%; min-height: 500px; background:url('{{project.image.url}}') center center/cover; ">
+
+    <div class="container">
+
+        <h1>{{project.title|title}}</h1>
+
+    </div>
+</section>
+
+
+<section class="project_header">
+
+    <div class="container">
+        <h1>{{project.title|title}}</h1>
+        <p>{{project.content_header|title}}</p>
+    </div>
+</section>
+
+<section class="view_project">
+    <div class="container">
+        <img src="{{project.image.url}}" alt="">
+        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, exercitationem?</h1>
+        <a href="#" class="btn btn-project">View Project</a>
+    </div>
+</section>
+
+<section class="project_details">
+
+    <div class="container">
+        <div class="project_body">
+            <h1>Lorem ipsum dolor sit amet.</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus quia ipsum recusandae eius, totam
+                ratione incidunt nemo maxime laborum officia quae maiores, sunt nulla sed, veritatis rem voluptatem.
+                Libero, omnis officiis voluptatum ullam dolor optio excepturi perferendis placeat molestiae nam ducimus
+                architecto, fuga amet ex, eum aliquam quia sit cum fugit nisi nihil? Eius at dolor, cum exercitationem
+                nemo error quo atque aliquam id est sunt, laudantium tempore! Ab neque iure cumque, praesentium quaerat
+                in necessitatibus maxime alias temporibus quas, suscipit a reiciendis ipsum nesciunt, quos eveniet?
+                Tempore impedit veniam accusantium praesentium quod, consequuntur voluptatum, eius, ea beatae mollitia
+                at!</p>
+        </div>
+
+        <div class="project_image">
+           {% if project.image_1 %}
+            <img src="{{project.image_1.url}}" alt="">
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+
+
+<section class="presentation">
+    <div class="container">
+       {% if project.presentation %}
+        <img src="{{project.presentation.url}}" alt="">
+        {% endif %}
+    </div>
+</section>
+
+<section class="project_details">
+
+    <div class="container">
+        <div class="project_body">
+            <h1>Lorem ipsum dolor sit amet.</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus quia ipsum recusandae eius, totam
+                ratione incidunt nemo maxime laborum officia quae maiores, sunt nulla sed, veritatis rem voluptatem.
+                Libero, omnis officiis voluptatum ullam dolor optio excepturi perferendis placeat molestiae nam ducimus
+                architecto, fuga amet ex, eum aliquam quia sit cum fugit nisi nihil? Eius at dolor, cum exercitationem
+                nemo error quo atque aliquam id est sunt, laudantium tempore! Ab neque iure cumque, praesentium quaerat
+                in necessitatibus maxime alias temporibus quas, suscipit a reiciendis ipsum nesciunt, quos eveniet?
+                Tempore impedit veniam accusantium praesentium quod, consequuntur voluptatum, eius, ea beatae mollitia
+                at!</p>
+        </div>
+
+        <div class="project_image">
+           {% if project.image_1 %}
+            <img src="{{project.image_1.url}}" alt="">
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="project_photos">
+
+    <div class="container">
+    {% if project.image_2 %}
+        <div class="images image_1"><img src="{{project.image_2.url}}" alt=""></div>
+{% endif %}
+ {% if project.image_4 %}
+        <div class="images image_2"><img src="{{project.image_4.url}}" alt=""></div>
+{% endif %}
+    </div>
+</section>
+{% endblock content %}

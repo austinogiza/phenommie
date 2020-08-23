@@ -1,14 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %} {% load static %} {% block css %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<link rel="stylesheet" href="{% static 'css/contact.css' %}" />
+<title>Dashboard - Phenommie</title>
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock css %} {% block content %}
 
-<body>
+<section class="dashboard_section">
+  <div class="wrapper">
+{% include 'sidebar.html' %}
+    <section class="dashboard_body">
 
-</body>
+      <section class="dashboard_hero">
+        <div class="container">
+          <div class="title_card">
+            <h1>Hello {{request.user.first_name}}, <br> Your Account Summary</h1>
+          </div>
+          <div class="dashboard_card">
+            <div class="dashboard_box">
+              <h1>{{count.get_courses_count}}</h1>
+              <p>
+                Total {% if count.get_courses_count == 1 or count.get_courses_count == 0  %} Course{% else %}
+                Courses {% endif %}
+              </p>
+              <a href="#course" class="btn btn-view">View</a>
+            </div>
 
-</html>
+            <div class="dashboard_box">
+              <h1>{{saved.all.count}}</h1>
+              <p>
+                Saved {% if saved.all.count == 1 or saved.all.count == 0  %} Course{% else %}
+                Courses {% endif %}
+
+              </p>
+              <a href="#saved" class="btn btn-view">View</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="dashboard_courses">
+        <div class="container">
+          <div class="dashboard_courses_title">
+            <h1>Courses Bought</h1>
+          </div>
+          <div id="course" class="dashboard_cover_course">
+            {% for course in library %}
+            <div class="course_cover">
+
+              <img src="{{course.image.url}}" alt="">
+              <h1>{{course.title}}</h1>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem, quos.</p>
+              <p class="price"> &#8358; {{course.amount}}</p>
+              <a href="{{course.get_absolute_url}}" class="btn btn-course"> <i class="fas fa-play-circle"></i> Watch</a>
+            </div>
+            {% empty %}
+            <h1 class="center_text">No Course Bought Yet</h1>
+            {% endfor %}
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="dashboard_courses">
+        <div class="container">
+          <div id="saved" class="dashboard_courses_title">
+            <h1>Courses Saved</h1>
+          </div>
+          <div class="dashboard_cover_course">
+            {% for course in saved %}
+            <div class="course_cover">
+
+              <img src="{{course.course.image.url}}" alt="">
+              <h1>{{course.course.title}}</h1>
+              <p>{{course.course.title|truncatechars:100}}</p>
+              <p class="price"> &#8358; {{course.course.amount}}</p>
+           
+              <a href="{{course.course.get_absolute_url}}" class="btn btn-course"> View Course</a>
+            </div>
+            {% empty%}
+            <h1 class="center_text">No Saved Course</h1>
+            {% endfor %}
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+  </div>
+</section>
+{% endblock content %}

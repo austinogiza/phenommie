@@ -7,15 +7,18 @@ from django.db.models import Sum
 
 
 class OrderItem(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE)
     course = models.ForeignKey(Courses, on_delete=models.CASCADE)
+    is_ordered = models.BooleanField(default=False, blank=True, null=True)
 
     def __str__(self):
         return self.course.title
 
 
 class Order(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL,
-                                on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE)
     items = models.ManyToManyField(OrderItem)
     is_ordered = models.BooleanField(default=False)
     date_ordered = models.DateTimeField(auto_now_add=True)
@@ -34,7 +37,7 @@ class Order(models.Model):
 
 
 class Payment(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL,
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
                                 on_delete=models.SET_NULL, blank=True, null=True)
     # order = models.ForeignKey(
     #     Order, on_delete=models.SET_NULL, blank=True, null=True)

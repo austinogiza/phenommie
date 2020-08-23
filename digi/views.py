@@ -1,18 +1,76 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from django.views.generic import ListView, DetailView
-from .models import Contact, Portfolio, PortfolioCategory
+from django.views.generic import ListView, DetailView, TemplateView
+from .models import Contact, Portfolio, PortfolioCategory, CustomUser
 from .forms import ContactForm
 from course.models import Courses
+from order.models import Order, OrderItem
+from course.models import SavedCourse
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.paginator import Paginator
+from django.db.models import Q
 
 # Create your views here.
 
+OWNED = 'owned'
+IN_CART = 'in_cart'
+NOT_IN_CART = 'not_in_cart'
 
-def dashboard(request):
+
+def search(request):
+    query = request.GET.get('q')
+    if query:
+        results = Courses.objects.filter(
+            Q(title__icontains=query) | Q(description__icontains=query)).distinct()
+    paginator = Paginator(results, 12)  # Show 12 contacts per page.
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     context = {
+        "results": results
 
     }
-    return render(request, 'dashboard.html', context)
+    return render(request, 'search.html', context)
+
+
+def check_course_relationship(request, slug):
+    course = get_object_or_404(Courses, slug=slug)
+    if course in request.user.userlibrary.course_list:
+        return OWNED
+    order_qs = Order.objects.filter(user=request.user)
+    if order_qs.exists():
+        order = order_qs[0]
+        order_item_qs = OrderItem.objects.filter(course=course)
+        if order_item_qs.exists():
+            order_item = order_item_qs[0]
+            if order_item in order.items.all():
+                return IN_CART
+    return NOT_IN_CART
+
+
+class DashboardView(LoginRequiredMixin, TemplateView):
+    template_name = "dashboard.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(DashboardView, self).get_context_data(**kwargs)
+
+        context.update({
+            "order": Order.objects.filter(user=self.request.user, is_ordered=True),
+            'library': self.request.user.userlibrary.course_list,
+            'count': self.request.user.userlibrary,
+            'saved': SavedCourse.objects.filter(user=self.request.user),
+            'orderitem': Order.objects.filter(user=self.request.user, is_ordered=False),
+
+
+        })
+        return context
+
+
+# def dashboard(request):
+#     context = {
+
+#     }
+#     return render(request, '', context)
 
 
 def home(request):
@@ -60,6 +118,7 @@ class CoursesListView(ListView):
 
 class PortfolioDetailView(DetailView):
     model = Portfolio
+    context_object_name = 'project'
     template_name = 'projects.html'
 
 
@@ -78,22 +137,36 @@ class PortfolioView(ListView):
         return context
 
 
-class PortfolioCategoryView(ListView):
-    model = PortfolioCategory
-    template_name = 'category.html'
+def category(request, slug):
+    instance = Portfolio.objects.all()
+    categories = PortfolioCategory.objects.all()
+    category = get_object_or_404(PortfolioCategory, slug=slug)
+    instance_qs = instance.filter(category=category)
+    paginator = Paginator(instance_qs, 12)  # Show 12 contacts per page.
 
-    def get_queryset(self):
-        qs = Portfolio.objects.all()
-        category = self.request.GET.get('category', None)
-        if category:
-            qs = qs.filter(category__title=category)
-        return qs
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {
+        "page_obj":  page_obj,
+        "category": category,
+        "categories": categories
+
+    }
+    return render(request, "category.html", context)
+
+
+class BoughtCourseView(LoginRequiredMixin, TemplateView):
+    template_name = 'bought.html'
 
     def get_context_data(self, **kwargs):
-        context = super(PortfolioCategoryView, self).get_context_data(**kwargs)
-        context.update(
-            {
-                'categories': PortfolioCategory.objects.all()
-            }
-        )
+        context = super(BoughtCourseView, self).get_context_data(**kwargs)
+
+        context.update({
+            "order": Order.objects.filter(user=self.request.user, is_ordered=True),
+            'library': self.request.user.userlibrary.course_list,
+            'count': self.request.user.userlibrary,
+            'saved': SavedCourse.objects.filter(user=self.request.user),
+            'orderitem': Order.objects.filter(user=self.request.user, is_ordered=False),
+
+        })
         return context

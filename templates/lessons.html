@@ -55,6 +55,7 @@
             </div>
 
             <div class="video_player">
+            {% if request.user.is_authenticated %}
                 {% if object.course in request.user.userlibrary.course_list %}
                 <h1>{{object.title|title}}</h1>
 
@@ -79,9 +80,15 @@
                 <a href="{% url 'order:add-to-cart' object.course.slug %}" class="btn btn-payment">Enrol Now</a>
                 {% endif %}
                 {% endif %}
-
+                
+                {% else %}
+                 <h1>Ready to become a professional in {{object.title|title}}?</h1>
+                <p> Please Login</p>
+                <a href="{% url 'account_login' %}" class="btn btn-payment">Login</a>
+  {% endif %}
 
             </div>
+          
 
         </div>
     </div>

@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% load static %} {% block css %}
+
+<link rel="stylesheet" href="{% static 'css/contact.css' %}" />
+<title>Courses Bought - Phenommie</title>
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock css %} {% block content %}
+
+<section class="dashboard_section">
+  <div class="wrapper">
+{% include 'sidebar.html' %}
+    <section class="dashboard_body">
+
+  
+
+      <div class="dashboard_courses">
+        <div class="container">
+          <div class="dashboard_courses_title">
+            <h1>Courses Bought</h1>
+          </div>
+          <div id="course" class="dashboard_cover_course">
+            {% for course in library %}
+            <div class="course_cover">
+
+              <img src="{{course.image.url}}" alt="">
+              <h1>{{course.title}}</h1>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem, quos.</p>
+              <p class="price"> &#8358; {{course.amount}}</p>
+              <a href="{{course.get_absolute_url}}" class="btn btn-course"> <i class="fas fa-play-circle"></i> Watch</a>
+            </div>
+            {% empty %}
+            <h1 class="center_text">No Course Bought Yet</h1>
+            {% endfor %}
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+  </div>
+</section>
+{% endblock content %}
