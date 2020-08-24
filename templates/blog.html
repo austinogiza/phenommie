@@ -30,7 +30,7 @@
                 <img src="{{digi.url}}" height="{{ digi.height }}" width="{{ digi.width }}" alt="{{object.title}}">
                 {% endthumbnail %}
                 <h1>{{object.title|title}}</h1>
-                <p>{{object.content|truncatechars:50}}</p>
+                <p>{{object.content|safe|truncatechars:50}}</p>
                 <div class="rating">
 
                     <div class="like">{{object.get_like_count}}<i class="far fa-thumbs-up"></i></div>

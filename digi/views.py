@@ -17,6 +17,9 @@ IN_CART = 'in_cart'
 NOT_IN_CART = 'not_in_cart'
 
 
+def about(request):
+    return render(request, 'about.html')
+
 def search(request):
     query = request.GET.get('q')
     if query:
@@ -74,7 +77,11 @@ class DashboardView(LoginRequiredMixin, TemplateView):
 
 
 def home(request):
-    return render(request, 'index.html')
+    portfolio = Portfolio.objects.all()[:3]
+    context ={
+        'portfolio': portfolio
+    }
+    return render(request, 'index.html', context)
 
 
 def contact(request):

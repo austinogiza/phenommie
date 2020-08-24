@@ -1,163 +1,140 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block css %}
+{% extends 'base.html' %} {% load static %} {% block css %}
 
 <title>Phenommie - Home</title>
-<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
 
-<link rel="stylesheet" href="{% static 'css/contact.css' %}">
-{% endblock css %}
-
-{% block content %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}" />
+{% endblock css %} {% block content %}
 
 <body>
+  <header>
+    <div class="container">
+      <h1 class="phen-text"></h1>
+      <p>
+        We’d help you communicate better and build trust with your ideal
+        audience.
+      </p>
 
+      <a href="#" class="btn btn-sign">Get Started</a>
+    </div>
+  </header>
 
-    <header>
+  <section class="potential">
+    <div class="container">
+      <h1>Doing Business Online Shouldn’t Be Rocket Science</h1>
+      <p>
+        What if you have a community of loyal customers who sees no competition
+        and helps spread the word about your brand?
+      </p>
+    </div>
+  </section>
 
-        <div class="container">
+  <section class="magic">
+    <div class="container">
+      <div class="magic-top">
+        <h1>
+          How the magic <br />
+          happens
+        </h1>
 
-            <h1 class="phen-text"></h1>
-            <p>We’d help you communicate better and build trust with your ideal audience.</p>
-
-            <a href="#" class="btn btn-sign">Get Started</a>
+        <p><a href="#">See All >></a></p>
+      </div>
+      <div class="magic-middle">
+        <div class="magic-box">
+          <img src="{% static 'images/icon.svg'%}" alt="" />
+          <h1>
+            Strategic Branding
+          </h1>
+          <p>
+            We’d help you find your way to the hearts of your customers with
+            ease.
+          </p>
         </div>
-
-    </header>
-
-
-    <section class="potential">
-
-        <div class="container">
-
-            <h1>Doing Business Online Shouldn’t
-                Be Rocket Science</h1>
-            <p>What if you have a community of loyal customers
-                who sees no competition and helps spread the word about your brand?</p>
+        <div class="magic-box">
+          <img src="{% static 'images/icon.svg'%}" alt="" />
+          <h1>
+            Software Development
+          </h1>
+          <p>
+            Let’s help you and your ideal audience do business with ease, so
+            it’s a win win for you both - Happy Customer = More Profits.
+          </p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="magic">
+  <section class="ideas">
+    <div class="container">
+      <div class="ideas_bold">
+        <h1>Your Ideas brought to life</h1>
+      </div>
 
-        <div class="container">
+      <div class="idea_light">
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged. It was popularised in the 1960s with
+          the release of Letraset sheets containing Lorem
+        </p>
+      </div>
+    </div>
+  </section>
 
-            <div class="magic-top">
+  <section class="our_portfolio">
+    <div class="portfolio_title">
+      <h1>Our Portfolio</h1>
+      <p>Check out some of our purposeful and customer-centric projects</p>
+    </div>
 
-                <h1>How the magic <br> happens</h1>
+    <div class="container">
+      <div class="portfolio_table">
+        {% for portfolio in portfolio %}
 
-                <p><a href="#">See All >></a></p>
-            </div>
-            <div class="magic-middle">
-
-                <div class="magic-box">
-                    <img src="{% static 'images/icon.svg'%}" alt="">
-                    <h1>
-                        Strategic Branding
-                    </h1>
-                    <p>We’d help you find your way to the hearts of your customers with ease.</p>
-                </div>
-                <div class="magic-box">
-                    <img src="{% static 'images/icon.svg'%}" alt="">
-                    <h1>
-                        Software Development
-                    </h1>
-                    <p>Let’s help you and your ideal audience do business with ease, so it’s a win win for you both -
-                        Happy Customer = More Profits.</p>
-                </div>
-
-
-
-            </div>
+        <div class="portfolio_box portfolio_cover">
+          <img src="{{portfolio.image.url}}" alt="" />
+          <div class="portfolio_description">
+            <a href="{{portfolio.get_absolute_url}}">
+              <h1>{{portfolio.title}}</h1>
+            </a>
+          </div>
         </div>
-    </section>
-
-
-
-    <section class="ideas">
-
-        <div class="container">
-            <div class="ideas_bold">
-                <h1>Your Ideas brought to life</h1>
-            </div>
-
-            <div class="idea_light">
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                    leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                    with the release of Letraset sheets containing Lorem</p>
-            </div>
+        {% endfor %}
+        <div class="portfolio_box see_more">
+          <h1>Want to see more projects?</h1>
+          <a href="{% url 'digi:portfolio' %}" class="btn btn-send">
+            See More</a
+          >
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="our_portfolio">
+  <section class="courses">
+    <div class="container">
+      <div class="take_course">
+        <h1>Grow your knowledge- base</h1>
+        <p>
+          Learn all the important skills you need to connect better with your
+          ideal audience, grow your brand online, & make recurrent sales.
+        </p>
+        <a href="{% url 'digi:courses' %}" class="btn btn-send"
+          >Take A Course</a
+        >
+      </div>
 
-        <div class="portfolio_title">
-            <h1>Our Portfolio</h1>
-            <p>Check out some of our purposeful and customer-centric projects
-            </p>
-        </div>
+      <div class="take_course_image">
+        <img src="{% static 'images/courses.png' %}" alt="" />
+      </div>
+    </div>
+  </section>
 
-        <div class="container">
-            <div class="portfolio_table">
+  {% include 'ready.html' %}
 
-                <div class="portfolio_box portfolio_cover">
-                    <img src="{% static 'images/flyer.png' %}" alt="">
-                    <div class="portfolio_description">
-                        <a href="#">
-                            <h1>Canva 101</h1>
-                        </a>
-                    </div>
-                </div>
-                <div class="portfolio_box portfolio_cover">
-                    <img src="{% static 'images/flyer.png' %}" alt="">
-                    <div class="portfolio_description">
-                        <a href="#">
-                            <h1>Canva 101</h1>
-                        </a>
-                    </div>
-                </div>
-                <div class="portfolio_box portfolio_cover">
-                    <img src="{% static 'images/flyer.png' %}" alt="">
-                    <div class="portfolio_description">
-                        <a href="#">
-                            <h1>Canva 101</h1>
-                        </a>
-                    </div>
-                </div>
-                <div class="portfolio_box see_more">
-                    <h1>Want to see more projects?</h1>
-                    <a href="{% url 'digi:portfolio' %}" class="btn btn-send"> See More</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="courses">
-
-        <div class="container">
-
-            <div class="take_course">
-
-                <h1>Grow your
-                    knowledge-
-                    base</h1>
-                <p>Learn all the important skills you need to connect better with your ideal audience, grow your brand
-                    online, & make recurrent sales. </p>
-                <a href="{% url 'digi:courses' %}" class="btn btn-send">Take A Course</a>
-            </div>
-
-            <div class="take_course_image">
-                <img src="{% static 'images/courses.png' %}" alt="">
-            </div>
-        </div>
-    </section>
-
-
-{% include 'ready.html' %}
-
-    <!-- <section class="need">
+  <!-- <section class="need">
 
         <div class="container">
 
@@ -202,9 +179,8 @@
         </div>
     </section> -->
 
-    <script src="{% static 'js/gsap.min.js' %}"></script>
-    <script src="{% static 'js/TextPlugin.min.js' %}"></script>
-
+  <script src="{% static 'js/gsap.min.js' %}"></script>
+  <script src="{% static 'js/TextPlugin.min.js' %}"></script>
 </body>
 
 {% endblock content %}

@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, AbstractBaseUser
 from django.shortcuts import reverse
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -64,7 +65,8 @@ class Portfolio(models.Model):
     title = models.CharField(max_length=300)
     date = models.DateTimeField(auto_now_add=True)
     content_header = models.CharField(max_length=500, blank=True, null=True)
-    content_body = models.TextField(max_length=2000, blank=True, null=True)
+    content_body = RichTextField(blank=True, null=True)
+    end_body = RichTextField(blank=True, null=True)
     details = models.TextField(max_length=2000, blank=True, null=True)
     presentation = models.ImageField(blank=True, null=True)
     image = models.ImageField()

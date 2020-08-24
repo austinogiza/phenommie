@@ -196,6 +196,7 @@ a {
   -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
   background: var(--off-white);
+  color: var(--black);
   -webkit-background: background;
 }
 
@@ -252,6 +253,8 @@ footer .container {
   -ms-flex-align: center;
   align-items: center;
   font-size: 18px;
+  background: var(--black);
+  color: var(--white);
 }
 
 footer .social-links {
@@ -381,7 +384,7 @@ footer .social-links li a:hover::after {
   -ms-flex-pack: center;
   justify-content: center;
   background: var(--green-gradient);
-  font-size: 21px;
+  font-size: 18px;
   list-style-type: none;
   color: var(--white);
   font-family: "Poppins", sans-serif;

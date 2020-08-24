@@ -1,17 +1,11 @@
-    <section class="dashboard_sidebar">
-      <div class="container">
-
-        <div class="title">
-          Dashboard
-        </div>
-
-        <div class="list">
-
-          <ul>
-            <li><a href="{% url 'digi:dashboard' %}">Dashboard</a></li>
-            <li><a href="{% url 'digi:dashboard-course' %}">Courses</a></li>
-            <li><a href="">Profile</a></li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="nav">
+    <ul class="nav__list" role="menubar">
+      <li class="nav__item">
+        <a href="{% url 'digi:dashboard'%}" class="nav__link"><i class="fas fa-home"></i> <p>Dashboard</p></a>
+      
+      </li>
+     <li class="nav__item"> <a href="{% url 'digi:dashboard-course' %}" class="nav__link"><i class="fab fa-youtube"></i> <p>Courses</p></a></li>
+     <li class="nav__item"> <a href="#" class="nav__link"><i class="fas fa-user-alt"></i> <p>Profile</p></a></li>
+      <li class="nav__item"><a href="{% url 'account_logout' %}" class="nav__link"><i class="fas fa-sign-out-alt"></i> <p>Logout</p></a></li>
+    </ul>
+  </nav>

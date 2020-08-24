@@ -1,5 +1,4 @@
-{% extends 'base.html' %} {% load static %} 
-{% block css %}
+{% extends 'base.html' %} {% load static %} {% block css %}
 
 <link rel="stylesheet" href="{% static 'css/contact.css' %}" />
 <title>Our Portfolio - Phenommie</title>
@@ -7,78 +6,78 @@
 {% endblock css %} {% block content %}
 
 <section class="main_hero">
-    <div class="container">
-        <h1>Prove of Work</h1>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br />
-            Ut laoreet, velit cursus tincidunt accumsan
-        </p>
-    </div>
-
-    
+  <div class="container">
+    <h1>Prove of Work</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br />
+      Ut laoreet, velit cursus tincidunt accumsan
+    </p>
+  </div>
 </section>
 <section class="portfolio">
-    <div class="container">
-        <div class="section-filter">
-            <div class="container">
-                <ul>
-                    {% for portfoliocategory in categories %}
-                    <li class="selector">
-                        <a href="{{portfoliocategory.get_absolute_url}}">{{portfoliocategory.title}}</a>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
+  <div class="container">
+    <div class="section-filter">
+      <div class="container">
+        <ul>
+          {% for portfoliocategory in categories %}
+          <li class="selector">
+            <a href="{{portfoliocategory.get_absolute_url}}"
+              >{{portfoliocategory.title}}</a
+            >
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
     </div>
+  </div>
 </section>
 
 <section class="our_portfolio">
-    <div class="portfolio_table">
-        {% for object in object_list %}
-        <div class="portfolio_box portfolio_cover">
-            <img src="{{object.image.url}}" alt="" />
-            <div class="portfolio_description">
-                <a href="{{object.get_absolute_url}}">
-                    <h1>{{object.title}}</h1>
-                </a>
-            </div>
-        </div>
-        {% endfor %}
+  <div class="portfolio_table">
+    {% for object in object_list %}
+    <div class="portfolio_box portfolio_cover">
+      <img src="{{object.image.url}}" alt="" />
+      <div class="portfolio_description">
+        <a href="{{object.get_absolute_url}}">
+          <h1>{{object.title}}</h1>
+        </a>
+      </div>
     </div>
+    {% endfor %}
+  </div>
 </section>
 
 <section class="pagination">
-    <div class="container">
-        {% if is_paginated %}
+  <div class="container">
+    {% if is_paginated %}
 
-        <div class="page_number">
-            <ul>
-                {% if page_obj.has_previous %}
-                <li>
-                    <a href="?page={{page_obj.previous_page_number}}">
-                        <i class="fas fa-angle-double-left"></i> Previous</a>
-                </li>
-                {% endif %}
-                <li class="number_current">
-                    <a href="?page={{page_obj.number}}"> {{page_obj.number}}</a>
-                </li>
-                {% if page_obj.has_next %}
+    <div class="page_number">
+      <ul>
+        {% if page_obj.has_previous %}
+        <li>
+          <a href="?page={{page_obj.previous_page_number}}">
+            <i class="fas fa-angle-double-left"></i> Previous</a
+          >
+        </li>
+        {% endif %}
+        <li class="number_current">
+          <a href="?page={{page_obj.number}}"> {{page_obj.number}}</a>
+        </li>
+        {% if page_obj.has_next %}
 
-                <li>
-                    <a href="?page={{page_obj.next_page_number}}">
-                        Next <i class="fas fa-angle-double-right"></i></a>
-                </li>
-
-                {% endif %}
-            </ul>
-        </div>
+        <li>
+          <a href="?page={{page_obj.next_page_number}}">
+            Next <i class="fas fa-angle-double-right"></i
+          ></a>
+        </li>
 
         {% endif %}
+      </ul>
     </div>
+
+    {% endif %}
+  </div>
 </section>
-
-
 
 {% include 'ready.html' %}
 <script src="{% static 'js/portfolio.js' %}"></script>

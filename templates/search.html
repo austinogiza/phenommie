@@ -61,6 +61,9 @@
                     <a href="{{ course.get_absolute_url }}"></a>
                 </div>
 
+                {% empty%}
+                <p>No Result In  {{request.GET.q|title}} Search </p>
+
                 {% endfor %}
             </div>
         </div>
@@ -101,6 +104,6 @@
     </div>
 </section>
 
-
+{% include 'ready.html' %}
 <script src="{% static 'js/portfolio.js' %}"></script>
 {% endblock content %}

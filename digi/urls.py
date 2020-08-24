@@ -24,6 +24,7 @@ urlpatterns = [
          views.category, name='category'),
     path('dashboard/', views.DashboardView.as_view(), name='dashboard'),
     path('search/', views.search, name='search'),
+    path('about/', views.about, name='about'),
 
     path('dashboard/courses', views.BoughtCourseView.as_view(),
          name='dashboard-course'),

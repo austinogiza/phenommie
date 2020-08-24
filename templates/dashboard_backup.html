@@ -4,9 +4,10 @@
 <title>Dashboard - Phenommie</title>
 <link rel="stylesheet" href="{% static 'css/home.css' %}" />
 {% endblock css %} {% block content %}
-<section class="dashboard_wrapper">
-{% include 'sidebar.html' %}
-  <main class="main">
+
+<section class="dashboard_section">
+  <div class="wrapper">
+    {% include 'sidebar.html' %}
     <section class="dashboard_body">
       <section class="dashboard_hero">
         <div class="container">
@@ -20,9 +21,9 @@
             <div class="dashboard_box">
               <h1>{{count.get_courses_count}}</h1>
               <p>
-                Total 
-                {% if count.get_courses_count == 1 or count.get_courses_count == 0 %} Course {% else %} Courses 
-                {% endif %}
+                Total {% if count.get_courses_count == 1 or
+                count.get_courses_count == 0 %} Course{% else %} Courses {%
+                endif %}
               </p>
               <a href="#course" class="btn btn-view">View</a>
             </div>
@@ -92,6 +93,6 @@
         </div>
       </div>
     </section>
-  </main>
+  </div>
 </section>
 {% endblock content %}

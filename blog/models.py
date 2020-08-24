@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.shortcuts import reverse
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -10,7 +11,7 @@ class Post(models.Model):
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=50,  blank=True, null=True)
     thumbnail = models.ImageField()
-    content = models.TextField(max_length=5500, blank=True, null=True)
+    content = RichTextField(blank=True, null=True)
     publish_date = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField()
 
@@ -38,7 +39,7 @@ class Post(models.Model):
 
 class PostComment(models.Model):
     user = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True, null=True)
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     content = models.CharField(max_length=5500, blank=True, null=True)
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, blank=True, null=True)

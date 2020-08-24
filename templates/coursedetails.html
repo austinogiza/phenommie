@@ -15,7 +15,7 @@
     <div class="container">
 
         <h1>{{course.title|title}}</h1>
-        <p>{{course.description|truncatechars:100}}</p>
+        <p>{{course.description|safe|truncatechars:100}}</p>
         {% if course_status != 'owned' %}
         {% if course_status == 'in_cart' %}
         <p>You currently have this course in your cart</p>
@@ -65,7 +65,7 @@
         <div class="course_side">
             <div class="course_description">
                 <h1>{{course.title|title}}</h1>
-                <p>{{course.description}}</p>
+                <p>{{course.description|safe}}</p>
 
             </div>
 

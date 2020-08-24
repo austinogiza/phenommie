@@ -20,7 +20,7 @@ ALLOWED_HOSTS = []
 # ALLOWED_HOSTS = ['https://phenommie.herokuapp.com', 'phenommie.herokuapp.com']
 
 
-# Application definition
+# Application definitionf
 
 
 INSTALLED_APPS = [
@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'course',
     'order',
     "paystack",
+  "ckeditor_uploader",
+  'ckeditor'
 
 
 
@@ -100,7 +102,7 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
+# DATABASES = { 
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
@@ -157,6 +159,7 @@ MEDIA_URL = '/media/'
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 AUTHENTICATION_BACKENDS = [
 

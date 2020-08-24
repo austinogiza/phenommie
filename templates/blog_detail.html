@@ -24,7 +24,7 @@
         </div>
         <h1>{{object.title|title}}</h1>
 
-        <p>{{object.content|linebreaks}}</p>
+        <p>{{object.content|safe}}</p>
         <div class="leave">
 
             {% if request.user.is_authenticated %}
@@ -45,13 +45,13 @@
             </div>
             {% endfor %}
             <h1>Leave a comment</h1>
-            <div class="comment_box">
+            <div class="comment_box_big">
                 {% if request.user.is_authenticated%}
 
                 <div class="form_section">
 
                     <div class="form_container">
-                        <form class="form" action="" method="POST">
+                        <form class="form blog_form" action="" method="POST">
                             {% csrf_token %}
                             <label>
 

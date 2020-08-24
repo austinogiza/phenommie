@@ -1,0 +1,129 @@
+{% extends 'base.html' %} {% load static %} {% block css %} {% load humanize %}
+
+<link rel="stylesheet" href="{% static 'css/contact.css' %}" />
+<title>Our Courses - Phenommie</title>
+{% endblock css %} {% block content %}
+
+<section class="main_hero">
+  <div class="container">
+    <h1>Here’s where you meet and fall in love with us</h1>
+    <p>
+      Brick and mortar businesses alone don’t cut it anymore.
+    </p>
+  </div>
+</section>
+
+<section class="who_are">
+  <div class="container">
+    <div class="who_text">
+      <h1>Lorem ipsum dolor sit amet.</h1>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit dolor
+        voluptatibus odio consequuntur ratione laboriosam ducimus dolore minus
+        at nihil.
+      </p>
+    </div>
+
+    <div class="who_image">
+      <img src="{% static 'images/flyer.png' %}" alt="" />
+    </div>
+  </div>
+</section>
+
+<section class="customers">
+  <div class="container">
+    <img src="{% static 'images/icon_center.svg'%}" alt="" />
+    <h1>
+      “Let’s help you secure a loving spot in the
+      <span class="green">minds of your customers, </span> and make doing
+      business easy for you both, so they can keep doing business with you from
+      the comforts of their homes”
+    </h1>
+  </div>
+</section>
+
+<section class="who_are">
+  <div class="container">
+    <div class="who_text">
+      <h1>Lorem ipsum dolor sit amet.</h1>
+      <p>
+        “Let’s help you secure a loving spot in the minds of your customers, and
+        make doing business easy for you both, so they can keep doing business
+        with you from the comforts of their homes”
+      </p>
+    </div>
+
+    <div class="who_image">
+      <h1>Lorem ipsum dolor sit amet.</h1>
+      <img src="{% static 'images/flyer.png' %}" alt="" />
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, quod
+        magnam ut eos quisquam commodi dolorum facilis cumque eum officia?
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="who_are">
+  <div class="container">
+    <div class="who_image">
+      <h1>Lorem ipsum dolor sit amet.</h1>
+      <img src="{% static 'images/flyer.png' %}" alt="" />
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, quod
+        magnam ut eos quisquam commodi dolorum facilis cumque eum officia?
+      </p>
+    </div>
+    <div class="who_text">
+      <h1>Lorem ipsum dolor sit amet.</h1>
+      <p>
+        “Let’s help you secure a loving spot in the minds of your customers, and
+        make doing business easy for you both, so they can keep doing business
+        with you from the comforts of their homes”
+      </p>
+
+      <ul>
+        <li><i class="fas fa-check"></i>Branding</li>
+        <li><i class="fas fa-check"></i>Webdevelopment</li>
+        <li><i class="fas fa-check"></i> UI/UX</li>
+      </ul>
+
+      <a href="#" class="btn btn-payment">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<section class="team">
+  <div class="container">
+    <div class="title">
+      <h1>Our <span class="green">Amazing</span> Team</h1>
+    </div>
+
+    <div class="team_cover">
+      <div class="team_box">
+        <img src="{% static 'images/team.png' %}" alt="" />
+        <h1>Remmie</h1>
+        <p>Designer</p>
+      </div>
+      <div class="team_box">
+        <img src="{% static 'images/team.png' %}" alt="" />
+        <h1>Remmie</h1>
+        <p>Designer</p>
+      </div>
+      <div class="team_box">
+        <img src="{% static 'images/team.png' %}" alt="" />
+        <h1>Remmie</h1>
+        <p>Designer</p>
+      </div>
+      <div class="team_box">
+        <img src="{% static 'images/team.png' %}" alt="" />
+        <h1>Remmie</h1>
+        <p>Designer</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% include 'ready.html' %}
+
+<script src="{% static 'js/portfolio.js' %}"></script>
+{% endblock content %}

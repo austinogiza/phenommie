@@ -10,7 +10,7 @@ urlpatterns = [
     path('', include('blog.urls')),
     path('', include('course.urls')),
     path('', include('order.urls')),
-    path('tinymce/', include('tinymce.urls')),
+   path('ckeditor/', include('ckeditor_uploader.urls')),
 
     path('accounts/', include('allauth.urls')),
     path("paystack", include(('paystack.urls', 'paystack'), namespace='paystack')),

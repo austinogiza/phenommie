@@ -4,15 +4,10 @@
 <title>Courses Bought - Phenommie</title>
 <link rel="stylesheet" href="{% static 'css/home.css' %}" />
 {% endblock css %} {% block content %}
-
-<section class="dashboard_section">
-  <div class="wrapper">
+<section class="dashboard_wrapper">
 {% include 'sidebar.html' %}
-    <section class="dashboard_body">
-
-  
-
-      <div class="dashboard_courses">
+  <main class="main">
+     <div class="dashboard_courses">
         <div class="container">
           <div class="dashboard_courses_title">
             <h1>Courses Bought</h1>
@@ -37,8 +32,6 @@
         </div>
 
       </div>
-
-    </section>
-  </div>
+  </main>
 </section>
 {% endblock content %}

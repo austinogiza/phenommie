@@ -3,6 +3,7 @@ from digi.models import CustomUser
 from django.conf import settings
 from django.shortcuts import reverse
 from django.db.models.signals import post_save
+from ckeditor.fields import RichTextField
 
 
 class UserLibrary(models.Model):
@@ -46,7 +47,7 @@ post_save.connect(post_user_signup_receiver, sender=settings.AUTH_USER_MODEL)
 
 class Courses(models.Model):
     title = models.CharField(blank=True, null=True, max_length=100)
-    description = models.TextField(blank=True, null=True, max_length=2000)
+    description = RichTextField(blank=True, null=True)
     image = models.ImageField()
     tutor = models.ForeignKey(settings.AUTH_USER_MODEL,
                               on_delete=models.CASCADE)
@@ -96,7 +97,7 @@ class Lessons(models.Model):
     course = models.ForeignKey(
         Courses, on_delete=models.CASCADE, blank=True, null=True)
     title = models.CharField(blank=True, null=True, max_length=100)
-    description = models.TextField(blank=True, null=True, max_length=800)
+    description = RichTextField(blank=True, null=True)
     image = models.ImageField()
     video = models.URLField(blank=True, null=True)
     position = models.IntegerField()
