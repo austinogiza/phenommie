@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from django.views.generic import ListView, DetailView, TemplateView
+from django.views.generic import ListView, DetailView, TemplateView, UpdateView
 from .models import Contact, Portfolio, PortfolioCategory, CustomUser
 from .forms import ContactForm
 from course.models import Courses
@@ -9,6 +9,8 @@ from course.models import SavedCourse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from django.db.models import Q
+from django.urls import reverse_lazy
+from django.contrib.messages.views import SuccessMessageMixin
 
 # Create your views here.
 
@@ -177,3 +179,16 @@ class BoughtCourseView(LoginRequiredMixin, TemplateView):
 
         })
         return context
+
+
+class ProfileView(LoginRequiredMixin, SuccessMessageMixin,UpdateView):
+    model = CustomUser
+    template_name = "profile.html"
+    fields = [  'username','first_name', 'last_name', 'email']
+  
+    success_url = reverse_lazy('digi:profile')
+    success_message = "Your profile was successfully updated"
+
+
+    def get_object(self):
+        return self.request.user

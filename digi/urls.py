@@ -28,5 +28,7 @@ urlpatterns = [
 
     path('dashboard/courses', views.BoughtCourseView.as_view(),
          name='dashboard-course'),
+           path('dashboard/profile/', views.ProfileView.as_view(),
+         name='profile'),
 
 ]

@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% load static %} {% block css %}
+{% load crispy_forms_tags %}
+
+<link rel="stylesheet" href="{% static 'css/contact.css' %}" />
+<title>Profile - Phenommie</title>
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock css %} {% block content %}
+<section class="dashboard_wrapper">
+{% include 'sidebar.html' %}
+  <main class="main">
+    <section class="dashboard_body">
+      <section class="dashboard_hero">
+        <div class="container">
+          <form method="POST" class="profile_form">
+            {% csrf_token %}
+         {{form|crispy}}
+          
+            <button class="btn btn-dashboard">Save</button>
+          </form>
+        </div>
+      </section>
+
+    </section>
+  </main>
+</section>
+{% endblock content %}
