@@ -2748,7 +2748,7 @@ form label h1,
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: minmax(450px, auto);
   grid-gap: 50px;
-  padding: 10px 20px;
+  padding: 10px;
 }
 
 .course_cover {
@@ -3441,7 +3441,7 @@ span.green {
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: minmax(450px, auto);
     grid-gap: 50px;
-    padding: 10px 20px;
+    padding: 10px ;
   }
 }
 
@@ -3469,7 +3469,7 @@ span.green {
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: minmax(450px, auto);
     grid-gap: 50px;
-    padding: 10px 20px;
+    padding: 10px ;
   }
   .course_side {
     -ms-grid-columns: 1fr;
@@ -3809,7 +3809,7 @@ font-size: 12px;
     grid-template-columns: repeat(1, 1fr);
     grid-auto-rows: minmax(450px, auto);
     grid-gap: 50px;
-    padding: 10px 20px;
+    padding: 10px;
   }
 
   .video-js {
@@ -4204,7 +4204,7 @@ font-size: 12px;
     grid-template-columns: repeat(1, 1fr);
     grid-auto-rows: minmax(450px, auto);
     grid-gap: 50px;
-    padding: 10px 20px;
+    padding: 10px;
   }
 
   .video-js {
