@@ -23,7 +23,11 @@
               <a href="{{course.get_absolute_url}}" class="btn btn-course"> <i class="fas fa-play-circle"></i> Watch</a>
             </div>
             {% empty %}
+           <div class="no_course">
             <h1 class="center_text">No Course Bought Yet</h1>
+            
+            <a href="{% url 'digi:courses'%}" class="btn btn-center">Get One</a>
+           </div>
             {% endfor %}
 
 
