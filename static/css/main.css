@@ -5,6 +5,13 @@
 * Browsers: last 4 version
 */
 
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap");
 
 *,
@@ -187,6 +194,8 @@ a {
   -webkit-border-radius: border-radius;
   -webkit-box-shadow: box-shadow;
   -webkit-outline: outline;
+  -webkit-transition: 0.4s ease-in;
+  -o-transition: 0.4s ease-in;
   transition: 0.4s ease-in;
 }
 
@@ -216,6 +225,10 @@ a {
   -webkit-border-radius: border-radius;
   -webkit-box-shadow: box-shadow;
   -webkit-outline: outline;
+
+  -webkit-transition: 0.4s ease-in;
+
+  -o-transition: 0.4s ease-in;
 
   transition: 0.4s ease-in;
 }
