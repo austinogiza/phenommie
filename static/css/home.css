@@ -50,13 +50,13 @@ h3,
 h4,
 h5 {
 
-    font-family: "Inter",
-        sans-serif;
+        font-family: "Poppins", sans-serif;
 }
 
 p,
 a {
-    font-family: "Poppins",
+
+    font-family: "Inter",
         sans-serif;
 }
 
