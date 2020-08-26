@@ -309,8 +309,9 @@ li {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding: 10px 12px;
+  padding: 10px 15px;
   background: var(--off-white);
+  color: #000000;
   border-radius: 10px;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -319,12 +320,12 @@ li {
 }
 
 .comment_box h4 {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 400;
 }
 
 .comment_box h5 {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
   margin: 10px 0;
 }
@@ -1147,8 +1148,8 @@ form label h1,
   grid-gap: 50px;
   grid-auto-rows: minmax(380px, auto);
   margin-top: 100px;
-  padding: 0 10px;
-  grid-row-gap: 20px;
+  padding: 0 30px;
+
 }
 
 .blog_box {
@@ -1210,9 +1211,9 @@ form label h1,
 }
 
 .rating i {
-  font-size: 16px;
-  margin: 5px;
-  color: var(--black);
+  font-size: 17px;
+  margin: 10px;
+  color: var(--white);
 }
 
 .blog_box a {
@@ -1326,11 +1327,13 @@ form label h1,
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  color: var(--white);
 }
 
 .blog_detail .container h1 {
   font-size: 34px;
   margin: 10px 0;
+  color: var(--white);
 }
 
 .leave a {
@@ -1338,6 +1341,7 @@ form label h1,
   -webkit-transition: 0.3s ease;
   -o-transition: 0.3s ease;
   transition: 0.3s ease;
+  color: var(--white);
 }
 
 .leave a:hover {

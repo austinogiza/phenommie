@@ -35,7 +35,7 @@
             </h1>
             {% endif %}
             <h1><i class="far fa-comments"></i>
-                Comments
+              {{object.get_comment_count}} {% if object.get_comment_count == 0 or object.get_comment_count == 1  %} Comment {% else %} Comments{% endif %}
             </h1>
             {% for postcomment in object.comments %}
             <div class="comment_box">

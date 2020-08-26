@@ -23,19 +23,27 @@ def about(request):
     return render(request, 'about.html')
 
 def search(request):
-    query = request.GET.get('q')
+    try:
+        query = request.GET.get('q')
+    except:
+        query = None
     if query:
         results = Courses.objects.filter(
             Q(title__icontains=query) | Q(description__icontains=query)).distinct()
-    paginator = Paginator(results, 12)  # Show 12 contacts per page.
+        paginator = Paginator(results, 12)  # Show 12 contacts per page.
 
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-    context = {
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+        context = {
         "results": results
 
-    }
-    return render(request, 'search.html', context)
+        }
+        return render(request, 'search.html', context)
+    else:
+    
+        return render(request, 'search.html')
+    return render(request, 'search.html')
+
 
 
 def check_course_relationship(request, slug):
