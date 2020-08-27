@@ -44,7 +44,7 @@
                     </div>
 
                     <h1 class="title">{{object.title|title}}</h1>
-                    <p>{{object.description|truncatechars:50}}</p>
+                    <p>{{object.description|safe|truncatechars:50}}</p>
 
                     <div class="course_details">
                         <div class="price">

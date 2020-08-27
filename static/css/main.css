@@ -195,21 +195,26 @@ a {
 
 .disappear {
   animation: vanish 3s forwards;
-  -webkit-animation: vanish 5s forwards;
+  -webkit-animation-name: vanish;
+-webkit-animation-duration: 3s;
+-webkit-animation-fill-mode: forwards;
 }
 
 
 @-webkit-keyframes vanish{
   100%{
- 
+
     visibility: hidden;
+    -webkit-opacity: 0;
+    -webkit-visibility: hidden;
+ 
   }
 }
 
 
 @keyframes vanish{
   100%{
- 
+
     visibility: hidden;
   }
 }

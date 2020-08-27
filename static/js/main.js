@@ -10,12 +10,21 @@ const navLinks = document.querySelectorAll(".nav-links li");
 const loader = document.querySelector('.pre_loader');
 
 
+$(window).on('load', function () {
+ 
+    setTimeout(function () {
+        $('.pre_loader').fadeOut('slow');
+    }, 4000)
+});
+
+
 window.addEventListener('load', vanish);
 
 
 function vanish() {
     loader.classList.add('disappear');
 }
+
 setTimeout(function () {
     $(".messages").fadeOut("slow");
 }, 3000);
