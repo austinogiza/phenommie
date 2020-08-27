@@ -23,7 +23,6 @@
 <section class="course_section">
 
     <div class="container">
-
         <div class="course_title">
             <div class="search_box">
                 <div class="search">
@@ -34,37 +33,37 @@
                 </div>
 
             </div>
+        </div>
 
-            <div class="course_container">
-                {% for object in object_list %}
-                <div class="course_box">
-                    <img src="{{object.image.url}}" alt="">
-                    <div class="author">
-                        <img src="{% static 'images/flyer.png' %}" alt=""> {{object.tutor|title}}
-                    </div>
-
-                    <h1 class="title">{{object.title|title}}</h1>
-                    <p>{{object.description|safe|truncatechars:50}}</p>
-
-                    <div class="course_details">
-                        <div class="price">
-                            <h1>&#8358; {{object.amount|intcomma}}</h1>
-                        </div>
-                        <div class="count">
-                            <p>{{object.get_lessons_count}}
-                                {% if object.get_lessons_count == 1 or object.get_lessons_count == 0 %}Lesson
-
-                                {% else %}Lessons{% endif %}</p>
-                        </div>
-                    </div>
-
-                    <a href="{{ object.get_absolute_url }}"></a>
-                </div>
-
-                {% endfor %}
-            </div>
         </div>
 </section>
+
+<section class="course_cover_box">
+
+    <div class="container">
+        {% for object in object_list %}
+        <div class="course_boxes">
+
+            <img src="{{object.image.url}}" alt="{{object.tutor|title}}">
+            <div class="author_cover">
+            <h1>{{object.tutor|title}}</h1>
+            </div>
+            <h1 class="course_name">{{object.title|title}}</h1>
+            <p>{{object.description|safe|truncatechars:100}}</p>
+            <div class="price_course">
+<div class="price_amount">&#8358; {{object.amount|intcomma}}</div>
+<div class="course_lessons">{{object.get_lessons_count}}
+    {% if object.get_lessons_count == 1 or object.get_lessons_count == 0 %}Lesson
+
+    {% else %}Lessons{% endif %}</div>
+            </div>
+            <a href="{{ object.get_absolute_url }}"></a>
+        </div>
+        {% endfor %}
+      
+    </div>
+</section>
+
 
 
 
