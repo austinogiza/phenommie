@@ -7,6 +7,15 @@ const navLink = document.querySelector(".nav-links-container");
 const navButton = document.querySelector(".nav-buttons");
 const navLinks = document.querySelectorAll(".nav-links li");
 
+const loader = document.querySelector('.pre_loader');
+
+
+window.addEventListener('load', vanish);
+
+
+function vanish() {
+    loader.classList.add('disappear');
+}
 setTimeout(function () {
     $(".messages").fadeOut("slow");
 }, 3000);
@@ -61,3 +70,4 @@ var scroll = new SmoothScroll('a[href*="#"]', {
     speed: 300,
     speedAsDuration: true
 });
+

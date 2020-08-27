@@ -1,16 +1,4 @@
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v7.0.29,
-* Autoprefixer: v9.7.6
-* Browsers: last 4 version
-*/
 
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v7.0.29,
-* Autoprefixer: v9.7.6
-* Browsers: last 4 version
-*/
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap");
 
@@ -35,6 +23,8 @@ sans-serif; */
   /* --black: #000000; */
   /* --off-white: #ffffff; */
   --red: #f22c2c;
+  --green: #03cea4;
+  --dark-green: #086d59;
   --red-gradient: linear-gradient(162deg, #f22c2c 12.26%, #ff5c00 95.71%);
   --yellow: #f9c80e;
   --green-gradient: linear-gradient(135deg, #03cea4 0%, #03a9ce 100%);
@@ -172,6 +162,57 @@ a {
   flex-direction: row;
 }
 
+
+/* pre_loader */
+.pre_loader{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 5000;
+  background: #E0E9EE;
+  cursor: pointer;
+-webkit-background:#E0E9EE ;
+-webkit-display: flex;
+-webkit-align-items: center;
+-webkit-justify-content: center;
+
+}
+
+.disappear {
+  animation: vanish 3s forwards;
+  -webkit-animation: vanish 5s forwards;
+}
+
+
+@-webkit-keyframes vanish{
+  100%{
+ 
+    visibility: hidden;
+  }
+}
+
+
+@keyframes vanish{
+  100%{
+ 
+    visibility: hidden;
+  }
+}
 .btn {
 
   height: 44px;
@@ -182,7 +223,7 @@ a {
 }
 
 .btn-login {
-  background: var(--green-gradient);
+  background: var(--green);
   color: var(--white);
   z-index: 1000;
 
@@ -207,13 +248,13 @@ a {
 
   -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
-  background: var(--off-white);
-  color: var(--black);
+  background: var(--dark-green);
+  color: var(--white);
   -webkit-background: background;
 }
 
 .btn-sign {
-  background: var(--green-gradient);
+  background: var(--green);
   color: var(--white);
   outline: none;
   z-index: 500;
@@ -241,7 +282,8 @@ a {
 
   -webkit-box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
   box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
-  background: var(--red);
+  background: var(--dark-green);
+  color: var(--white);
   -webkit-background: background;
 }
 
@@ -399,7 +441,7 @@ footer .social-links li a:hover::after {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  background: var(--green-gradient);
+  background: var(--green);
   font-size: 18px;
   list-style-type: none;
   color: var(--white);
@@ -443,7 +485,7 @@ footer .social-links li a:hover::after {
   position: fixed;
   bottom: 10px;
   right: 10px;
-  background: var(--green-gradient);
+  background: var(--green);
   -webkit-transition: 0.3s ease;
   -o-transition: 0.3s ease;
   transition: 0.3s ease;
@@ -454,8 +496,12 @@ footer .social-links li a:hover::after {
 
 .back-to-top:hover,
 .back-to-top:focus {
-  background: var(--red-gradient);
+  background: var(--dark-green);
+
 }
+
+
+
 
 .back-to-top .container {
   display: -webkit-box;

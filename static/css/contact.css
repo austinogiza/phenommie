@@ -1,23 +1,3 @@
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v7.0.29,
-* Autoprefixer: v9.7.6
-* Browsers: last 4 version
-*/
-
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v7.0.29,
-* Autoprefixer: v9.7.6
-* Browsers: last 4 version
-*/
-
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v7.0.29,
-* Autoprefixer: v9.7.6
-* Browsers: last 4 version
-*/
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap");
 
@@ -39,6 +19,7 @@ sans-serif; */
   --white: #ffffff;
   --off-white: #fafafa;
   --black: #161c2d;
+  --dark-green: #086d59;
   /* --black: #000000; */
   /* --off-white: rgba(255, 255, 255, 0.7); */
   --green: #03cea4;
@@ -264,8 +245,9 @@ li {
 }
 
 .btn-send:hover {
-  background: var(--green-gradient);
-  border: 1px solid var(--black);
+  background: var(--dark-green);
+
+  color: var(--white);
 }
 
 .btn-pro {
@@ -296,7 +278,7 @@ li {
 }
 
 .btn-pro:hover {
-  background: var(--black-gradient);
+  background: var(--dark-green);
 
   color: var(--white);
 }
@@ -373,6 +355,7 @@ form label h1,
 .form-control::-webkit-input-placeholder {
   font-size: 14px;
   font-family: "Poppins", sans-serif;
+
 }
 
 .form-textarea::-moz-placeholder,
@@ -479,7 +462,10 @@ form label h1,
 
 .login input {
   margin: 3px 0;
+  -webkit-margin: 3px 0;
 }
+
+
 
 .login .textinput {
   width: 100%;
@@ -488,8 +474,11 @@ form label h1,
   outline: none;
   border-radius: 5px;
   padding: 10px;
+  -webkit-padding: 10px;
+  -webkit-border-radius: 5px;
   background: transparent;
   color: var(--white);
+  -webkit-border:  1px solid var(--white);
 }
 
 .login input:focus,
@@ -547,6 +536,7 @@ form label h1,
 
 .login label.checkbox_input {
   height: 10px;
+  -webkit-height: 10px;
 }
 
 .secondaryAction {
@@ -554,6 +544,7 @@ form label h1,
   color: var(--red);
   text-decoration: none;
   margin: 10px 0;
+  -webkit-margin: 10px 0;
   -webkit-transition: 0.3s ease-in;
   -o-transition: 0.3s ease-in;
   transition: 0.3s ease-in;
@@ -988,6 +979,8 @@ form label h1,
   -ms-flex-pack: center;
   justify-content: center;
   text-align: center;
+  padding: 10px 14px;
+  -webkit-padding: 10px 14px;
 }
 
 .start_project h1 {
@@ -1090,7 +1083,7 @@ form label h1,
 }
 
 .section-filter .container ul li a:hover {
-  background: var(--red-gradient);
+  background: var(--dark-green);
   padding: 10px 15px;
   margin: 10px;
   width: 100%;
@@ -1178,7 +1171,7 @@ form label h1,
 
 .blog_box:hover,
 .blog_box:focus {
-  border: 1px solid var(--red);
+  border: 1px solid var(--dark-green);
 }
 
 .blog_box:hover h1,
@@ -1392,10 +1385,9 @@ form label h1,
   -ms-grid-columns: 1fr 30px 1fr 30px 1fr;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 30px;
-  grid-column-gap: 30px;
-  grid-row-gap: 50px;
-  grid-auto-rows: minmax(380px, auto);
+  grid-auto-rows: minmax(400px, auto);
   padding: 25px 15px;
+  -webkit-grid-gap: 30px;
 }
 
 .course_box {
@@ -1867,7 +1859,7 @@ form label h1,
   -ms-grid-columns: 1fr 10px 5fr;
   grid-template-columns: 1fr 5fr;
   grid-auto-rows: minmax(300px, auto);
-          grid-template-areas: "sidebar video";
+              grid-template-areas: "sidebar video";
   grid-gap: 10px;
 }
 
@@ -2091,13 +2083,13 @@ form label h1,
 
 .btn-payment:hover,
 .btn-payment:focus {
-  background: var(--white);
-  color: var(--red);
-  border: 1px solid var(--red);
+  background: var(--dark-green);
+  color: var(--white);
+
 }
 
 .btn-dashboard {
-  background: var(--red);
+  background: var(--green);
   color: var(--white);
   padding: 10px 15px;
   border-radius: 5px;
@@ -2129,9 +2121,9 @@ form label h1,
 
 .btn-dashboard:hover,
 .btn-dashboard:focus {
-  background: var(--white);
-  color: var(--red);
-  border: 1px solid var(--red);
+  background: var(--dark-green);
+  color: var(--white);
+
 }
 
 .curriculum {
@@ -2472,7 +2464,7 @@ form label h1,
   display: -ms-grid;
   display: grid;
   grid-gap: 20px;
-          grid-template-areas: "sidebar dashboard";
+              grid-template-areas: "sidebar dashboard";
   grid-auto-rows: minmax(300px, auto);
   -ms-grid-columns: 1.3fr 20px 5fr;
   grid-template-columns: 1.3fr 5fr;
@@ -2636,9 +2628,9 @@ form label h1,
 }
 
 .btn-center:hover{
-  background: var(--white);
-  color: var(--green);
-  border: 1px solid var(--white);
+  background: var(--dark-green);
+  color: var(--white);
+
 }
 
 .dashboard_sidebar {
@@ -2710,9 +2702,9 @@ form label h1,
 }
 
 .btn-view:hover {
-  background: var(--white);
-  border: 1px solid var(--green);
-  color: var(--green);
+  background: var(--dark-green);
+
+  color: var(--white);
 }
 
 .dashboard_courses {
@@ -2731,6 +2723,7 @@ form label h1,
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 10px;
+  -webkit-padding:10px;
 }
 
 .dashboard_courses_title {
@@ -2742,6 +2735,8 @@ form label h1,
   font-size: 20px;
   font-weight: 600;
   color: var(--white);
+  margin: 10px 0;
+  -webkit-margin: 10px 0;
 }
 
 .dashboard_cover_course {
@@ -2781,6 +2776,7 @@ form label h1,
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+ 
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -2817,10 +2813,10 @@ form label h1,
 }
 
 .btn-course:hover {
-  background: var(--white);
+  background: var(--dark-green);
   margin: 10px;
-  color: var(--green);
-  border: 1px solid var(--green);
+  color: var(--white);
+ 
 }
 
 .btn-course i {
@@ -2973,9 +2969,9 @@ form label h1,
 
 .btn-project:hover,
 .btn-project:focus {
-  background: var(--white);
-  border: 1px solid var(--green);
-  color: var(--green);
+  background: var(--dark-green);
+
+  color: var(--white);
 }
 
 .project_details {
@@ -3388,6 +3384,7 @@ span.green {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   border:  1px solid var(--white);
+  -webkit-padding:  10px 12px;
 }
 .profile_form .control-group{
   padding: 10px 0;
@@ -3419,8 +3416,8 @@ span.green {
     width: 100%;
     display: -ms-grid;
     display: grid;
-        -ms-grid-rows: auto 20px auto;
-            grid-template-areas:
+            -ms-grid-rows: auto 20px auto;
+                grid-template-areas:
       "dashboard"
       "sidebar";
     grid-auto-rows: minmax(300px, auto);
@@ -3486,8 +3483,8 @@ span.green {
 
     grid-template-columns: 1fr;
     grid-auto-rows: minmax(300px, auto);
-        -ms-grid-rows: auto 10px auto;
-            grid-template-areas:
+            -ms-grid-rows: auto 10px auto;
+                grid-template-areas:
       "video"
       "sidebar ";
 
@@ -3603,6 +3600,7 @@ span.green {
   .course_container {
     -ms-grid-columns: 1fr 30px 1fr;
     grid-template-columns: repeat(2, 1fr);
+
   }
 
   .sidebar_course_list {
