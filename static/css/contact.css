@@ -346,6 +346,7 @@ form label h1,
   padding: 10px;
   background: transparent;
   color: var(--white);
+  font-size: 15px;
 }
 
 .form-control:focus,
@@ -399,6 +400,7 @@ form label h1,
 .login input {
   margin: 3px 0;
   height: 50px;
+  font-size: 15px;
   -webkit-margin: 3px 0;
 }
 
@@ -415,6 +417,8 @@ form label h1,
   -webkit-border-radius: 5px;
   background: transparent;
   color: var(--white);
+  
+  font-size: 15px;
   -webkit-border:  1px solid var(--white);
 }
 
@@ -547,7 +551,7 @@ form label h1,
   margin: 50px 0;
 }
 .login input::placeholder {
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Poppins", sans-serif;
   text-align: center;
   
@@ -1548,6 +1552,8 @@ font-size: 14px;
   background: var(--white);
   border: 1px solid var(--white);
   padding: 10px;
+  
+  font-size: 15px;
   -webkit-padding: 10px;
 }
 
