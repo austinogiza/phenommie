@@ -358,14 +358,13 @@ form label h1,
 .form-textarea::placeholder,
 .form-control::placeholder {
   font-size: 14px;
-  padding: 10px;
-  -webkit-padding: 10px;
   font-family: "Poppins", sans-serif;
 }
 
 .form-textarea {
   width: 100%;
   height: 400px;
+  font-size: 15px;
   border: 1px solid var(--white);
   outline: none;
   color: var(--white);
@@ -430,6 +429,7 @@ form label h1,
 
 .login .control-group {
   margin: 4px 0;
+  font-size: 15px;
 }
 
 .login label {
@@ -564,6 +564,7 @@ form label h1,
 .our_plan {
   width: 100%;
   min-height: 700px;
+  height: 100%;
 }
 
 .our_plan .container {
@@ -576,6 +577,8 @@ form label h1,
   flex-direction: column;
   max-width: 1100px;
   margin: 0 auto;
+  height: 100%;
+  width: 100%;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -598,29 +601,21 @@ form label h1,
 .our_plan .plan_table {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 50px 1fr 50px 1fr;
+
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: minmax(350px, auto);
-  gap: 50px;
   grid-gap: 50px;
-  -webkit-grid-gap: 50px;
   margin-top: 40px;
 
 }
 
 .plan_box {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
   padding: 20px 15px;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   width: 100%;
+  justify-content: center;
   max-width: 300px;
   height: 100%;
 
@@ -693,18 +688,14 @@ form label h1,
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
   max-width: 1100px;
   margin: 0 auto;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
+
   justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .we_do .we_do_title {
@@ -727,16 +718,14 @@ form label h1,
   margin-top: 40px;
 } */
 .we_do .we_do_table {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 50px 1fr 50px 1fr;
+
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: minmax(300px, auto);
-  gap: 50px;
+
 
   margin-top: 40px; 
    grid-gap: 50px;
-  -webkit-grid-gap: 50px;
 }
 
 .we_do_box {
