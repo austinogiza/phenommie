@@ -15,7 +15,7 @@
     <div class="container">
 
         <h1>{{course.title|title}}</h1>
-        <p>{{course.description|safe|truncatechars:100}}</p>
+    
         {% if course_status != 'owned' %}
         {% if course_status == 'in_cart' %}
         <p>You currently have this course in your cart</p>
@@ -62,37 +62,41 @@
         </div>
 
 
-        <div class="course_side">
-            <div class="course_description">
-                <h1>{{course.title|title}}</h1>
-                <p>{{course.description|safe}}</p>
+       
+    </div>
+</section>
+
+<section class="course_inner">
+    <div class="container">
+        <div class="course_description">
+            <h1>{{course.title|title}}</h1>
+            <p>{{course.description|safe}}</p>
+
+        </div>
+
+        <div class="course_files" id="lesson">
+            <h1> Course Files</h1>
+            {% for lessons in course.lessons %}
+
+            <div class="preview_box">
+                <a href="{{lessons.get_absolute_url}}">
+                    <li><i class="fab fa-youtube"></i> {{forloop.counter}} {{lessons.title}}</li>
+                    {% if course_status != 'owned' %}
+
+                </a> <a href="{{lessons.get_absolute_url}}" class="preview">Preview</a>
+                {% else %}
+                </a> <a href="{{lessons.get_absolute_url}}" class="preview">Watch</a>
+                {% endif %}
+            </div>
+            {% empty %}
+            <div class="preview_box">
+                <li>No Lessons</li>
+
+
 
             </div>
+            {% endfor %}
 
-            <div class="course_files" id="lesson">
-                <h1> Course Files</h1>
-                {% for lessons in course.lessons %}
-
-                <div class="preview_box">
-                    <a href="{{lessons.get_absolute_url}}">
-                        <li><i class="fab fa-youtube"></i> {{forloop.counter}} {{lessons.title}}</li>
-                        {% if course_status != 'owned' %}
-
-                    </a> <a href="{{lessons.get_absolute_url}}" class="preview">Preview</a>
-                    {% else %}
-                    </a> <a href="{{lessons.get_absolute_url}}" class="preview">Watch</a>
-                    {% endif %}
-                </div>
-                {% empty %}
-                <div class="preview_box">
-                    <li>No Lessons</li>
-
-
-
-                </div>
-                {% endfor %}
-
-            </div>
         </div>
     </div>
 </section>

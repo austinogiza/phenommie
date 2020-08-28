@@ -5,7 +5,8 @@
 <title>{{object.title|title}} - Phenommie</title>
 {% endblock css %} {% block content %}
 
-<section class="blog_hero"   style="width:100%; min-height: 500px; background:url('{{object.image.url}}') center center/cover; ">
+<section class="blog_hero" 
+style="width:100%; min-height: 400px; background: url('{{object.thumbnail.url}}') center center/cover;">
 
 
 </section>
@@ -31,7 +32,7 @@
             <h1> <a href="{{object.get_like_url }}"><i class="far fa-thumbs-up"></i></a></h1>
 
             {% else %}
-            <h1>Please Login To Like Post <br> <a href="{{object.get_like_url }}"><i class="far fa-thumbs-up"></i></a>
+            <h1>Please Login To Like Post <br> <a href="{{object.get_like_url }}"><i class="far fa-thumbs-up"></i><a>
             </h1>
             {% endif %}
             <h1><i class="far fa-comments"></i>
