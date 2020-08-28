@@ -339,7 +339,7 @@ form label h1,
 
 .form-control {
   width: 100%;
-  height: 40px;
+  height: 50px;
   border: 1px solid var(--white);
   outline: none;
   border-radius: 5px;
@@ -398,6 +398,7 @@ form label h1,
 
 .login input {
   margin: 3px 0;
+  height: 50px;
   -webkit-margin: 3px 0;
 }
 
@@ -405,7 +406,7 @@ form label h1,
 
 .login .textinput {
   width: 100%;
-  height: 40px;
+  height: 50px;
   border: 1px solid var(--white);
   outline: none;
   border-radius: 5px;
@@ -472,6 +473,7 @@ form label h1,
 
 .login label.checkbox_input {
   height: 10px;
+  margin: 5px;
   -webkit-height: 10px;
 }
 
@@ -1540,7 +1542,7 @@ font-size: 14px;
 
 .course_title input[type="text"] {
   width: 250px;
-  height: 40px;
+  height: 50px;
   border-radius: 5px;
 
   outline: none;
@@ -1585,7 +1587,6 @@ font-size: 14px;
   font-weight: 500;
   -webkit-display: flex;
   width: 100%;
-  height: 100%;
   min-height: 100px;
 }
 
@@ -1701,10 +1702,7 @@ font-size: 14px;
   background: rgba(0, 0, 0, 0.3);
 }
 
-.course_details {
-  width: 100%;
-  /* min-height: 600px; */
-}
+
 
 .course_inner{
   width: 100%;
@@ -1749,9 +1747,9 @@ font-size: 14px;
 }
 
 .course_review {
-  min-height: 100px;
+
   width: 100%;
-  
+height: 100%;
   margin: 0 auto;
   display: flex;
  justify-content: center;
@@ -2807,7 +2805,7 @@ font-size: 14px;
   display: grid;
   -ms-grid-columns: 1fr 50px 1fr 50px 1fr;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(450px, auto);
+  grid-auto-rows: minmax(500px, auto);
   grid-gap: 50px;
   padding: 10px;
 }
