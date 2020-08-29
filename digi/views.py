@@ -22,6 +22,7 @@ NOT_IN_CART = 'not_in_cart'
 def about(request):
     return render(request, 'about.html')
 
+
 def search(request):
     try:
         query = request.GET.get('q')
@@ -35,15 +36,14 @@ def search(request):
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
         context = {
-        "results": results
+            "results": results
 
         }
         return render(request, 'search.html', context)
     else:
-    
+
         return render(request, 'search.html')
     return render(request, 'search.html')
-
 
 
 def check_course_relationship(request, slug):
@@ -88,7 +88,7 @@ class DashboardView(LoginRequiredMixin, TemplateView):
 
 def home(request):
     portfolio = Portfolio.objects.all()[:3]
-    context ={
+    context = {
         'portfolio': portfolio
     }
     return render(request, 'index.html', context)
@@ -189,14 +189,13 @@ class BoughtCourseView(LoginRequiredMixin, TemplateView):
         return context
 
 
-class ProfileView(LoginRequiredMixin, SuccessMessageMixin,UpdateView):
+class ProfileView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = CustomUser
     template_name = "profile.html"
-    fields = [  'username','first_name', 'last_name', 'email']
-  
+    fields = ['username', 'first_name', 'last_name', 'email']
+
     success_url = reverse_lazy('digi:profile')
     success_message = "Your profile was successfully updated"
-
 
     def get_object(self):
         return self.request.user

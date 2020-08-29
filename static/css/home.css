@@ -69,8 +69,7 @@ li {
 header {
     height: 500px;
     width: 100%;
-    background: url("../images/front.svg") no-repeat center center/cover,
-        url("../images/back.svg") no-repeat center center/cover;
+    background: url("../images/front.svg") no-repeat center center/cover;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -127,41 +126,23 @@ header .container a {
 .potential {
     width: 100%;
     min-height: 600px;
-    background-image: url('../images/orbit.svg');
-    background-position: right 0% top 0%;
-    background-size: contain;
-    background-repeat: no-repeat;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
+   
     flex-direction: column;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
 }
 
 .potential .container {
-    display: -webkit-box;
-    display: -ms-flexbox;
+   
     display: flex;
     max-width: 1100px;
     text-align: center;
     margin: auto;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
+   
     flex-direction: column;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
+       justify-content: center;
+   
     align-items: center;
     padding: 10px;
 }
@@ -469,6 +450,7 @@ header .container a {
     height: 100%;
     margin: 10px 0;
     gap: 10px;
+    grid-gap: 10px;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -608,6 +590,7 @@ header .container a {
     -o-transition: 0.3s ease;
     transition: 0.3s ease;
     transition: 0.3s ease;
+    text-align: center;
 
 }
 
@@ -616,8 +599,7 @@ header .container a {
     height: 100%;
     border-radius: 10px;
     background: var(--white);
-    display: -webkit-box;
-    display: -ms-flexbox;
+  
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
