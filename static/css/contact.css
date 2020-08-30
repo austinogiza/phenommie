@@ -770,7 +770,7 @@ form label h1,
   grid-auto-rows: minmax(500px, auto);
   grid-gap: 50px;
   padding: 15px;
-  
+  height: 100%;
 }
 
 .plan_box {
