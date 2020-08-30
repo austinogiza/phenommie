@@ -396,7 +396,7 @@ form label h1,
   width: 100%;
   height: 54px;
   -webkit-height: 54px;
-  display: flex;
+  
   font-size: 14px;
   padding: 10px 12px;
   border: 1px solid var(--white);
@@ -408,11 +408,13 @@ form label h1,
   
   -webkit-border: 1px solid var(--white);
 }
-.login .textinput::placeholder,
-.login input::placeholder{
-  font-size: 15px; 
-}
 
+.login input::placeholder {
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  color: var(--white);
+
+}
 .login input:focus,
 .login input:active {
   border: 2px solid var(--red);
@@ -531,14 +533,6 @@ form label h1,
   background: var(--white);
   width: 100%;
   margin: 50px 0;
-}
-.login input::placeholder {
-  font-size: 15px;
-  font-family: "Poppins", sans-serif;
-  text-align: center;
-
-  padding: 4px;
-  -webkit-padding: 4px;
 }
 
 /* Services */
