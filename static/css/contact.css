@@ -394,16 +394,20 @@ form label h1,
 
 .login .textinput {
   width: 100%;
-  height: 34px;
+  height: 54px;
+  font-size: 15px;
+  padding: 10px 12px;
+
+  -webkit-height: 54px;
   border: 1px solid var(--white);
   outline: none;
   border-radius: 5px;
-  padding: 10px;
-  -webkit-padding: 10px;
+ 
+  -webkit-padding: 10px 12px;
   -webkit-border-radius: 5px;
   background: transparent;
   color: var(--white);
-  font-size: 15px;
+  
   -webkit-border: 1px solid var(--white);
 }
 
@@ -414,11 +418,10 @@ form label h1,
 }
 
 .login .control-group {
-  height: 54px;
+  margin: 10px 0;
   font-size: 15px;
-  padding: 10px 12px;
-
-  -webkit-height: 54px;
+  height: 100%;
+  width: 100%;
 }
 
 .login label {
@@ -769,7 +772,7 @@ form label h1,
   grid-auto-rows: minmax(400px, auto);
   grid-gap: 50px;
   padding: 15px;
-  justify-content: center;
+  
 }
 
 .plan_box {
