@@ -767,7 +767,7 @@ form label h1,
 .plan_table {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(400px, auto);
+  grid-auto-rows: minmax(500px, auto);
   grid-gap: 50px;
   padding: 15px;
   
