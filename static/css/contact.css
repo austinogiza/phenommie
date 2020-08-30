@@ -414,8 +414,11 @@ form label h1,
 }
 
 .login .control-group {
-  margin: 4px 0;
+  height: 54px;
   font-size: 15px;
+  padding: 10px 12px;
+
+  -webkit-height: 54px;
 }
 
 .login label {
@@ -597,9 +600,7 @@ form label h1,
   color: #000000;
   padding: 15px 25px;
   border-radius: 10px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: minmax(200px, auto);
+
   grid-gap: 10px;
 }
 .how_header {
@@ -765,7 +766,7 @@ form label h1,
 .plan_table {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(350px, auto);
+  grid-auto-rows: minmax(400px, auto);
   grid-gap: 50px;
   padding: 15px;
   justify-content: center;
@@ -3636,12 +3637,7 @@ span.green {
     grid-gap: 40px;
     margin: 20px 0;
   }
-  .how_box {
-    grid-template-columns: repeat(1, 1fr);
-    grid-auto-rows: minmax(200px, auto);
-    height: 100%;
-    
-  }
+
   .course_cover_box .container {
     -ms-grid-columns: 1fr;
 
