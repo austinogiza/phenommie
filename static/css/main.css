@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap");
@@ -31,6 +38,9 @@ sans-serif; */
 
 html {
   scroll-behavior: smooth;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
 }
 
 body {
@@ -54,7 +64,9 @@ li {
 
 nav {
   width: 100%;
-
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
   position: -webkit-sticky;
 
   position: sticky;
@@ -94,6 +106,9 @@ a {
 .nav-links {
   display: flex;
   flex-direction: row;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
 }
 
 .nav-links li {
@@ -188,6 +203,9 @@ a {
   padding: 10px 15px;
   border-radius: 10px !important;
   outline: none;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
 
 }
 
@@ -195,6 +213,9 @@ a {
   background: var(--green);
   color: var(--white);
   z-index: 1000;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
 
   font-weight: 600;
 
@@ -215,6 +236,7 @@ a {
   background: var(--dark-green);
   color: var(--white);
   -webkit-background: background;
+  
 }
 
 .btn-sign {
@@ -232,7 +254,9 @@ a {
   -webkit-border-radius: border-radius;
   -webkit-box-shadow: box-shadow;
   -webkit-outline: outline;
-
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
   transition: 0.4s ease-in;
 }
 
@@ -321,6 +345,9 @@ footer .social-links li a:hover::after {
 .mobile_btn {
   display: none;
   margin: 10px 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
 }
 
 @-webkit-keyframes navLinkFade {
@@ -449,6 +476,9 @@ footer .social-links li a:hover::after {
 
   .mobile_btn {
     display: block;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
   }
 
   .nav-buttons {
