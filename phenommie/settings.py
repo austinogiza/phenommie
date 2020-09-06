@@ -93,12 +93,12 @@ WSGI_APPLICATION = 'phenommie.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'phenommie',
-        'USER': 'root',
-        'HOST': '',
+        'USER': 'postgres',
+        'HOST': 'localhost',
         'PORT': '',
-        'PASSWORD': ''
+        'PASSWORD': 'austinforreal'
     }
 }
 
