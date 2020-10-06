@@ -4,149 +4,153 @@
 <link rel="stylesheet" href="{% static 'css/home.css' %}" />
 
 <link rel="stylesheet" href="{% static 'css/contact.css' %}" />
-{% endblock css %} {% block content %}
+{% endblock css %}
 
-<body>
-  <header>
-    <div class="container">
-      <h1 class="phen-text"></h1>
-      <p>
-        We’d help you communicate better and build trust with your ideal
-        audience.
-      </p>
+{% block content %}
 
-      <a href="#" class="btn btn-sign">Get Started</a>
+
+<header>
+  <div class="container">
+    <h1>Be <span class="txt-type" data-wait="3000" data-words="['phenomenal', 'extraordinary', 'sensational', 'unparalleled',
+        'amazing', 'outstanding', 'remarkable', 'bold', 'prestigious', 'flamboyant', 'elegant']"></span></h1>
+    <p>
+      Phenommie is an innovation
+      haven creating transformative
+      experiences people love. <br>
+      We’re future-driven as we
+      proffer creative solutions today.
+    </p>
+
+    <a href="{% url 'digi:about'%}" class="btn btn-sign">Check Out The Haven</a>
+  </div>
+</header>
+
+<section class="potential">
+  <div class="container">
+    <h1>Doing Business Online Shouldn’t Be Rocket Science</h1>
+    <p>
+      What if you have a community of loyal customers who sees no competition
+      and helps spread the word about your brand?
+    </p>
+  </div>
+</section>
+
+<section class="magic">
+  <div class="container">
+    <div class="magic-top">
+      <h1>
+        How the magic <br />
+        happens
+      </h1>
+
+      <p><a href="#">See All >></a></p>
     </div>
-  </header>
-
-  <section class="potential">
-    <div class="container">
-      <h1>Doing Business Online Shouldn’t Be Rocket Science</h1>
-      <p>
-        What if you have a community of loyal customers who sees no competition
-        and helps spread the word about your brand?
-      </p>
-    </div>
-  </section>
-
-  <section class="magic">
-    <div class="container">
-      <div class="magic-top">
+    <div class="magic-middle">
+      <div class="magic-box">
+        <img src="{% static 'images/Designers.svg'%}" alt="" />
         <h1>
-          How the magic <br />
-          happens
+          Strategic Branding
         </h1>
-
-        <p><a href="#">See All >></a></p>
-      </div>
-      <div class="magic-middle">
-        <div class="magic-box">
-          <img src="{% static 'images/Designers.svg'%}" alt="" />
-          <h1>
-            Strategic Branding
-          </h1>
-          <p>
-            We’d help you find your way to the hearts of your customers with
-            ease.
-          </p>
-        </div>
-        <div class="magic-box">
-          <img src="{% static 'images/Coworking.svg'%}" alt="" />
-          <h1>
-            Software Development
-          </h1>
-          <p>
-            Let’s help you and your ideal audience do business with ease, so
-            it’s a win win for you both - Happy Customer = More Profits.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="courses">
-    <div class="container">
-      <div class="take_course">
-        <h1>Grow your knowledge- base</h1>
         <p>
-          Learn all the important skills you need to connect better with your
-          ideal audience, grow your brand online, & make recurrent sales.
+          We’d help you find your way to the hearts of your customers with
+          ease.
         </p>
-  
       </div>
-
-      <div class="take_course_image">
-        <img src="{% static 'images/learn.svg' %}" alt="" />
-      </div>
-    </div>
-  </section>
-  <section class="our_portfolio">
-    <div class="portfolio_title">
-      <h1>Our Portfolio</h1>
-      <p>Check out some of our purposeful and customer-centric projects</p>
-    </div>
-
-    <div class="container">
-      <div class="portfolio_table">
-        {% for portfolio in portfolio %}
-
-        <div class="portfolio_box portfolio_cover">
-          <img src="{{portfolio.image.url}}" alt="" />
-          <div class="portfolio_description">
-            <a href="{{portfolio.get_absolute_url}}">
-              <h1>{{portfolio.title}}</h1>
-            </a>
-          </div>
-        </div>
-        {% endfor %}
-        <div class="portfolio_box see_more">
-          <h1>Want to see more projects?</h1>
-          <a href="{% url 'digi:portfolio' %}" class="btn btn-send">
-            See More</a
-          >
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="courses">
-    <div class="container">
-    
-
-      <div class="take_course_image">
-        <img src="{% static 'images/crowd.svg' %}" alt="" />
-      </div>  <div class="take_course">
-        <h1>Grow your business</h1>
+      <div class="magic-box">
+        <img src="{% static 'images/Coworking.svg'%}" alt="" />
+        <h1>
+          Software Development
+        </h1>
         <p>
-          Learn all the important skills you need to connect better with your
-          ideal audience, grow your brand online, & make recurrent sales.
+          Let’s help you and your ideal audience do business with ease, so
+          it’s a win win for you both - Happy Customer = More Profits.
         </p>
-        <a href="{% url 'digi:service' %}" class="btn btn-send">Talk To Us</a>
       </div>
     </div>
-  </section>
-  <section class="courses">
-    <div class="container">
-      <div class="take_course">
-        <h1>Grow your knowledge- base</h1>
-        <p>
-          Learn all the important skills you need to connect better with your
-          ideal audience, grow your brand online, & make recurrent sales.
-        </p>
-        <a href="{% url 'digi:courses' %}" class="btn btn-send"
-          >Take A Course</a
-        >
-      </div>
+  </div>
+</section>
 
-      <div class="take_course_image">
-        <img src="{% static 'images/learn.svg' %}" alt="" />
+<section class="courses">
+  <div class="container">
+    <div class="take_course">
+      <h1>Grow your knowledge- base</h1>
+      <p>
+        Learn all the important skills you need to connect better with your
+        ideal audience, grow your brand online, & make recurrent sales.
+      </p>
+
+    </div>
+
+    <div class="take_course_image">
+      <img src="{% static 'images/learn.svg' %}" alt="" />
+    </div>
+  </div>
+</section>
+{% comment %} <section class="our_portfolio">
+  <div class="portfolio_title">
+    <h1>Our Portfolio</h1>
+    <p>Check out some of our purposeful and customer-centric projects</p>
+  </div>
+
+  <div class="container">
+    <div class="portfolio_table">
+      {% for portfolio in portfolio %}
+
+      <div class="portfolio_box portfolio_cover">
+        <img src="{{portfolio.image.url}}" alt="" />
+        <div class="portfolio_description">
+          <a href="{{portfolio.get_absolute_url}}">
+            <h1>{{portfolio.title}}</h1>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+      <div class="portfolio_box see_more">
+        <h1>Want to see more projects?</h1>
+        <a href="{% url 'digi:portfolio' %}" class="btn btn-send">
+          See More</a>
       </div>
     </div>
-  </section>
+  </div>
+</section> {% endcomment %}
+<section class="courses">
+  <div class="container">
 
 
-  {% include 'ready.html' %}
+    <div class="take_course_image">
+      <img src="{% static 'images/crowd.svg' %}" alt="" />
+    </div>
+    <div class="take_course">
+      <h1>Grow your business</h1>
+      <p>
+        Learn all the important skills you need to connect better with your
+        ideal audience, grow your brand online, & make recurrent sales.
+      </p>
+      <a href="{% url 'digi:service' %}" class="btn btn-send">Talk To Us</a>
+    </div>
+  </div>
+</section>
+<section class="courses">
+  <div class="container">
+    <div class="take_course">
+      <h1>Our Competencies span</h1>
+      <p>
+        Learn all the important skills you need to connect better with your
+        ideal audience, grow your brand online, & make recurrent sales.
+      </p>
+      <a href="{% url 'digi:portfolio' %}" class="btn btn-send">View Portfolio</a>
+    </div>
 
-  <!-- <section class="need">
+    <div class="take_course_image">
+      <img src="{% static 'images/learn.svg' %}" alt="" />
+    </div>
+  </div>
+</section>
+
+
+{% include 'ready.html' %}
+
+<!-- <section class="need">
 
         <div class="container">
 
@@ -191,8 +195,20 @@
         </div>
     </section> -->
 
-  <script src="{% static 'js/gsap.min.js' %}"></script>
-  <script src="{% static 'js/TextPlugin.min.js' %}"></script>
-</body>
+<script src="{% static 'js/gsap.min.js' %}"></script>
+<script src="{% static 'js/TextPlugin.min.js' %}"></script>
 
+
+<script>
+
+  var typed = new Typed('.txt-type', {
+    strings: ['phenomenal', 'extraordinary', 'sensational', 'unparalleled',
+      'amazing', 'outstanding', 'remarkable', 'bold', 'prestigious', 'flamboyant', 'elegant'],
+    typeSpeed: 100,
+    backSpeed: 100,
+    backDelay: 100,
+    startDelay: 1000,
+    loop: true,
+  });
+</script>
 {% endblock content %}

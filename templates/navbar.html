@@ -1,5 +1,11 @@
 {% load static %}
 
+{% url 'digi:home' as home %}
+{% url 'digi:about' as about %}
+{% url 'digi:contact' as contact %}
+{% url 'digi:service' as service %}
+{% url 'digi:courses' as courses %}
+{% url 'digi:portfolio' as portfolio %}
 <nav>
 
     <div class="container">
@@ -10,11 +16,11 @@
         <div class="nav-links-container">
             <ul class="nav-links">
          
-                <li class="nav-link"><a href="{% url 'digi:about' %}">About Us</a></li>
-                <li class="nav-link"><a href="{% url 'digi:service' %}">Services</a></li>
-                <li class="nav-link"><a href="{% url 'digi:courses' %}">Course</a></li>
-                <li class="nav-link"><a href="{% url 'digi:portfolio' %}">Portfolio</a></li>
-                      {% if request.user.is_authenticated %}
+                <li class="nav-link {% if request.path == about %} hide-active {% endif %}"><a href="{% url 'digi:about' %}">About Us</a></li>
+                <li class="nav-link {% if request.path == service %} hide-active {% endif %}"><a href="{% url 'digi:service' %}">Services</a></li>
+                <li class="nav-link {% if request.path == courses %} hide-active {% endif %}"><a href="{% url 'digi:courses' %}">Course</a></li>
+                <li class="nav-link  {% if request.path == portfolio %} hide-active {% endif %}" ><a href="{% url 'digi:portfolio' %}">Portfolio</a></li>
+                      {% comment %} {% if request.user.is_authenticated %}
                 <li class="nav-link"><a href="{% url 'digi:dashboard' %}">Hello {{ request.user.first_name}}</a></li>
                       {% endif %}
                 {% if request.user.is_authenticated %}
@@ -22,11 +28,11 @@
 
                 {% else %}
                 <a href="{% url 'account_login' %}" class="mobile_btn btn btn-login">Login</a>
-                {% endif %}
+                {% endif %} {% endcomment %}
             </ul>
         </div>
 
-        <div class="nav-buttons">
+        {% comment %} <div class="nav-buttons">
             {% if request.user.is_authenticated %}
 
             <div class="left">
@@ -39,7 +45,7 @@
             </div>
 
             {% endif %}
-        </div>
+        </div> {% endcomment %}
 
         <div class="mobile-menu hide">
 

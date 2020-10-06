@@ -32,22 +32,18 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.humanize',
-
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-
-    'digi',
     'blog',
     "crispy_forms",
     'sorl.thumbnail',
+    'digi',
     'course',
     'order',
     "paystack",
-  "ckeditor_uploader",
-  'ckeditor'
-
-
+    "ckeditor_uploader",
+    'ckeditor'
 
 ]
 
@@ -102,7 +98,7 @@ DATABASES = {
     }
 }
 
-# DATABASES = { 
+# DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
@@ -173,7 +169,7 @@ ACCOUNT_FORMS = {'signup': 'digi.forms.CustomSignUpForm', }
 
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL = '/dashboard'
+LOGIN_REDIRECT_URL = '/'
 ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_SUBJECT_PREFIX = "Lagbaja from Phenommie"

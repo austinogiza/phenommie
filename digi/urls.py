@@ -16,7 +16,8 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
 
     path('contact-success/', views.contactsuccess, name='contactsuccess'),
-    path('service/', views.service, name='service'),
+    path('service/', views.ServiceView.as_view(), name='service'),
+    path('service/<slug>', views.ServiceSingleView.as_view(), name='single'),
     path('courses/', CoursesListView.as_view(), name='courses'),
     path('portfolio/', PortfolioView.as_view(), name='portfolio'),
     path('portfolio/<slug>', PortfolioDetailView.as_view(), name='project'),
@@ -28,7 +29,8 @@ urlpatterns = [
 
     path('dashboard/courses', views.BoughtCourseView.as_view(),
          name='dashboard-course'),
-           path('dashboard/profile/', views.ProfileView.as_view(),
+    path('dashboard/profile/', views.ProfileView.as_view(),
          name='profile'),
+    path('opportunities/', views.OpporView.as_view(), name='opportunities')
 
 ]

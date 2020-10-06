@@ -1,81 +1,38 @@
 {% extends 'base.html' %} {% load static %} {% block css %}
 
 <link rel="stylesheet" href="{% static 'css/contact.css' %}" />
-<title>{{project.title|title}} - Phenommie</title>
+<title>{{project.name|title}} - Phenommie</title>
 <link rel="stylesheet" href="{% static 'css/home.css' %}" />
-<link  type="text/css" rel="stylesheet"  href="{% static 'css/lightslider.css' %}"/>
+<link type="text/css" rel="stylesheet" href="{% static 'css/lightslider.css' %}" />
 <script src="{% static 'js/jquery.min.js'%}"></script>
 {% endblock css %} {% block content %}
 
-<section
-  class="course_hero"
-  style="width:100%; min-height: 500px; background:url('{{project.image.url}}') center center/cover; "
->
+<section class="course_hero"
+  style="width:100%; min-height: 500px; background:url('{{project.image.url}}') center center/cover; ">
   <div class="container">
-    <h1>{{project.title|title}}</h1>
+    <h1>{{project.name|title}}</h1>
   </div>
 </section>
 
 <section class="project_header">
   <div class="container">
-    <h1>{{project.title|title}}</h1>
-    <p>{{project.content_header|title}}</p>
-  </div>
-</section>
 
-<section class="slider">
-  <div class="container">
-    <ul id="responsive">
-      <li>
-        {% if project.image_1 %}
-        <img src="{{project.image_1.url}}" alt="{{project.title}}" />
-        {% endif %}
-      </li>
-      <li>
-        {% if project.image_2 %}
-        <img src="{{project.image_2.url}}" alt="{{project.title}}" />
-        {% endif %}
-      </li>
-      <li>
-        {% if project.image_3 %}
-        <img src="{{project.image_3.url}}" alt="{{project.title}}" />
-        {% endif %}
-      </li>
-      <li>
-        {% if project.image_4 %}
-        <img src="{{project.image_4.url}}" alt="{{project.title}}" />
-        {% endif %}
-      </li>
-    </ul>
-  </div>
-</section>
-<section class="view_project">
-  <div class="container">
-    <img src="{{project.image.url}}" alt="" />
-    <h1>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab,
-      exercitationem?
-    </h1>
-    <a href="#" class="btn btn-project">View Project</a>
-  </div>
-</section>
 
-<section class="project_details">
-  <div class="container">
-    <div class="project_body">
-      <h1>Lorem ipsum dolor sit amet.</h1>
-      <p>
-        {{project.content_body|safe}}
-      </p>
+    <div class="project_box">
+      <h1>Client</h1>
+      <p>{{project.name|title}}</p>
     </div>
-
-    <div class="project_image">
-      {% if project.image_1 %}
-      <img src="{{project.image_1.url}}" alt="" />
-      {% endif %}
+    <div class="project_box">
+      <h1>Date</h1>
+      <p>{{project.date_completed|title}}</p>
+    </div>
+    <div class="project_box">
+      <h1>Category</h1>
+      <p>{{project.category|title}}</p>
     </div>
   </div>
 </section>
+
 
 <section class="presentation">
   <div class="container">
@@ -85,36 +42,59 @@
   </div>
 </section>
 
+
+<section class="view_project">
+  <div class="container">
+
+    <div class="project_writeup">
+      <h1>
+        Project Description
+      </h1>
+      <p>{{project.description|safe}}</p>
+    </div>
+    <div class="project_face">
+      <img src="{{project.image.url}}" alt="" />
+    </div>
+
+  </div>
+</section>
+
 <section class="project_details">
   <div class="container">
-    <div class="project_body">
-      <h1>Lorem ipsum dolor sit amet.</h1>
-      <p>
-        {{project.body_end}}
-      </p>
+    <div class="project_details_title">
+      <h1>View <span class="green">Project</span></h1>
+
     </div>
 
-    <div class="project_image">
+    <div class="project_details_image">
       {% if project.image_1 %}
-      <img src="{{project.image_1.url}}" alt="" />
+      <div class="details_img">
+        <img src="{{project.image_1.url}}" alt="Phenommie {{project.name|title}}">
+      </div>
       {% endif %}
+      {% if project.image_2 %}
+      <div class="details_img">
+        <img src="{{project.image_2.url}}" alt="Phenommie {{project.name|title}}">
+      </div> {% endif %}
+      {% if project.image_3 %}
+      <div class="details_img">
+        <img src="{{project.image_3.url}}" alt="Phenommie {{project.name|title}}">
+      </div> {% endif %}
+      {% if project.image_4 %}
+      <div class="details_img">
+        <img src="{{project.image_4.url}}" alt="Phenommie {{project.name|title}}">
+      </div> {% endif %}
+      {% if project.image_5 %}
+      <div class="details_img">
+        <img src="{{project.image_5.url}}" alt="Phenommie {{project.name|title}}">
+      </div> {% endif %}
+
+
     </div>
   </div>
 </section>
 
-<section class="project_photos">
-  <div class="container">
-    {% if project.image_2 %}
-    <div class="images image_1">
-      <img src="{{project.image_2.url}}" alt="" />
-    </div>
-    {% endif %} {% if project.image_4 %}
-    <div class="images image_2">
-      <img src="{{project.image_4.url}}" alt="" />
-    </div>
-    {% endif %}
-  </div>
-</section>
+{% include 'ready.html' %}
 
 <script src="{% static 'js/lightslider.js' %}"></script>
 

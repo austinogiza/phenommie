@@ -62,12 +62,14 @@ class PortfolioCategory(models.Model):
 
 
 class Portfolio(models.Model):
-    title = models.CharField(max_length=300)
+    name = models.CharField(max_length=300)
     date = models.DateTimeField(auto_now_add=True)
+    date_completed = models.CharField(max_length=500, blank=True, null=True)
+    category = models.ForeignKey(
+        PortfolioCategory, on_delete=models.CASCADE, blank=True, null=True)
     content_header = models.CharField(max_length=500, blank=True, null=True)
-    content_body = RichTextField(blank=True, null=True)
+    description = RichTextField(blank=True, null=True)
     end_body = RichTextField(blank=True, null=True)
-    details = models.TextField(max_length=2000, blank=True, null=True)
     presentation = models.ImageField(blank=True, null=True)
     image = models.ImageField()
     image_1 = models.ImageField(blank=True, null=True)
@@ -75,15 +77,45 @@ class Portfolio(models.Model):
     image_3 = models.ImageField(blank=True, null=True)
     image_4 = models.ImageField(blank=True, null=True)
     image_5 = models.ImageField(blank=True, null=True)
-    category = models.ForeignKey(
-        PortfolioCategory, on_delete=models.CASCADE, blank=True, null=True)
+
     slug = models.SlugField()
 
     class Meta:
-        unique_together = ('title', 'slug')
+        unique_together = ('name', 'slug')
 
     def __str__(self):
-        return self.title
+        return self.name
 
     def get_absolute_url(self):
         return reverse("digi:project", kwargs={"slug": self.slug})
+
+
+class Services(models.Model):
+    name = models.CharField(max_length=200)
+    heading = models.CharField(max_length=100, blank=True, null=True)
+    description = RichTextField()
+    slug = models.SlugField()
+    image = models.ImageField(blank=True, null=True)
+
+    class Meta:
+        verbose_name = 'Service'
+        verbose_name_plural = 'Services'
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse("digi:single", kwargs={"slug": self.slug})
+
+
+class Project(models.Model):
+    name = models.CharField(max_length=200)
+    email = models.CharField(max_length=200)
+    phone = models.CharField(max_length=200)
+    company = models.CharField(max_length=200)
+    budget = models.CharField(max_length=200)
+    project_type = models.CharField(max_length=200)
+    message = models.TextField()
+
+    def __str__(self):
+        return self.name

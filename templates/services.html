@@ -36,38 +36,20 @@
     </div>
 
     <div class="we_do_table">
+      {% for service in service %}
       <div class="we_do_box">
-        <img src="{% static 'images/1.svg' %}" alt="" />
-        <h1>Branding</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-          repellat possimus saepe animi, suscipit omnis? Iure impedit voluptatem
-          ullam asperiores molestias nisi nesciunt eum! Facilis est adipisci
-          eveniet aliquid quod.
-        </p>
-      </div>
+        <div class="loop">
+          <h1>{{forloop.counter}}</h1>
+        </div>
+        <div class="we_do_box_name">
+          <h1>{{service.name}}</h1>
+        </div>
 
-      <div class="we_do_box">
-        <img src="{% static 'images/1.svg' %}" alt="" />
-        <h1>Branding</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-          repellat possimus saepe animi, suscipit omnis? Iure impedit voluptatem
-          ullam asperiores molestias nisi nesciunt eum! Facilis est adipisci
-          eveniet aliquid quod.
-        </p>
+        <a href="{{service.get_absolute_url}}">
+        </a>
       </div>
+      {% endfor %}
 
-      <div class="we_do_box">
-        <img src="{% static 'images/1.svg' %}" alt="" />
-        <h1>Branding</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-          repellat possimus saepe animi, suscipit omnis? Iure impedit voluptatem
-          ullam asperiores molestias nisi nesciunt eum! Facilis est adipisci
-          eveniet aliquid quod.
-        </p>
-      </div>
     </div>
   </div>
 </section>
@@ -93,7 +75,7 @@
             perspiciatis culpa placeat dolorem .
           </p>
         </div>
-        
+
       </div>
       <div class="how_box">
         <div class="how_header">
@@ -103,7 +85,7 @@
             perspiciatis culpa placeat
           </p>
         </div>
-        </div>
+      </div>
     </div>
   </div>
 </section>

@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.views.generic import ListView, DetailView, TemplateView, UpdateView
-from .models import Contact, Portfolio, PortfolioCategory, CustomUser
-from .forms import ContactForm
+from .models import Contact, Portfolio, PortfolioCategory, CustomUser, Services, Project
+from .forms import ContactForm, ProjectForm
 from course.models import Courses
 from order.models import Order, OrderItem
 from course.models import SavedCourse
@@ -123,8 +123,10 @@ def contactsuccess(request):
     return render(request, 'contact-success.html')
 
 
-def service(request):
-    return render(request, 'services.html')
+class ServiceView(ListView):
+    model = Services
+    context_object_name = 'service'
+    template_name = "services.html"
 
 
 class CoursesListView(ListView):
@@ -199,3 +201,44 @@ class ProfileView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 
     def get_object(self):
         return self.request.user
+
+
+class ServiceSingleView(DetailView):
+    model = Services
+    context_object_name = 'service'
+    template_name = "single.html"
+
+    def post(self, *args, **kwargs):
+        form = ProjectForm(self.request.POST or None)
+
+        if form.is_valid():
+            name = form.cleaned_data.get('name')
+            email = form.cleaned_data.get('email')
+            phone = form.cleaned_data.get('phone')
+            budget = form.cleaned_data.get('budget')
+            company = form.cleaned_data.get('company')
+            project_type = form.cleaned_data.get('project_type')
+            message = form.cleaned_data.get('message')
+
+            project = Project(
+                name=name,
+                email=email,
+                phone=phone,
+                budget=budget,
+                company=company,
+                project_type=project_type,
+                message=message
+            )
+            project.save()
+            return redirect('digi:contactsuccess')
+
+    def get_context_data(self, **kwargs):
+        context = super(ServiceSingleView, self).get_context_data(**kwargs)
+        context.update({
+            'form': ProjectForm()
+        })
+        return context
+
+
+class OpporView(TemplateView):
+    template_name = "opportunities.html"

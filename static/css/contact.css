@@ -67,7 +67,7 @@ li {
 }
 
 .main_hero {
-  height: 400px;
+  height: 600px;
   width: 100%;
   background: url("../images/bg.svg") no-repeat center center/cover;
   display: flex;
@@ -112,6 +112,10 @@ li {
   width: 200px;
   height: 200px;
 }
+.hide-active{
+  display: none;
+  opacity: 0;
+}
 
 .icon_center img {
   width: 100%;
@@ -142,7 +146,7 @@ li {
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin-top: 150px;
+  /* margin-top: 50px; */
   padding: 10px 15px;
 }
 
@@ -267,12 +271,12 @@ form label h1,
 
 .form-control {
   width: 100%;
-  height: 54px;
+  height: 44px;
   border: 1px solid var(--white);
   outline: none;
   border-radius: 5px;
   padding: 10px 12px;
-  -webkit-height: 54px;
+  -webkit-height: 44px;
   background: transparent;
   color: var(--white);
   font-size: 14px;
@@ -347,18 +351,18 @@ form label h1,
 }
 
 .login input {
-  height: 54px;
+  height: 44px;
   font-size: 15px;
   padding: 10px 12px;
 
-  -webkit-height: 54px;
+  -webkit-height: 44px;
  
 }
 
 .login .textinput {
   width: 100%;
-  height: 54px;
-  -webkit-height: 54px;
+  height: 44px;
+  -webkit-height: 44px;
   
   font-size: 14px;
   padding: 10px 12px;
@@ -442,7 +446,7 @@ form label h1,
 }
 
 .terms {
-  font-size: 16px;
+  font-size: 17px;
   color: var(--white);
   text-align: center;
   margin: 10px 0;
@@ -549,7 +553,7 @@ form label h1,
 
 .how_we .title p {
   width: 100%;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 400;
   margin: 10px 0;
 }
@@ -593,7 +597,7 @@ form label h1,
 }
 
 .how_header p {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 400;
 
   line-height: 24px;
@@ -644,7 +648,7 @@ form label h1,
   margin: 10px 0;
 }
 .we_do_title p {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 400;
   line-height: 24px;
 }
@@ -656,7 +660,7 @@ form label h1,
   width: 100%;
   -ms-grid-columns: 1fr 40px 1fr 40px 1fr;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(300px, auto);
+  grid-auto-rows: 130px;
   padding: 15px;
   grid-gap: 40px;
   margin: 20px 0;
@@ -667,12 +671,26 @@ form label h1,
   color: #000000;
   border-radius: 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: flex;
+
   padding: 15px;
   justify-content: center;
   align-items: flex-start;
   text-align: justify;
+  position: relative;
 }
+
+.we_do_box a{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+     
+}
+
 .plan_recommend {
   width: 120px;
   margin: 10px;
@@ -700,13 +718,40 @@ form label h1,
   margin: 10px 0;
 }
 
+.we_do_box .loop{
+  flex: 0 0 18%;
+}
+
+
+.we_do_box_name{
+flex: 1;
+}
+
 .we_do_box h1 {
-  font-size: 34px;
+  font-size: 28px;
   font-weight: 700;
-  margin: 6px 0;
+  margin: 6px 16px;
+}
+
+.we_do_box .loop{
+  background: var(--green);
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.we_do_box .loop h1{
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
 }
 .we_do_box p {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 400;
 }
 
@@ -781,7 +826,7 @@ form label h1,
 }
 
 .plan_box p {
-  font-size: 16px;
+  font-size: 17px;
   margin: 4px 0;
   font-weight: 400;
 }
@@ -898,7 +943,7 @@ form label h1,
 /* Portfolio section */
 .portfolio {
   width: 100%;
-  min-height: 200px;
+  min-height: 150px;
   background: var(--black);
 }
 
@@ -910,13 +955,16 @@ form label h1,
 
 .section-filter {
   width: 100%;
-  min-height: 200px;
+  min-height: 150px;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
 
 .section-filter .container {
   width: 100%;
   height: 100%;
-
+  -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -928,6 +976,8 @@ form label h1,
   flex-direction: row;
   margin-top: 100px;
   padding: 10px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 .slider {
   width: 100%;
@@ -1510,6 +1560,7 @@ form label h1,
   justify-content: center;
   color: var(--black);
   z-index: 100;
+
 }
 
 .course_hero .container {
@@ -1529,7 +1580,7 @@ form label h1,
 .course_hero .container h1 {
   margin: 10px 0;
   font-size: 50px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .course_hero .container p {
@@ -1814,6 +1865,258 @@ form label h1,
   padding: 10px;
   color: var(--white);
 }
+
+
+.service_detail{
+  width: 100%;
+min-height: 400px;
+height: 100%;
+background: var(--black);
+padding: 10px 15px;
+}
+
+.service_detail .container{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-gap: 30px;
+  grid-auto-rows: minmax(250px);
+
+  max-width: 1100px;
+  margin: 0 auto;
+  color: var(--white);
+}
+
+.service_image{
+  height: 100%;
+  width: 100%;
+  
+}
+
+.service_image img{
+  height: 100%;
+  width: 100%;
+  
+}
+.service_description{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.service_description h1{
+  margin: 8px 0;
+  font-size: 28px;
+font-weight: 600;
+}
+
+.service_description p{
+  margin: 8px 0;
+  font-size: 17px;
+font-weight: 400;
+line-height: 25px;
+text-align: justify;
+}
+
+.service_form{
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  padding: 10px 15px;
+  background: var(--black);
+  color: var(--white);
+}
+.service_form .container{
+
+  max-width: 900px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.service_form_title{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  text-align: center;
+
+}
+
+.service_form_title h1{
+
+  font-size: 34px;
+  font-weight: 600;
+  height: 100%;
+  width: 100%;
+}
+.service_form_title p{
+margin: 8px 0;
+  font-size: 16px;
+  font-weight: 400;
+  height: 100%;
+  width: 100%;
+}
+
+.service_form_box{
+  height: 100%;
+  width: 100%;
+}
+
+.service_form_box form{
+display: flex;
+flex-direction: column;
+height: 100%;
+width: 100%;
+
+
+}
+.form_row label,
+.form_textarea_row label{
+  width: 100%;
+  
+}
+
+.form_row label h1,
+.form_textarea_row label h1{
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.service-input {
+  width: 100%;
+  height: 44px;
+  border: 1px solid var(--white);
+  outline: none;
+  border-radius: 5px;
+  padding: 10px 12px;
+  -webkit-height: 44px;
+  background: transparent;
+  color: var(--white);
+  font-size: 14px;
+}
+
+.service-input:focus,
+.form-control:active {
+  border: 2px solid var(--red);
+  color: var(--white);
+}
+
+
+.service-textarea {
+  width: 100%;
+  height: 400px;
+  font-size: 15px;
+  border: 1px solid var(--white);
+  outline: none;
+  color: var(--white);
+  border-radius: 5px;
+  padding: 10px;
+  resize: none;
+  background: transparent;
+}
+.service-textarea:focus,
+.service-textarea:active {
+  color: var(--white);
+  border: 2px solid var(--red);
+}
+
+
+.service-input::-webkit-input-placeholder, .service-textarea::-webkit-input-placeholder {
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+
+}
+
+.service-input::-moz-placeholder, .service-textarea::-moz-placeholder {
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+
+}
+
+.service-input:-ms-input-placeholder, .service-textarea:-ms-input-placeholder {
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+
+}
+
+.service-input::-ms-input-placeholder, .service-textarea::-ms-input-placeholder {
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+
+}
+
+.service-input::placeholder, .service-textarea::placeholder {
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+
+}
+
+.service-select{
+  height: 44px;
+  border: 1px solid var(--white);
+  outline: none;
+  border-radius: 5px;
+  padding: 10px 12px;
+  -webkit-height: 44px;
+  background: transparent;
+  color: var(--white);
+  font-size: 14px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+
+  background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  background-size: 24px;
+  
+}
+
+.service-select:hover, 
+.service-select:focus{
+  border: 2px solid var(--red);
+}
+.service-select option{
+  color: var(--black);
+}
+
+
+
+.form_row{
+  display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-gap: 30px;
+height: 100%;
+width: 100%;
+
+
+}
+
+.form_textarea_row{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+}
+
+.form_input{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+}
+
 
 .dashboard_section .wrapper > .sidebar_course_list {
   -ms-grid-row: 1;
@@ -2507,72 +2810,107 @@ form label h1,
 /* Project page */
 .project_header {
   width: 100%;
-  min-height: 400px;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   background: var(--black);
   color: var(--white);
+
+padding: 10px 15px;
 }
 
 .project_header .container {
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  max-width: 600px;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-gap: 30px;
   padding: 10px 15px;
   background: var(--black);
   color: var(--white);
 }
 
-.project_header h1 {
-  font-size: 60px;
+
+.project_box{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.project_box h1 {
+  font-size: 34px;
   font-weight: 700;
   margin: 10px 0;
   text-align: center;
 }
 
-.project_header p {
-  font-size: 20px;
+.project_box p {
+  font-size: 18px;
   font-weight: 400;
   margin: 10px 0;
-  text-align: center;
+  text-align: left;
 }
 
 .view_project {
   width: 100%;
   min-height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+height: 100%;
+background: var(--black);
 }
 
 .view_project .container {
   width: 100%;
   height: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+grid-template-columns: repeat(2,1fr);
+grid-auto-rows: minmax(300px,auto);
+grid-gap: 30px;
   padding: 10px 0;
   background: var(--black);
   color: var(--white);
 }
 
-.view_project h1 {
-  font-size: 20px;
-  font-weight: 700;
-  margin: 10px 0;
-  max-width: 800px;
-  text-align: center;
-  margin: 10px 0;
+.project_writeup{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+  padding: 10px 15px;
 }
 
-.view_project img {
+.project_writeup h1 {
+  font-size: 20px;
+  font-weight: 700;
+
+width: 100%;
+
+  text-align: left;
+  margin: 8px 0;
+}
+
+.project_writeup p {
+  font-size: 17px;
+  font-weight: 400;
+line-height: 26px;
+width: 100%;
+
+  text-align: justify;
+
+}
+
+.project_face{
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+.project_face img {
   margin: 10px 0;
   width: 100%;
   height: 400px;
@@ -2604,6 +2942,7 @@ form label h1,
 .project_details {
   width: 100%;
   min-height: 500px;
+  height: 100%;
   padding: 20px 0;
   background: var(--black);
   color: var(--white);
@@ -2612,17 +2951,55 @@ form label h1,
 .project_details .container {
   padding: 20px;
   display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 50px 1fr;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: minmax(300px, auto);
+  display: flex;
+  flex-direction: column;
+  
   height: 100%;
   width: 100%;
-  gap: 50px;
   max-width: 1100px;
   margin: 0 auto;
 }
 
+.project_details_title{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 10px 15px;
+  margin: 16px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.project_details_title h1{
+  font-size: 34px;
+}
+
+.project_details_image{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-auto-rows: 400px;
+  grid-template-rows: 400px;
+  grid-gap: 30px;
+  height: 100%;
+  width: 100%;
+
+}
+
+.details_img{
+  width: 100%;
+  height: 100%;
+}
+
+.details_img img{  
+  width: 100%;
+  height: 100%;
+
+}
+
+
+/* 
 .project_image {
   width: 100%;
   height: 100%;
@@ -2653,13 +3030,14 @@ form label h1,
 .project_image img {
   width: 100%;
   height: 100%;
-}
+} */
 
 .presentation {
   width: 100%;
-  min-height: 400px;
+  min-height: 300px;
   background: var(--black);
   color: var(--white);
+  padding: 10px 0;
 }
 
 .presentation .container {
@@ -2735,7 +3113,7 @@ form label h1,
 }
 
 .who_text p {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 400;
   margin: 10px 0;
 }
@@ -3126,6 +3504,79 @@ span.green {
     margin: 10px 0;
     text-align: center;
   }
+  .form_row{
+    display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 5px;
+  height: 100%;
+  width: 100%;
+  
+  
+  }
+  
+
+  .service_form_title h1{
+
+    font-size: 28px;
+    font-weight: 600;
+    height: 100%;
+    width: 100%;
+  }
+  .service_detail .container{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-gap: 30px;
+    grid-auto-rows: minmax(250px);
+  
+    max-width: 1100px;
+    margin: 0 auto;
+    color: var(--white);
+  }
+  
+  .project_details_image{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-auto-rows: 300px;
+    grid-template-rows: 300px;
+    grid-gap: 30px;
+    height: 100%;
+    width: 100%;
+  
+  }
+
+  
+.view_project .container {
+  width: 100%;
+  height: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  display: grid;
+grid-template-columns: repeat(1,1fr);
+grid-auto-rows: minmax(250px,auto);
+grid-gap: 16px;
+  padding: 10px 0;
+  background: var(--black);
+  color: var(--white);
+}
+
+
+  
+.project_header .container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  max-width: 600px;
+display: grid;
+grid-template-columns: repeat(1, 1fr);
+grid-auto-rows: minmax(50px, auto);
+grid-gap: 0px;
+
+
+  padding: 8px 15px;
+  background: var(--black);
+  color: var(--white);
+}
 
   .how_we .title h1 {
     width: 100%;
@@ -3306,19 +3757,6 @@ span.green {
     box-shadow: 0px 30px 60px rgba(0, 0, 0, 0.1);
   }
 
-  .project_details .container {
-    padding: 20px;
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 1fr;
-    grid-template-columns: repeat(1, 1fr);
-    grid-auto-rows: minmax(300px, auto);
-    height: 100%;
-    width: 100%;
-    gap: 50px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
 
   .dashboard_cover_course {
     display: -ms-grid;
@@ -3595,19 +4033,6 @@ span.green {
     box-shadow: 0px 30px 60px rgba(0, 0, 0, 0.1);
   }
 
-  .project_details .container {
-    padding: 20px;
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 1fr;
-    grid-template-columns: repeat(1, 1fr);
-    grid-auto-rows: minmax(300px, auto);
-    height: 100%;
-    width: 100%;
-    gap: 50px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
 
   .dashboard_cover_course {
     display: -ms-grid;

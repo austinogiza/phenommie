@@ -9,8 +9,7 @@
   <div class="container">
     <h1>Prove of Work</h1>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br />
-      Ut laoreet, velit cursus tincidunt accumsan
+  Here are the brands that have had peace after our touch:
     </p>
   </div>
 </section>
@@ -22,8 +21,7 @@
           {% for portfoliocategory in categories %}
           <li class="selector">
             <a href="{{portfoliocategory.get_absolute_url}}"
-              >{{portfoliocategory.title}}</a
-            >
+              >{{portfoliocategory.title}}</a>
           </li>
           {% endfor %}
         </ul>
@@ -36,10 +34,10 @@
   <div class="portfolio_table">
     {% for object in object_list %}
     <div class="portfolio_box portfolio_cover">
-      <img src="{{object.image.url}}" alt="" />
+      <img src="{{object.image.url}}" alt="Phenommie {{object.name|title}}" />
       <div class="portfolio_description">
         <a href="{{object.get_absolute_url}}">
-          <h1>{{object.title}}</h1>
+          <h1>{{object.name|title}}</h1>
         </a>
       </div>
     </div>

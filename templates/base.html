@@ -4,6 +4,16 @@
 <html lang="en">
 
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-179612194-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-179612194-1');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -13,10 +23,12 @@
     <link rel="manifest" href="{% static 'manifest.json' %}">
     <meta name="theme-color" content="#03CEA4">
 
-<div class="pre_loader">
+    <script src="{% static 'js/typed.js'%}"></script>
+    {% comment %}
+    <div class="pre_loader">
 
-    <img src="{% static 'images/loader.gif' %}" alt="">
-</div>
+        <img src="{% static 'images/loader.gif' %}" alt="">
+    </div> {% endcomment %}
 
     {% block css %}
 
@@ -62,7 +74,7 @@
     <script src="{% static 'js/main.js' %}"></script>
 
 
-
+    <script src="{% static 'js/typed.js'%}"></script>
 </body>
 
 </html>

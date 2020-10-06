@@ -51,3 +51,42 @@ class ContactForm(forms.Form):
         'placeholder': 'Type Your Message',
         'class': 'form-textarea'
     }))
+
+
+PROJECTCHOICE = [
+    ('branding', "Branding"),
+    ('copywriting', "Copywriting"),
+    ('web developement', "Web Developement"),
+    ('UI/UX Design', "UI/UX Design"),
+]
+
+
+class ProjectForm(forms.Form):
+    name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={
+        'class': "form-control",
+        'placeholder': 'Full Name',
+    }))
+    email = forms.CharField(max_length=100, widget=forms.EmailInput(attrs={
+        'class': "form-control",
+        'placeholder': 'Your Email',
+    }))
+    phone = forms.CharField(max_length=100, widget=forms.TextInput(attrs={
+        'class': "form-control",
+        'placeholder': 'Phone',
+    }))
+    company = forms.CharField(max_length=100, widget=forms.TextInput(attrs={
+        'class': "form-control",
+        'placeholder': 'Company',
+    }))
+    budget = forms.CharField(max_length=100, widget=forms.TextInput(attrs={
+        'class': "form-control",
+        'placeholder': 'Budget',
+    }))
+    project_type = forms.CharField(max_length=100, widget=forms.Select(choices=PROJECTCHOICE,  attrs={
+        'class': "service-select",
+        'placeholder': 'Project Type',
+    }))
+    message = forms.CharField(widget=forms.Textarea(attrs={
+        'class': "service-textarea",
+        'placeholder': 'Budget',
+    }))
