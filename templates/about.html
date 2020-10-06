@@ -7,8 +7,8 @@
 <section class="main_hero">
   <div class="container">
     <h1>The Haven.</h1>
-    <p> A place of safety for our clients.
-      The innovation & ideation lab</p>
+    <p> <span class="header_type"></span>
+    </p>
   </div>
 </section>
 
@@ -140,5 +140,15 @@
     startDelay: 1000,
     loop: true,
   });
+
+  var typed = new Typed('.header_type', {
+    strings: ['A place of safety for our clients', 'The innovation & ideation lab'],
+    typeSpeed: 100,
+    backSpeed: 100,
+    backDelay: 100,
+    startDelay: 1000,
+    loop: true,
+  });
+
 </script>
 {% endblock content %}
