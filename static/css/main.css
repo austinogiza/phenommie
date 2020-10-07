@@ -84,7 +84,7 @@ nav .container {
   height: 90px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
 }
 
 h1,
