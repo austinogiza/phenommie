@@ -449,6 +449,11 @@ footer .social-links li a:hover::after {
     height: 120px;
   }
 
+  nav .icon{
+    align-self: flex-start;
+    padding: 20px;
+  }
+
   .nav-links {
     display: flex;
     flex-direction: column;

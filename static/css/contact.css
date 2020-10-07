@@ -926,6 +926,7 @@ flex: 1;
 .start_project h1 {
   font-size: 50px;
   margin: 10px 0;
+  max-width: 800px;
 }
 
 .start_project p {
@@ -3510,6 +3511,14 @@ width: 100%;
     margin: 10px 0;
     text-align: center;
   }
+
+  .team .title h1 {
+    font-size: 34px;
+    font-weight: 600;
+    margin: 10px 0;
+  }
+
+
   .form_row{
     display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -3889,7 +3898,7 @@ grid-gap: 0px;
   }
 
   .start_project h1 {
-    font-size: 28px;
+    font-size: 24px;
     margin: 10px 0;
   }
 
