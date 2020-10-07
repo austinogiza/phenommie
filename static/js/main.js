@@ -11,7 +11,7 @@ const loader = document.querySelector('.pre_loader');
 
 
 $(window).on('load', function () {
- 
+
     setTimeout(function () {
         $('.pre_loader').fadeOut('slow');
     }, 4000)
@@ -58,20 +58,9 @@ toggle.addEventListener("click", function menuBurger() {
         if (links.style.animation) {
             links.style.animation = "";
         } else {
-            links.style.animation = `navLinkFade 0.8s ease-in  forwards   ${
-        index / 7 + 0.3
-      }s`;
+            links.style.animation = `navLinkFade 0.8s ease-in  forwards ${index / 7 + 0.3}s`;
         }
     });
-});
-
-gsap.registerPlugin(TextPlugin);
-gsap.to(".phen-text", {
-    text: "Phenommie",
-    ease: "power1.in",
-    duration: 2,
-    repeat: -1,
-    yoyo: true,
 });
 
 

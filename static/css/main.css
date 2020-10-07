@@ -74,17 +74,21 @@ nav {
   background: var(--black);
   color: var(--white);
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+
 }
 
 nav .container {
   max-width: 1100px;
-  margin: auto;
+  margin: 0 auto;
   flex-direction: row;
   color: var(--white);
-  height: 90px;
+  height: 100px;
   display: flex;
+width: 100%;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  padding: 10px 20px;
+
 }
 
 h1,
@@ -447,7 +451,10 @@ footer .social-links li a:hover::after {
   nav .container {
     flex-direction: column;
     height: 120px;
+
   }
+
+
 
   .nav-links {
     display: flex;
