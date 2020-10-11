@@ -3,40 +3,45 @@
 <link rel="stylesheet" href="{% static 'css/contact.css' %}" />
 <title>{{service.name|title}} - Phenommie</title>
 <link rel="stylesheet" href="{% static 'css/home.css' %}" />
-<link type="text/css" rel="stylesheet" href="{% static 'css/lightslider.css' %}" />
+<link
+  type="text/css"
+  rel="stylesheet"
+  href="{% static 'css/lightslider.css' %}"
+/>
 <script src="{% static 'js/jquery.min.js'%}"></script>
 {% endblock css %} {% block content %}
 
-<section class="course_hero" style="width:100%; min-height: 500px;   background: #06A0A6;">
+<section
+  class="course_hero"
+  style="width: 100%; min-height: 500px; background: url('{{service.header.url}}') center center/cover; "
+>
   <div class="container">
     <h1>{{service.name|title}}</h1>
   </div>
 </section>
 
 <section class="service_detail">
-
   <div class="container">
-
-    <div class="service_image"><img src="{{service.image.url}}" alt="Phenommie {{service.name|title}}"></div>
+    <div class="service_image">
+      {% if service.image %}
+      <img src="{{service.image.url}}" alt="Phenommie {{service.name|title}}" />
+      {% endif %}
+    </div>
     <div class="service_description">
-
-      <h1>{{service.heading}}
-      </h1>
+      <h1>{{service.heading}}</h1>
       <p>{{service.description|safe}}</p>
 
       <a href="{% url 'digi:contact' %}" class="btn btn-payment">Get Started</a>
     </div>
   </div>
-
-
 </section>
 
 <section class="service_form">
-
   <div class="container">
-
     <div class="service_form_title">
-      <h1>To start a project with us or <span class="green">make enquiries</span></h1>
+      <h1>
+        To start a project with us or <span class="green">make enquiries</span>
+      </h1>
       <p>Please fill the form below and we will be in touch.</p>
     </div>
 
@@ -51,7 +56,6 @@
               {{form.name}}
               <!-- <input type="text" class="form-control" name="name" id="name" placeholder="Full Name"> -->
             </label>
-
           </div>
           <div class="form_input">
             <label for="email">
@@ -59,7 +63,6 @@
               {{form.email}}
               <!-- <input type="email" class="form-control" name="email" id="email" placeholder="Email"> -->
             </label>
-
           </div>
         </div>
         <div class="form_row">
@@ -69,7 +72,6 @@
               <!-- <input type="text" name="text" class="form-control" id="phone" name="phone" placeholder="Phone"> -->
               {{form.phone}}
             </label>
-
           </div>
           <div class="form_input">
             <label for="company">
@@ -77,7 +79,6 @@
               <!-- <input type="text" class="form-control" name="company" id="company" placeholder="Company"> -->
               {{form.company}}
             </label>
-
           </div>
         </div>
 
@@ -88,7 +89,6 @@
               {{form.budget}}
               <!-- <input type="text" name="budget" class="form-control" id="budget" placeholder="Budget"> -->
             </label>
-
           </div>
           <div class="form_input">
             <label for="project">
@@ -100,29 +100,20 @@
               </select> -->
               {{form.project_type}}
             </label>
-
           </div>
-
         </div>
 
         <div class="form_textarea_row">
           <label for="description">
-            <h1> Description of your project and requirement</h1>
+            <h1>Description of your project and requirement</h1>
             <!-- <textarea name="description" id="description" class="service-textarea"></textarea> -->
             {{form.message}}
           </label>
-
         </div>
         <button class="btn btn-payment" type="submit">Let's Start</button>
-
       </form>
-
     </div>
   </div>
 </section>
 
-
-{% include 'ready.html' %}
-
-
-{% endblock content %}
+{% include 'ready.html' %} {% endblock content %}

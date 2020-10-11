@@ -5,8 +5,6 @@
 * Browsers: last 4 version
 */
 
-
-
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap");
 
 *,
@@ -50,8 +48,8 @@ body {
   color: var(--white);
   overflow-x: hidden;
   -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
 }
 
 a {
@@ -65,8 +63,8 @@ li {
 nav {
   width: 100%;
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-          -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
   position: -webkit-sticky;
 
   position: sticky;
@@ -97,10 +95,7 @@ h5 {
 
 p,
 a {
-
-  
-  font-family: "Inter",
-  sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .nav-links {
@@ -149,9 +144,8 @@ a {
   flex-direction: row;
 }
 
-
 /* pre_loader */
-.pre_loader{
+.pre_loader {
   position: fixed;
   top: 0;
   left: 0;
@@ -162,51 +156,44 @@ a {
   align-items: center;
   justify-content: center;
   z-index: 5000;
-  background: #E0E9EE;
+  background: #e0e9ee;
   cursor: pointer;
--webkit-background:#E0E9EE ;
--webkit-display: flex;
--webkit-align-items: center;
--webkit-justify-content: center;
-
+  -webkit-background: #e0e9ee;
+  -webkit-display: flex;
+  -webkit-align-items: center;
+  -webkit-justify-content: center;
 }
 
 .disappear {
   -webkit-animation: vanish 3s forwards;
-          animation: vanish 3s forwards;
+  animation: vanish 3s forwards;
   -webkit-animation-name: vanish;
--webkit-animation-duration: 3s;
--webkit-animation-fill-mode: forwards;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-fill-mode: forwards;
 }
 
-
-@-webkit-keyframes vanish{
-  100%{
-
+@-webkit-keyframes vanish {
+  100% {
     visibility: hidden;
     -webkit-opacity: 0;
     -webkit-visibility: hidden;
- 
   }
 }
 
-
-@keyframes vanish{
-  100%{
-
+@keyframes vanish {
+  100% {
     visibility: hidden;
   }
 }
 .btn {
-
   height: 44px;
-  padding: 10px 15px;
-  border-radius: 10px !important;
+  padding: 10px 20px;
+  border-radius: 5px !important;
   outline: none;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -moz-backface-visibility: hidden;
-
+  font-weight: 600 !important;
 }
 
 .btn-login {
@@ -236,7 +223,6 @@ a {
   background: var(--dark-green);
   color: var(--white);
   -webkit-background: background;
-  
 }
 
 .btn-sign {
@@ -255,8 +241,8 @@ a {
   -webkit-box-shadow: box-shadow;
   -webkit-outline: outline;
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-          -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
   transition: 0.4s ease-in;
 }
 
@@ -427,11 +413,7 @@ footer .social-links li a:hover::after {
 .back-to-top:hover,
 .back-to-top:focus {
   background: var(--dark-green);
-
 }
-
-
-
 
 .back-to-top .container {
   display: flex;
@@ -449,7 +431,7 @@ footer .social-links li a:hover::after {
     height: 120px;
   }
 
-  nav .icon{
+  nav .icon {
     align-self: flex-start;
     padding: 20px;
   }

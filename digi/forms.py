@@ -90,3 +90,41 @@ class ProjectForm(forms.Form):
         'class': "service-textarea",
         'placeholder': 'Budget',
     }))
+
+ROLECHOICE =(
+
+    ("UI/UX Designer", "UI/UX Designer"),
+    ('Copy Writing', "Copy Writing"),
+    ("Frontend Developer", "Frontend Developer")
+)
+
+
+class OpportunityForm(forms.Form):
+    first_name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={
+        'class': "form-control",
+        'placeholder': 'First Name',
+    }))
+    last_name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={
+        'class': "form-control",
+        'placeholder': 'Last Name',
+    }))
+    email = forms.CharField(max_length=100, widget=forms.EmailInput(attrs={
+        'class': "form-control",
+        'placeholder': 'Your Email',
+    }))
+    phone = forms.CharField(max_length=100, widget=forms.TextInput(attrs={
+        'class': "form-control",
+        'placeholder': 'Phone',
+    }))
+    role = forms.CharField(max_length=100, widget=forms.Select(choices=ROLECHOICE,  attrs={
+        'class': "service-select",
+        'placeholder': 'Project Type',
+    }))
+    why = forms.CharField(widget=forms.Textarea(attrs={
+        'class': "service-textarea",
+        'placeholder': 'Why Do You Want To Work Here?',
+    }))
+    links = forms.CharField(widget=forms.Textarea(attrs={
+        'class': "service-textarea",
+        'placeholder': 'Add Links To Your Past Works',
+    }))

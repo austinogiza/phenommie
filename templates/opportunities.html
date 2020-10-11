@@ -1,84 +1,129 @@
-{% extends 'base.html' %}
-{%  load static %}
-
+{% extends 'base.html' %} {% load static %}{% block css %} 
 {% load crispy_forms_tags %}
-{% block css %}
 <title>Opportunities - Phenommie</title>
 
-<link rel="stylesheet" href="{% static 'css/contact.css' %}">
-{% endblock css %}
-
-
-{% block content %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}" />
+{% endblock css %} {% block content %}
 
 <section class="main_hero">
-
-    <div class="container">
-        <h1> <span class="about_type"></span></h1>
-    </div>
-
-
+  <div class="container">
+    <h1><span class="about_type"></span></h1>
+  </div>
 </section>
 
 
-
-<section class="form_section">
+<section class="oppor_desc">
     <div class="container">
-        <div class="form_title">
-            <h1>Get In Touch</h1>
-            <p>Say <a href="mailto:hello@phenommie.com"> <span class="green">hello@phenommie.com</span> </a></p> <br>
-            <p>Call <a href="tel:+"> <span class="green">+234 XXX XXX XXXX</span></a></p>
-
-            <h1> To start a project with us or <span class="green"> make enquiries</span></h1>
-            <p>Please fill the form below and we will be in touch.</p>
-        </div>
-
-
-
-        <div class="form_container">
-
-            <form class="form" method="POST" action="{% url 'digi:contact' %}">
-                {% csrf_token %}
-
-
-                <label>
-                    <h1>Name:</h1>
-                    {{form.name}}
-                </label>
-                <label>
-                    <h1>Email:</h1>
-                    {{form.email}}
-                </label>
-                <label>
-                    <h1>Subject:</h1>
-                    {{form.subject}}
-                </label>
-                <label>
-                    <h1>Message:</h1>
-                    {{form.message}}
-                </label>
-                <button class="btn btn-send" type="submit">
-                    Let's Start
-                </button>
-            </form>
-        </div>
+        <p>We are looking for passionate individuals who’d integrate into a disruptive, hardworking and high
+            performing team. We understand flaws, missteps & failure are an inevitable part of the process of
+            innovation and as a result we’ve created a haven where you can give full expression to your talents
+            and creativity.
+         </p>
+         <p>An environment where lead-innovators like Remmie & Orezi identify needs, haul them
+            over to dissect and apply solutions to them.</p>
+         <p>   Our wordsmiths file and fine-tune the solutions finding the best angle to cast in the light. Our
+            technonuts bring the solutions to life with <b>numbers</b>, <b>pixels</b> & <b>codes</b>.</p>
     </div>
 </section>
+<section class="opportunites">
 
+    <div class="container">
+<div class="oppor_text">
+    <h1>Join Our Team</h1>
+    <p>If you have a keen interest in working
+        with us, please go ahead and apply
+        below. If none of the roles here suits
+        you, you can send an unsolicited
+        application via <span class="green">be@phenommie.com</span></p>
+</div>
 
+<div class="oppor_form">
+    <form method="post">
+        {% csrf_token %}
 
+        <div class="form_row">
+          <div class="form_input">
+            <label for="name">
+              <h1>First Name</h1>
+              {{form.first_name}}
+              <!-- <input type="text" class="form-control" name="name" id="name" placeholder="Full Name"> -->
+            </label>
+          </div>
+          <div class="form_input">
+            <label for="email">
+              <h1>Last Name</h1>
+              {{form.last_name}}
+              <!-- <input type="email" class="form-control" name="email" id="email" placeholder="Email"> -->
+            </label>
+          </div>
+        </div>
+        <div class="form_row">
+          <div class="form_input">
+            <label for="phone">
+              <h1>Email</h1>
+              <!-- <input type="text" name="text" class="form-control" id="phone" name="phone" placeholder="Phone"> -->
+              {{form.email}}
+            </label>
+          </div>
+          <div class="form_input">
+            <label for="company">
+              <h1>Phone</h1>
+              <!-- <input type="text" class="form-control" name="company" id="company" placeholder="Company"> -->
+              {{form.phone}}
+            </label>
+          </div>
+        </div>
+
+ 
+        <div class="form_textarea_row">
+            <div class="form_input">
+                <label for="project">
+                  <h1>Desired Role</h1>
+                  <!-- <select name="project" class="service-select" id="project">
+                    <option selected disabled> Select Project Type</option>
+    
+                    <option value="branding">Branding</option>
+                  </select> -->
+                  {{form.role}}
+                </label>
+              </div>
+          </div>
+        <div class="form_textarea_row">
+          <label for="description">
+            <h1>Why Do You Want To Work Here:</h1>
+            <!-- <textarea name="description" id="description" class="service-textarea"></textarea> -->
+            {{form.why}}
+          </label>
+        </div>
+        <div class="form_textarea_row">
+            <label for="description">
+              <h1>Add Links To Your Past Works</h1>
+              <!-- <textarea name="description" id="description" class="service-textarea"></textarea> -->
+              {{form.links}}
+            </label>
+          </div>
+        
+        <button class="btn btn-payment" type="submit">Submit</button>
+      </form>
+</div>
+
+    </div>
+</section>
 
 {% include 'ready.html' %}
 
 <script>
-
-    var typed = new Typed('.about_type', {
-        strings: ['Great at what you do?', 'Ready to embrace a new level?', ' Want an amazing team?'],
-        typeSpeed: 100,
-        backSpeed: 100,
-        backDelay: 100,
-        startDelay: 1000,
-        loop: true,
-    });
+  var typed = new Typed(".about_type", {
+    strings: [
+      "Great at what you do?",
+      "Ready to embrace a new level?",
+      " Want an amazing team?",
+    ],
+    typeSpeed: 100,
+    backSpeed: 100,
+    backDelay: 100,
+    startDelay: 1000,
+    loop: true,
+  });
 </script>
 {% endblock content %}

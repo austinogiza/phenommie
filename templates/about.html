@@ -1,45 +1,57 @@
 {% extends 'base.html' %} {% load static %} {% block css %} {% load humanize %}
 
 <link rel="stylesheet" href="{% static 'css/contact.css' %}" />
-<title>Our Courses - Phenommie</title>
+<title>The Haven - Phenommie</title>
 {% endblock css %} {% block content %}
 
 <section class="main_hero">
   <div class="container">
     <h1>The Haven.</h1>
-    <p> <span class="header_type"></span>
-    </p>
+    <p><span class="header_type"></span></p>
   </div>
 </section>
 
 <section class="customers">
   <div class="container">
-
     <h1>
-      Our Competencies span. <br>
+      Our Competencies span. <br />
       <span class="green">Attention is the new currency.</span>
     </h1>
   </div>
 </section>
+
+<section class="about_container">
+  <div class="container">
+    <div class="about_service">
+      {% for item in services %}
+      <div class="about_service_box">
+        {%if item.icon %}
+        <img src="{{item.icon.url}}" alt="Phenommie {{item.name|title}}" />
+        {% endif %}
+        <h1>{{item.name|title}}</h1>
+        <a href="{{item.get_absolute_url}}"></a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
 <section class="who_are">
   <div class="container">
-
-
     <div class="who_image">
       <img src="{% static 'images/flyer.png' %}" alt="" />
     </div>
     <div class="who_text">
-      <h1>How much <span class="about_type"></span>?</h1>
+      <h1>How much <span class="about_type green"></span>?</h1>
       <p>
-        Welcome to the attention economy where customers only interact with brands that
-        care about them and they care about. <br>
-        We’ve a team of ideators who spend everyday in the lab dissecting these needs,
-        designing suitable structures & tweaking solutions until they are right enough.
+        Welcome to the attention economy where customers only interact with
+        brands that care about them and they care about. <br />
+        We’ve a team of ideators who spend everyday in the lab dissecting these
+        needs, designing suitable structures & tweaking solutions until they are
+        right enough.
       </p>
     </div>
   </div>
 </section>
-
 
 <section class="who_are">
   <div class="container">
@@ -62,40 +74,11 @@
     </div>
   </div>
 </section>
-<section class="who_are">
-  <div class="container">
-    <div class="who_image">
-      <h1>Lorem ipsum dolor sit amet.</h1>
-      <img src="{% static 'images/flyer.png' %}" alt="" />
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, quod
-        magnam ut eos quisquam commodi dolorum facilis cumque eum officia?
-      </p>
-    </div>
-    <div class="who_text">
-      <h1>Lorem ipsum dolor sit amet.</h1>
-      <p>
-        “Let’s help you secure a loving spot in the minds of your customers, and
-        make doing business easy for you both, so they can keep doing business
-        with you from the comforts of their homes”
-      </p>
-
-      <ul>
-        <li><i class="fas fa-check"></i>Branding</li>
-        <li><i class="fas fa-check"></i>Webdevelopment</li>
-        <li><i class="fas fa-check"></i> UI/UX</li>
-      </ul>
-
-      <a href="#" class="btn btn-payment">Contact Us</a>
-    </div>
-  </div>
-</section>
-
 
 <section class="team">
   <div class="container">
     <div class="title">
-      <h1>Our <span class="green">Amazing</span> Team</h1>
+      <h1>Our Amazing <span class="green">Team</span></h1>
     </div>
 
     <div class="team_cover">
@@ -123,17 +106,29 @@
   </div>
 </section>
 
+<section class="brands_trust">
+  <div class="container">
+    <div class="brand_title">
+      <h1>Brands That Trust Us</h1>
+    </div>
 
+    <div class="brand_image">
+      {% for item in brands %}
+      <div class="brand_cover">
+        <img src="{{item.image.url}}" alt="Phenommie Client {{item.name}}" />
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
 
 {% include 'ready.html' %}
 
 <script src="{% static 'js/portfolio.js' %}"></script>
 
-
 <script>
-
-  var typed = new Typed('.about_type', {
-    strings: ['can you pay ', 'are you paid'],
+  var typed = new Typed(".about_type", {
+    strings: ["can you pay ", "are you paid"],
     typeSpeed: 100,
     backSpeed: 100,
     backDelay: 100,
@@ -141,14 +136,16 @@
     loop: true,
   });
 
-  var typed = new Typed('.header_type', {
-    strings: ['A place of safety for our clients', 'The innovation & ideation lab'],
+  var typed = new Typed(".header_type", {
+    strings: [
+      "A place of safety for our clients",
+      "The innovation & ideation lab",
+    ],
     typeSpeed: 100,
     backSpeed: 100,
     backDelay: 100,
     startDelay: 1000,
     loop: true,
   });
-
 </script>
 {% endblock content %}

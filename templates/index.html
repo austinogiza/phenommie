@@ -4,21 +4,26 @@
 <link rel="stylesheet" href="{% static 'css/home.css' %}" />
 
 <link rel="stylesheet" href="{% static 'css/contact.css' %}" />
-{% endblock css %}
 
-{% block content %}
-
+{% endblock css %} {% block content %}
 
 <header>
   <div class="container">
-    <h1>Be <span class="txt-type green" data-wait="3000" data-words="['phenomenal', 'extraordinary', 'sensational', 'unparalleled',
-        'amazing', 'outstanding', 'remarkable', 'bold', 'prestigious', 'flamboyant', 'elegant']"></span></h1>
+    <h1>
+      Be
+      <span
+        class="txt-type green"
+        data-wait="3000"
+        data-words="['phenomenal', 'extraordinary', 'sensational', 'unparalleled',
+        'amazing', 'outstanding', 'remarkable', 'bold', 'prestigious', 'flamboyant', 'elegant']"
+      ></span>
+    </h1>
+
+    <h2>Phenommie - /fi-nom-ē/</h2>
     <p>
-      Phenommie is an innovation
-      haven creating transformative
-      experiences people love. <br>
-      We’re future-driven as we
-      proffer creative solutions today.
+      Phenommie is an innovation brand creating transformative experiences
+      people love. <br />
+      We’re future-driven as we proffer creative solutions today.
     </p>
 
     <a href="{% url 'digi:about'%}" class="btn btn-sign">Check Out The Haven</a>
@@ -27,15 +32,42 @@
 
 <section class="potential">
   <div class="container">
-    <h1>Doing Business Online Shouldn’t Be Rocket Science</h1>
-    <p>
+    <h1>Here are the brands that have had peace after our touch</h1>
+    <!-- <p>
       What if you have a community of loyal customers who sees no competition
       and helps spread the word about your brand?
-    </p>
+    </p> -->
+
+    <div class="responsive">
+      <div class="potential_img">
+        <img src="{% static 'images/futur.svg' %}" alt="" />
+      </div>
+      <div class="potential_img">
+        <img src="{% static 'images/futur.svg' %}" alt="" />
+      </div>
+      <div class="potential_img">
+        <img src="{% static 'images/futur.svg' %}" alt="" />
+      </div>
+      <div class="potential_img">
+        <img src="{% static 'images/futur.svg' %}" alt="" />
+      </div>
+      <div class="potential_img">
+        <img src="{% static 'images/futur.svg' %}" alt="" />
+      </div>
+      <div class="potential_img">
+        <img src="{% static 'images/futur.svg' %}" alt="" />
+      </div>
+      <div class="potential_img">
+        <img src="{% static 'images/futur.svg' %}" alt="" />
+      </div>
+      <div class="potential_img">
+        <img src="{% static 'images/futur.svg' %}" alt="" />
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="magic">
+<!-- <section class="magic">
   <div class="container">
     <div class="magic-top">
       <h1>
@@ -68,7 +100,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 <section class="courses">
   <div class="container">
@@ -78,7 +110,6 @@
         Learn all the important skills you need to connect better with your
         ideal audience, grow your brand online, & make recurrent sales.
       </p>
-
     </div>
 
     <div class="take_course_image">
@@ -86,7 +117,8 @@
     </div>
   </div>
 </section>
-{% comment %} <section class="our_portfolio">
+{% comment %}
+<section class="our_portfolio">
   <div class="portfolio_title">
     <h1>Our Portfolio</h1>
     <p>Check out some of our purposeful and customer-centric projects</p>
@@ -107,16 +139,14 @@
       {% endfor %}
       <div class="portfolio_box see_more">
         <h1>Want to see more projects?</h1>
-        <a href="{% url 'digi:portfolio' %}" class="btn btn-send">
-          See More</a>
+        <a href="{% url 'digi:portfolio' %}" class="btn btn-send"> See More</a>
       </div>
     </div>
   </div>
-</section> {% endcomment %}
+</section>
+{% endcomment %}
 <section class="courses">
   <div class="container">
-
-
     <div class="take_course_image">
       <img src="{% static 'images/crowd.svg' %}" alt="" />
     </div>
@@ -138,7 +168,9 @@
         Learn all the important skills you need to connect better with your
         ideal audience, grow your brand online, & make recurrent sales.
       </p>
-      <a href="{% url 'digi:portfolio' %}" class="btn btn-send">View Portfolio</a>
+      <a href="{% url 'digi:portfolio' %}" class="btn btn-send"
+        >View Portfolio</a
+      >
     </div>
 
     <div class="take_course_image">
@@ -146,7 +178,6 @@
     </div>
   </div>
 </section>
-
 
 {% include 'ready.html' %}
 
@@ -198,12 +229,21 @@
 <script src="{% static 'js/gsap.min.js' %}"></script>
 <script src="{% static 'js/TextPlugin.min.js' %}"></script>
 
-
 <script>
-
-  var typed = new Typed('.txt-type', {
-    strings: ['phenomenal', 'extraordinary', 'sensational', 'unparalleled',
-      'amazing', 'outstanding', 'remarkable', 'bold', 'prestigious', 'flamboyant', 'elegant'],
+  var typed = new Typed(".txt-type", {
+    strings: [
+      "phenomenal",
+      "extraordinary",
+      "sensational",
+      "unparalleled",
+      "amazing",
+      "outstanding",
+      "remarkable",
+      "bold",
+      "prestigious",
+      "flamboyant",
+      "elegant",
+    ],
     typeSpeed: 100,
     backSpeed: 100,
     backDelay: 100,
@@ -211,4 +251,5 @@
     loop: true,
   });
 </script>
+
 {% endblock content %}

@@ -16,10 +16,11 @@
         <div class="nav-links-container">
             <ul class="nav-links">
          
-                <li class="nav-link {% if request.path == about %} hide-active {% endif %}"><a href="{% url 'digi:about' %}">About Us</a></li>
+                <li class="nav-link {% if request.path == about %} hide-active {% endif %}"><a href="{% url 'digi:about' %}">The Haven</a></li>
                 <li class="nav-link {% if request.path == service %} hide-active {% endif %}"><a href="{% url 'digi:service' %}">Services</a></li>
-                <li class="nav-link {% if request.path == courses %} hide-active {% endif %}"><a href="{% url 'digi:courses' %}">Course</a></li>
-                <li class="nav-link  {% if request.path == portfolio %} hide-active {% endif %}" ><a href="{% url 'digi:portfolio' %}">Portfolio</a></li>
+                {% comment %} <li class="nav-link {% if request.path == courses %} hide-active {% endif %}"><a href="{% url 'digi:courses' %}">Course</a></li> {% endcomment %}
+                {% comment %} <li class="nav-link  {% if request.path == portfolio %} hide-active {% endif %}" ><a href="{% url 'digi:portfolio' %}">Portfolio</a></li> {% endcomment %}
+                <li class="nav-link  {% if request.path == contact %} hide-active {% endif %}" ><a href="{% url 'digi:contact' %}">Say Hello</a></li> 
                       {% comment %} {% if request.user.is_authenticated %}
                 <li class="nav-link"><a href="{% url 'digi:dashboard' %}">Hello {{ request.user.first_name}}</a></li>
                       {% endif %}

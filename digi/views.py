@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.views.generic import ListView, DetailView, TemplateView, UpdateView
-from .models import Contact, Portfolio, PortfolioCategory, CustomUser, Services, Project
-from .forms import ContactForm, ProjectForm
+from .models import Contact, Portfolio, PortfolioCategory, CustomUser, Services, Project, Brands, Opportunities
+from .forms import ContactForm, ProjectForm, OpportunityForm
 from course.models import Courses
 from order.models import Order, OrderItem
 from course.models import SavedCourse
@@ -19,8 +19,19 @@ IN_CART = 'in_cart'
 NOT_IN_CART = 'not_in_cart'
 
 
-def about(request):
-    return render(request, 'about.html')
+class AboutView(ListView):
+    model = Services
+    context_object_name = 'services'
+    template_name = "about.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(AboutView, self).get_context_data(**kwargs)
+        brands = Brands.objects.all()
+        context.update({
+
+            'brands': brands
+        })
+        return context
 
 
 def search(request):
@@ -242,3 +253,38 @@ class ServiceSingleView(DetailView):
 
 class OpporView(TemplateView):
     template_name = "opportunities.html"
+
+    def post(self, *args, **kwargs):
+        form = OpportunityForm(self.request.POST)
+
+        if form.is_valid():
+            first_name = form.cleaned_data.get('first_name')
+            last_name = form.cleaned_data.get('first_name')
+            email = form.cleaned_data.get('email')
+            phone = form.cleaned_data.get('phone')
+            why = form.cleaned_data.get('why')
+            role = form.cleaned_data.get('role')
+            links = form.cleaned_data.get('links')
+            
+
+            opportunities = Opportunities(
+                first_name=first_name,
+                last_name=last_name,
+                email=email,
+                phone=phone,
+                why=why,
+                role=role,
+                links=links,
+            )
+            opportunities.save()
+            return redirect('digi:contactsuccess')
+        return render(self.request, "opportunities.html")
+
+    def get_context_data(self, **kwargs):
+        context = super(OpporView, self).get_context_data(**kwargs)
+        context.update({
+
+                'form': OpportunityForm()
+            })
+        return context
+        

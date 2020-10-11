@@ -1,3 +1,7 @@
 {
-    "python.pythonPath": "C:\\Users\\AUSTIN\\envs\\work\\Scripts\\python.exe"
+    "python.pythonPath": "C:\\Users\\AUSTIN\\envs\\work\\Scripts\\python.exe",
+    // "launch": {
+    //     // "configurations": [],
+    //     // "compounds": []
+    // }
 }

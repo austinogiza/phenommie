@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Contact, CustomUser, Portfolio, PortfolioCategory, Services
+from .models import Contact, CustomUser, Portfolio, PortfolioCategory, Services, Project, Brands, Opportunities
 
 
 # Register your models here.
@@ -22,7 +22,9 @@ class CustomUserAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Contact)
-
+admin.site.register(Project)
+admin.site.register(Brands)
+admin.site.register(Opportunities)
 admin.site.register(CustomUser, CustomUserAdmin)
 
 admin.site.register(Portfolio, PortfolioAdmin)

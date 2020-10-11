@@ -94,8 +94,10 @@ class Services(models.Model):
     name = models.CharField(max_length=200)
     heading = models.CharField(max_length=100, blank=True, null=True)
     description = RichTextField()
-    slug = models.SlugField()
+    icon = models.ImageField(blank=True, null=True)
+    header = models.ImageField(blank=True, null=True)
     image = models.ImageField(blank=True, null=True)
+    slug = models.SlugField()
 
     class Meta:
         verbose_name = 'Service'
@@ -119,3 +121,29 @@ class Project(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Brands(models.Model):
+    name = models.CharField(max_length=200)
+    image = models.ImageField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Brand'
+        verbose_name_plural = 'Brands'
+
+
+class Opportunities(models.Model):
+    first_name = models.CharField(max_length=200)
+    last_name = models.CharField(max_length=200)
+    email = models.CharField(max_length=200)
+    phone = models.CharField(max_length=200)
+    role = models.CharField(max_length=200)
+    why = models.TextField()
+    links = models.TextField()
+
+    def __str__(self):
+        return self.first_name
+    
