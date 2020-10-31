@@ -5,6 +5,8 @@
 
 <link rel="stylesheet" href="{% static 'css/contact.css' %}" />
 
+<link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
+
 {% endblock css %} {% block content %}
 
 <header>
@@ -67,6 +69,54 @@
   </div>
 </section>
 
+<div class="swiper_section">
+  <div class="container">
+    <div class="title"><h1>Slider Title</h1></div>
+
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div
+       style="background: url({%static 'images/swiper.png' %}) no-repeat center center/cover; border-radius:5px" 
+        class="swiper-slide">
+      <h1>Branding</h1>
+      <a href="#" class="btn btn-white">View Branding <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 12H19" stroke="#03CEA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 19L19 12L12 5" stroke="#03CEA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        </a>
+      </div>
+      
+      <div
+      style="background: url({%static 'images/swipe.png' %}) no-repeat center center/cover; border-radius:5px" 
+       class="swiper-slide">
+     <h1>UI/UX</h1>
+     <a href="#" class="btn btn-white">View UI/UX <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+       <path d="M5 12H19" stroke="#03CEA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+       <path d="M12 19L19 12L12 5" stroke="#03CEA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+       </svg>
+       </a>
+     </div>
+     
+     <div
+     style="background: url({%static 'images/swiper.png' %}) no-repeat center center/cover; border-radius:5px" 
+      class="swiper-slide">
+    <h1>Copywriting</h1>
+    <a href="#" class="btn btn-white">View Copywriting <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5 12H19" stroke="#03CEA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M12 19L19 12L12 5" stroke="#03CEA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      </a>
+    </div>
+    
+
+      </div>
+      <!-- Add Arrows -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+    
+  </div>
+</div>
 <!-- <section class="magic">
   <div class="container">
     <div class="magic-top">
@@ -101,7 +151,7 @@
     </div>
   </div>
 </section> -->
-
+<!-- 
 <section class="courses">
   <div class="container">
     <div class="take_course">
@@ -116,7 +166,8 @@
       <img src="{% static 'images/learn.svg' %}" alt="" />
     </div>
   </div>
-</section>
+</section> -->
+
 {% comment %}
 <section class="our_portfolio">
   <div class="portfolio_title">
@@ -148,7 +199,7 @@
 <section class="courses">
   <div class="container">
     <div class="take_course_image">
-      <img src="{% static 'images/crowd.svg' %}" alt="" />
+      <img src="{% static 'images/brand.png' %}" alt="" />
     </div>
     <div class="take_course">
       <h1>Grow your business</h1>
@@ -160,7 +211,7 @@
     </div>
   </div>
 </section>
-<section class="courses">
+<!-- <section class="courses">
   <div class="container">
     <div class="take_course">
       <h1>Our Competencies span</h1>
@@ -177,7 +228,7 @@
       <img src="{% static 'images/learn.svg' %}" alt="" />
     </div>
   </div>
-</section>
+</section> -->
 
 {% include 'ready.html' %}
 
@@ -228,6 +279,7 @@
 
 <script src="{% static 'js/gsap.min.js' %}"></script>
 <script src="{% static 'js/TextPlugin.min.js' %}"></script>
+<script src="{% static 'js/swiper-bundle.min.js'%}"></script>
 
 <script>
   var typed = new Typed(".txt-type", {
@@ -250,6 +302,17 @@
     startDelay: 1000,
     loop: true,
   });
+
+  var swiper = new Swiper('.swiper-container', {
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      autoplay: {
+        delay: 1800,
+        disableOnInteraction: true,
+      },
+    });
 </script>
 
 {% endblock content %}

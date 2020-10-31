@@ -184,7 +184,7 @@ li {
   outline: none;
   border: none;
   border-radius: 5px;
-  font-size: 21px;
+  font-size: 18px;
   margin: 10px 0;
   -webkit-margin: 10px 0;
   font-family: "Poppins", sans-serif;
@@ -884,22 +884,26 @@ form label h1,
   font-family: "Poppins", sans-serif;
 }
 
-.form-textarea::-webkit-input-placeholder, .form-control::-webkit-input-placeholder {
+.form-textarea::-webkit-input-placeholder,
+.form-control::-webkit-input-placeholder {
   font-size: 14px;
   font-family: "Poppins", sans-serif;
 }
 
-.form-textarea::-moz-placeholder, .form-control::-moz-placeholder {
+.form-textarea::-moz-placeholder,
+.form-control::-moz-placeholder {
   font-size: 14px;
   font-family: "Poppins", sans-serif;
 }
 
-.form-textarea:-ms-input-placeholder, .form-control:-ms-input-placeholder {
+.form-textarea:-ms-input-placeholder,
+.form-control:-ms-input-placeholder {
   font-size: 14px;
   font-family: "Poppins", sans-serif;
 }
 
-.form-textarea::-ms-input-placeholder, .form-control::-ms-input-placeholder {
+.form-textarea::-ms-input-placeholder,
+.form-control::-ms-input-placeholder {
   font-size: 14px;
   font-family: "Poppins", sans-serif;
 }
@@ -2132,18 +2136,16 @@ form label h1,
   color: var(--black);
 }
 
-.oppor_desc{
-
+.oppor_desc {
   width: 100%;
   min-height: 300px;
 
-display: flex;
+  display: flex;
 
-justify-content: center;
-
+  justify-content: center;
 }
 
-.oppor_desc .container{
+.oppor_desc .container {
   width: 100%;
   height: 100%;
   max-width: 1100px;
@@ -2158,33 +2160,31 @@ justify-content: center;
 .oppor_desc p {
   font-size: 22px;
   line-height: 32px;
- 
+
   height: 100%;
   width: 100%;
   text-align: left;
 }
 
-.opportunites{
+.opportunites {
   width: 100%;
   height: 100%;
   min-height: 500px;
-  
 }
 
-
-.opportunites .container{
+.opportunites .container {
   width: 100%;
   height: 100%;
   max-width: 1100px;
   display: grid;
-grid-template-columns: repeat(2,1fr);
-grid-auto-rows: minmax(200px,auto);
-grid-gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(200px, auto);
+  grid-gap: 30px;
   margin: 0 auto;
   padding: 10px 15px;
 }
 
-.oppor_text{
+.oppor_text {
   width: 100%;
   height: 100%;
   display: flex;
@@ -2192,13 +2192,13 @@ grid-gap: 30px;
   align-items: flex-start;
 }
 
-.oppor_text h1{
+.oppor_text h1 {
   font-size: 50px;
   font-weight: 600;
   margin: 8px 0;
 }
 
-.oppor_text p{
+.oppor_text p {
   font-size: 18px;
   line-height: 27px;
   font-weight: 400;
@@ -3273,22 +3273,26 @@ grid-gap: 30px;
   font-family: "Poppins", sans-serif;
 }
 
-.service-input::-webkit-input-placeholder, .service-textarea::-webkit-input-placeholder {
+.service-input::-webkit-input-placeholder,
+.service-textarea::-webkit-input-placeholder {
   font-size: 14px;
   font-family: "Poppins", sans-serif;
 }
 
-.service-input::-moz-placeholder, .service-textarea::-moz-placeholder {
+.service-input::-moz-placeholder,
+.service-textarea::-moz-placeholder {
   font-size: 14px;
   font-family: "Poppins", sans-serif;
 }
 
-.service-input:-ms-input-placeholder, .service-textarea:-ms-input-placeholder {
+.service-input:-ms-input-placeholder,
+.service-textarea:-ms-input-placeholder {
   font-size: 14px;
   font-family: "Poppins", sans-serif;
 }
 
-.service-input::-ms-input-placeholder, .service-textarea::-ms-input-placeholder {
+.service-input::-ms-input-placeholder,
+.service-textarea::-ms-input-placeholder {
   font-size: 14px;
   font-family: "Poppins", sans-serif;
 }
@@ -3440,7 +3444,7 @@ grid-gap: 30px;
   background: var(--green);
   color: var(--white);
   padding: 10px 15px;
-  border-radius: 5px;
+
   font-weight: 600;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -3475,7 +3479,7 @@ grid-gap: 30px;
   border-radius: 5px;
   font-weight: 600;
   width: 200px;
-  font-size: 18px;
+  font-size: 17px;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.05);
   transition: 0.3s ease-in;
   margin: 10px 0;
@@ -4910,26 +4914,21 @@ span.green {
     text-align: center;
   }
 
-  
-.oppor_desc p {
-  font-size: 18px;
-  line-height: 30px;
-  text-align: left;
-}
+  .oppor_desc p {
+    font-size: 18px;
+    line-height: 30px;
+    text-align: left;
+  }
 
+  .opportunites .container {
+    grid-template-columns: repeat(1, 1fr);
+  }
 
-
-.opportunites .container{
-
-grid-template-columns: repeat(1,1fr);
-
-}
-
-.oppor_text h1{
-  font-size: 34px;
-  font-weight: 600;
-  margin: 8px 0;
-}
+  .oppor_text h1 {
+    font-size: 34px;
+    font-weight: 600;
+    margin: 8px 0;
+  }
   .brand_title h1 {
     font-size: 24px;
     font-weight: 600;

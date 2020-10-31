@@ -111,6 +111,7 @@ header .container a {
   justify-content: center;
   align-items: center;
   display: flex;
+  margin: 10px 0;
 }
 
 .potential .container {
@@ -128,8 +129,9 @@ header .container a {
 
 .potential .container h1 {
   font-size: 34px;
-  line-height: 29px;
+  line-height: 48px;
   margin: 10px 0;
+  text-align: center;
 }
 
 .potential .container p {
@@ -639,6 +641,14 @@ header .container a {
   .potential_img {
     width: 44px;
     height: 44px;
+  }
+
+  .potential .container h1 {
+    font-size: 28px;
+    line-height: 36px;
+    margin: 10px 0;
+    padding: 10px 15px;
+    text-align: center;
   }
   .potential .responsive img {
     width: 100%;
