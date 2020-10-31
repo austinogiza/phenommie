@@ -505,17 +505,25 @@ footer .social-links li a:hover::after {
   background: var(--white);
   z-index: 10;
   color: var(--black);
-  font-size: 14px;
-  width: 200px;
+  font-size: 17px;
+  width: 180px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   height: 44px;
   text-transform: uppercase;
-  font-weight: 400 !important;
+  transition: 0.4s ease-in cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition: 0.4s ease-in cubic-bezier(0.075, 0.82, 0.165, 1);
+  -moz-transition: 0.4s ease-in cubic-bezier(0.075, 0.82, 0.165, 1);
+  -ms-transition: 0.4s ease-in cubic-bezier(0.075, 0.82, 0.165, 1);
+  -o-transition: 0.4s ease-in cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-
+.btn-white:hover,
+.btn-white:focus {
+  background: var(--green);
+  color: var(--white);
+}
 .swiper-slide a {
   justify-self: flex-start;
   margin-top: 56px;
